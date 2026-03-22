@@ -6,221 +6,280 @@
 <title>Pricing — GitFoundry.co.uk | Beautiful Websites, Zero Hosting Fees</title>
 <meta name="description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees. Based in the UK.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #f5efe0;
-    --mustard: #d4a843;
-    --mustard-light: #f2e8c9;
-    --rose: #c97b6b;
-    --sage: #8fa38b;
-    --sage-light: #d6e2d4;
-    --sky: #9dbcd4;
-    --sky-light: #dae8f0;
-    --ink: #3a3028;
-    --ink-light: #6b5e52;
-    --border: #c9bfaf;
-    --card: #faf7f0;
-    --lavender-light: #ece4f3;
-    --urgent: #b84233;
+    /* Asteroid City palette */
+    --sky: #7EBDC2;
+    --sky-pale: #b6dce0;
+    --sky-deep: #4a9da3;
+    --sand: #E8D5B5;
+    --sand-light: #F2EADB;
+    --sand-pale: #f7f2e8;
+    --terracotta: #C4654A;
+    --terracotta-dark: #a34f38;
+    --pink: #D4928B;
+    --pink-pale: #f0d5d0;
+    --mustard: #D4A843;
+    --mustard-pale: #f0e2be;
+    --turquoise: #5BA8A0;
+    --ink: #2C2418;
+    --ink-light: #6B5E4A;
+    --motel-cream: #FDF8EF;
+    --border: #C4B99A;
+    --atomic-glow: #E8C84A;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--sand-pale);
     color: var(--ink);
     overflow-x: hidden;
     line-height: 1.6;
   }
 
+  /* ═══ GRAIN + SUN-BLEACH ═══ */
   body::before {
     content: '';
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
     pointer-events: none; z-index: 9999;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size: 200px 200px;
   }
 
-  /* ══════ STICKY TOPBAR — urgency ══════ */
+  /* ═══ DESERT SKY GRADIENT TOP ═══ */
+  .sky-strip {
+    height: 8px;
+    background: linear-gradient(90deg, var(--sky) 0%, var(--sky-pale) 50%, var(--sky) 100%);
+  }
+
+  /* ═══ URGENCY TOPBAR ═══ */
   .topbar {
     background: var(--ink);
-    color: var(--cream);
+    color: var(--sand-light);
     text-align: center;
-    padding: 0.6rem 1rem;
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 1.5px;
+    padding: 0.65rem 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
   }
-  .topbar strong { color: var(--mustard); }
+  .topbar strong { color: var(--atomic-glow); }
 
-  /* ══════ NAV ══════ */
+  /* ═══ NAV — motel signage ═══ */
   nav {
     text-align: center;
-    padding: 1.6rem 2rem;
-    border-bottom: 2px solid var(--ink);
+    padding: 2rem 2rem 1.8rem;
+    border-bottom: 3px solid var(--ink);
+    background: var(--sand);
     position: relative;
   }
   nav::after {
     content: '';
-    position: absolute; bottom: 3px; left: 0;
+    position: absolute; bottom: 4px; left: 0;
     width: 100%; height: 1px;
     background: var(--ink);
   }
   .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
     text-decoration: none;
     color: var(--ink);
-  }
-  .logo em { font-style: italic; color: var(--rose); letter-spacing: 1px; }
-  .nav-sub {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--ink-light);
-    margin-top: 0.2rem;
-  }
-
-  /* ══════ CHAPTER HEADERS ══════ */
-  .chapter {
-    text-align: center;
-    padding: 4rem 2rem 2.5rem;
-  }
-  .chapter-number {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--rose);
-    margin-bottom: 0.8rem;
     display: block;
   }
-  .chapter h1, .chapter h2 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1.15;
-  }
-  .chapter h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
-  .chapter h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
-  .chapter h1 em, .chapter h2 em { font-style: italic; color: var(--rose); }
-  .chapter-line {
-    width: 60px; height: 2px;
-    background: var(--mustard);
-    margin: 1rem auto 0.8rem;
-  }
-  .chapter p {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.82rem;
-    color: var(--ink-light);
-    max-width: 440px;
-    margin: 0 auto;
-  }
-
-  /* ══════ HERO CARD ══════ */
-  .hero-card {
-    max-width: 640px;
-    margin: 0 auto 2rem;
-    padding: 3rem 3rem 2.5rem;
-    background: var(--card);
-    border: 2px solid var(--ink);
-    border-radius: 4px;
-    text-align: center;
-    position: relative;
-    animation: cardIn 0.8s ease forwards;
-  }
-  .hero-card::before, .hero-card::after {
-    content: '';
-    position: absolute; left: 8px; right: 8px;
-    height: 1px; background: var(--border);
-  }
-  .hero-card::before { top: 12px; }
-  .hero-card::after { bottom: 12px; }
-  .hero-inner-border {
-    position: absolute; top: 12px; bottom: 12px;
-    width: 1px; background: var(--border);
-  }
-  .hero-inner-border.left { left: 8px; }
-  .hero-inner-border.right { right: 8px; }
-  .hero-card h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    line-height: 1.15;
-    margin-bottom: 0.8rem;
-  }
-  .hero-card h1 em { font-style: italic; color: var(--rose); font-weight: 600; }
-  .hero-tagline {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 1.5px;
+  .logo-accent { color: var(--terracotta); }
+  .nav-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
     color: var(--ink-light);
-    margin-bottom: 1.2rem;
+    margin-top: 0.3rem;
   }
-  .hero-sub {
-    font-size: 0.9rem;
+  .nav-divider {
+    width: 40px; height: 2px;
+    background: var(--terracotta);
+    margin: 0.5rem auto 0;
+  }
+
+  /* ═══ SCENE HEADERS — title cards ═══ */
+  .scene {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+  }
+  .scene-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .scene h1, .scene h2 {
+    font-family: 'Abril Fatface', serif;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .scene h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+  .scene h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+  .highlight { color: var(--terracotta); }
+  .scene-rule {
+    width: 50px; height: 3px;
+    background: var(--sky);
+    margin: 1rem auto 0.8rem;
+  }
+  .scene p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
     color: var(--ink-light);
     max-width: 420px;
     margin: 0 auto;
+    letter-spacing: 0.3px;
   }
 
-  /* ══════ SOCIAL PROOF BAR ══════ */
+  /* ═══ HERO — roadside billboard ═══ */
+  .billboard {
+    max-width: 660px;
+    margin: 0 auto 1.5rem;
+    background: var(--motel-cream);
+    border: 3px solid var(--ink);
+    position: relative;
+    animation: fadeIn 0.7s ease;
+  }
+  .billboard-top {
+    background: var(--sky);
+    padding: 0.5rem;
+    border-bottom: 3px solid var(--ink);
+    display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+  }
+  .billboard-star {
+    width: 18px; height: 18px;
+    position: relative;
+  }
+  .billboard-star::before {
+    content: '✦';
+    font-size: 1rem;
+    color: var(--atomic-glow);
+  }
+  .billboard-top span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .billboard-body {
+    padding: 2.5rem 3rem;
+    text-align: center;
+  }
+  .billboard-body h1 {
+    font-family: 'Abril Fatface', serif;
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+    color: var(--ink);
+  }
+  .billboard-rule {
+    width: 40px; height: 2px;
+    background: var(--terracotta);
+    margin: 0 auto 0.8rem;
+  }
+  .billboard-body .tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.8rem;
+  }
+  .billboard-body .sub {
+    font-size: 0.88rem;
+    color: var(--ink-light);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .billboard-bottom {
+    background: var(--sand);
+    border-top: 3px solid var(--ink);
+    padding: 0.6rem 1rem;
+    display: flex; justify-content: center; gap: 2rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  /* ═══ PROOF STATS ═══ */
   .proof-bar {
-    display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
-    padding: 2rem 2rem 0;
-    max-width: 700px;
+    display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
+    padding: 1.5rem 2rem 0;
+    max-width: 600px;
     margin: 0 auto;
   }
   .proof-stat {
     text-align: center;
+    padding: 1rem 1.5rem;
+    border: 1.5px solid var(--border);
+    background: var(--motel-cream);
+    margin: -0.75px;
   }
   .proof-stat strong {
     display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem; font-weight: 800;
-    color: var(--rose);
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.8rem;
+    color: var(--terracotta);
+    line-height: 1;
   }
   .proof-stat span {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.65rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--ink-light);
   }
 
-  /* ══════ GUARANTEE TICKETS ══════ */
-  .guarantee-strip {
+  /* ═══ BADGE ROW ═══ */
+  .badge-row {
     display: flex; justify-content: center;
     padding: 1.5rem 2rem 3rem;
     flex-wrap: wrap;
-    max-width: 720px;
+    max-width: 700px;
     margin: 0 auto;
+    gap: 0.5rem;
   }
-  .g-ticket {
-    background: var(--card);
-    border: 1.5px solid var(--ink);
-    padding: 0.7rem 1.2rem;
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.68rem;
+  .badge-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    text-align: center;
-    margin: -0.75px;
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--ink);
+    background: var(--motel-cream);
   }
-  .ticket-star { color: var(--mustard); font-size: 0.85rem; margin-right: 0.3rem; }
+  .badge-pill .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+  }
+  .dot-sky { background: var(--sky); }
+  .dot-terra { background: var(--terracotta); }
+  .dot-mustard { background: var(--mustard); }
+  .dot-turq { background: var(--turquoise); }
 
-  /* ══════ PACKAGES ══════ */
+  /* ═══ PACKAGES — motel room doors ═══ */
   .packages-section {
     padding: 0 2rem 4rem;
     max-width: 1080px;
@@ -229,252 +288,271 @@
   .packages-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    gap: 1.2rem;
   }
   .pkg {
-    background: var(--card);
-    border: 2px solid var(--ink);
-    padding: 2.5rem 2rem 2rem;
+    background: var(--motel-cream);
+    border: 3px solid var(--ink);
     text-align: center;
     position: relative;
-    margin-left: -2px;
-    transition: all 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
-  .pkg:first-child { margin-left: 0; }
-  .pkg:hover { z-index: 2; }
-  .pkg-color-bar {
-    position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  .pkg:hover {
+    transform: translateY(-4px);
+    box-shadow: 6px 6px 0 var(--ink);
   }
-  .pkg:nth-child(1) .pkg-color-bar { background: var(--sky); }
-  .pkg:nth-child(2) .pkg-color-bar { background: var(--mustard); }
-  .pkg:nth-child(3) .pkg-color-bar { background: var(--rose); }
-  .pkg.featured {
-    background: var(--mustard-light);
-    z-index: 1;
-    margin-top: -12px;
-    margin-bottom: -12px;
-    padding-top: 3rem;
-    padding-bottom: 2.5rem;
-    border-width: 2.5px;
+
+  .pkg-header {
+    padding: 1.5rem 1.5rem 1rem;
+    position: relative;
   }
-  .pkg-badge {
-    position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: var(--mustard);
-    color: white;
-    padding: 0.2rem 0.8rem;
-    border-radius: 2px;
-    white-space: nowrap;
+  .pkg:nth-child(1) .pkg-header { background: var(--sky-pale); }
+  .pkg:nth-child(2) .pkg-header { background: var(--mustard-pale); }
+  .pkg:nth-child(3) .pkg-header { background: var(--pink-pale); }
+  .pkg-header::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--ink);
   }
-  .pkg-icon {
-    width: 50px; height: 50px;
-    margin: 0 auto 1rem;
-    border: 1.5px solid var(--ink);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem;
+
+  .pkg-room {
+    font-family: 'Abril Fatface', serif;
+    font-size: 3rem;
+    line-height: 1;
+    opacity: 0.12;
+    position: absolute;
+    top: 8px; right: 14px;
+    color: var(--ink);
   }
-  .pkg:nth-child(1) .pkg-icon { background: var(--sky-light); }
-  .pkg:nth-child(2) .pkg-icon { background: var(--mustard-light); }
-  .pkg:nth-child(3) .pkg-icon { background: var(--lavender-light); }
   .pkg-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 0.2rem;
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.15rem;
   }
   .pkg-tagline {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.72rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
     color: var(--ink-light);
-    margin-bottom: 1.2rem;
+    letter-spacing: 0.5px;
   }
-  .pkg-price-wrap {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 0;
-    margin-bottom: 1.2rem;
+
+  .pkg.featured { border-width: 4px; }
+  .pkg-flag {
+    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--terracotta);
+    color: white;
+    padding: 0.25rem 1rem;
+  }
+
+  .pkg-body { padding: 1.5rem 1.8rem 1.8rem; }
+
+  .pkg-price-block {
+    border: 1.5px solid var(--border);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--sand-pale);
   }
   .pkg-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem; font-weight: 800; line-height: 1;
+    font-family: 'Abril Fatface', serif;
+    font-size: 2.6rem;
+    line-height: 1;
   }
-  .pkg:nth-child(1) .pkg-price { color: var(--sky); }
+  .pkg:nth-child(1) .pkg-price { color: var(--sky-deep); }
   .pkg:nth-child(2) .pkg-price { color: var(--mustard); }
-  .pkg:nth-child(3) .pkg-price { color: var(--rose); }
+  .pkg:nth-child(3) .pkg-price { color: var(--terracotta); }
   .pkg-price-note {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.65rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--ink-light);
-    margin-top: 0.3rem;
+    margin-top: 0.25rem;
   }
   .pkg-savings {
     display: inline-block;
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.65rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    background: var(--sage-light);
-    color: var(--sage);
+    background: var(--turquoise);
+    color: white;
     padding: 0.2rem 0.6rem;
-    border-radius: 2px;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    margin-top: 0.5rem;
   }
-  .pkg-section-label {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.6rem;
+
+  .pkg-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--rose);
-    margin-bottom: 0.5rem;
+    color: var(--terracotta);
+    margin-bottom: 0.4rem;
   }
   .pkg-list {
     list-style: none;
     text-align: left;
-    margin-bottom: 1.5rem;
-    padding: 0 0.5rem;
+    margin-bottom: 1.2rem;
   }
   .pkg-list li {
-    font-size: 0.85rem;
-    padding: 0.3rem 0 0.3rem 1.5rem;
+    font-size: 0.83rem;
+    padding: 0.28rem 0 0.28rem 1.4rem;
     position: relative;
   }
   .pkg-list li::before {
-    content: '→'; position: absolute; left: 0;
-    color: var(--mustard); font-weight: 700;
+    content: '◆'; position: absolute; left: 0;
+    font-size: 0.5rem; top: 0.55rem;
   }
+  .pkg:nth-child(1) .pkg-list li::before { color: var(--sky); }
+  .pkg:nth-child(2) .pkg-list li::before { color: var(--mustard); }
+  .pkg:nth-child(3) .pkg-list li::before { color: var(--terracotta); }
 
   .btn {
-    display: block;
-    width: calc(100% - 1rem);
-    margin: 0 auto;
-    padding: 0.85rem 1.5rem;
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.75rem; font-weight: 700;
+    display: block; width: 100%;
+    padding: 0.8rem 1.2rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem; font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
-    border: 2px solid var(--ink);
-    border-radius: 2px;
-    transition: all 0.3s ease;
+    border: 2.5px solid var(--ink);
+    transition: all 0.25s ease;
     cursor: pointer;
   }
-  .btn-dark { background: var(--ink); color: var(--cream); }
-  .btn-dark:hover { background: var(--rose); border-color: var(--rose); transform: translateY(-2px); }
-  .btn-outline { background: transparent; color: var(--ink); }
-  .btn-outline:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
-  .btn-mustard { background: var(--mustard); color: white; border-color: var(--mustard); }
-  .btn-mustard:hover { background: var(--ink); border-color: var(--ink); transform: translateY(-2px); }
+  .btn-sky { background: var(--sky); color: var(--ink); }
+  .btn-sky:hover { background: var(--ink); color: var(--sky); transform: translateY(-2px); box-shadow: 4px 4px 0 var(--sky); }
+  .btn-mustard { background: var(--mustard); color: var(--ink); border-color: var(--ink); }
+  .btn-mustard:hover { background: var(--ink); color: var(--mustard); transform: translateY(-2px); box-shadow: 4px 4px 0 var(--mustard); }
+  .btn-terra { background: var(--terracotta); color: white; border-color: var(--ink); }
+  .btn-terra:hover { background: var(--ink); color: var(--terracotta); transform: translateY(-2px); box-shadow: 4px 4px 0 var(--terracotta); }
 
-  /* ══════ TESTIMONIALS ══════ */
+  /* ═══ TESTIMONIALS — postcards ═══ */
   .testimonials-section {
-    padding: 2rem 2rem 4rem;
-    max-width: 860px;
+    padding: 1rem 2rem 4rem;
+    max-width: 900px;
     margin: 0 auto;
   }
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    gap: 1.2rem;
   }
-  .testimonial {
-    border: 1.5px solid var(--ink);
-    padding: 1.8rem 1.5rem;
-    background: var(--card);
-    margin-left: -1.5px;
+  .postcard {
+    background: var(--motel-cream);
+    border: 2.5px solid var(--ink);
+    padding: 1.6rem 1.4rem;
     text-align: center;
+    position: relative;
+    transition: transform 0.3s;
   }
-  .testimonial:first-child { margin-left: 0; }
-  .testimonial-stars {
-    color: var(--mustard);
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+  .postcard:hover {
+    transform: rotate(-1deg) translateY(-3px);
+  }
+  .postcard:nth-child(2):hover { transform: rotate(1deg) translateY(-3px); }
+  .postcard-stamp {
+    position: absolute; top: 10px; right: 10px;
+    width: 28px; height: 28px;
+    border: 1.5px solid var(--terracotta);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem;
+    color: var(--terracotta);
+    transform: rotate(12deg);
+  }
+  .postcard-stars {
+    color: var(--atomic-glow);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.6rem;
+  }
+  .postcard p {
+    font-family: 'Abril Fatface', serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.5;
     margin-bottom: 0.8rem;
-  }
-  .testimonial p {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
     color: var(--ink);
   }
-  .testimonial-author {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.65rem;
+  .postcard-author {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--ink-light);
   }
 
-  /* ══════ SAVINGS CALCULATOR ══════ */
+  /* ═══ SAVINGS — desert scoreboard ═══ */
   .savings-section {
     padding: 0 2rem 4rem;
-    max-width: 640px;
+    max-width: 620px;
     margin: 0 auto;
   }
-  .savings-card {
-    background: var(--sage-light);
-    border: 2px solid var(--ink);
-    padding: 2.5rem;
+  .scoreboard {
+    border: 3px solid var(--ink);
+    background: var(--sky);
+    overflow: hidden;
+  }
+  .scoreboard-header {
+    background: var(--ink);
+    color: var(--sand-light);
+    padding: 0.8rem 1rem;
     text-align: center;
-    position: relative;
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
   }
-  .savings-card::before, .savings-card::after {
-    content: '';
-    position: absolute; left: 8px; right: 8px;
-    height: 1px; background: rgba(58,48,40,0.15);
+  .scoreboard-body {
+    padding: 1.5rem;
   }
-  .savings-card::before { top: 8px; }
-  .savings-card::after { bottom: 8px; }
-  .savings-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; font-weight: 700;
-    margin-bottom: 0.3rem;
+  .score-row {
+    display: flex; gap: 0;
   }
-  .savings-card > p {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.75rem;
-    color: var(--ink-light);
-    margin-bottom: 1.5rem;
-  }
-  .savings-row {
-    display: flex; gap: 0; justify-content: center;
-  }
-  .savings-col {
+  .score-cell {
     flex: 1;
-    border: 1px solid rgba(58,48,40,0.2);
+    border: 2px solid var(--ink);
     padding: 1.2rem 1rem;
-    margin-left: -1px;
+    text-align: center;
+    margin-left: -2px;
+    background: var(--motel-cream);
   }
-  .savings-col:first-child { margin-left: 0; }
-  .savings-col h4 {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.6rem;
+  .score-cell:first-child { margin-left: 0; }
+  .score-cell h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--ink-light);
     margin-bottom: 0.3rem;
   }
-  .savings-col .big-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; font-weight: 800;
+  .score-num {
+    font-family: 'Abril Fatface', serif;
+    font-size: 2rem;
+    line-height: 1;
   }
-  .savings-col .big-num.red { color: var(--urgent); }
-  .savings-col .big-num.green { color: var(--sage); }
-  .savings-col p {
-    font-size: 0.7rem; color: var(--ink-light);
-    margin-top: 0.2rem;
+  .score-num.bad { color: var(--terracotta); }
+  .score-num.good { color: var(--turquoise); }
+  .score-num.great { color: var(--mustard); }
+  .score-cell p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem; color: var(--ink-light);
+    margin-top: 0.3rem;
+  }
+  .scoreboard-footer {
+    background: var(--ink);
+    color: var(--sand-light);
+    text-align: center;
+    padding: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--atomic-glow);
   }
 
-  /* ══════ ADD-ONS ══════ */
+  /* ═══ ADD-ONS ═══ */
   .addons-section {
     padding: 4rem 2rem;
     max-width: 780px;
@@ -483,241 +561,267 @@
   .addon-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0;
+    gap: 1rem;
   }
   .addon {
-    border: 1.5px solid var(--ink);
-    padding: 1.3rem 1.5rem;
-    display: flex; align-items: flex-start; gap: 1rem;
-    margin-top: -1.5px; margin-left: -1.5px;
-    background: var(--card);
-    transition: background 0.3s;
+    border: 2.5px solid var(--ink);
+    padding: 1.2rem 1.3rem;
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    background: var(--motel-cream);
+    transition: all 0.25s;
   }
-  .addon:hover { background: var(--mustard-light); }
-  .addon-dot {
-    width: 32px; height: 32px; flex-shrink: 0;
-    border: 1.5px solid var(--ink); border-radius: 50%;
+  .addon:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .addon-icon {
+    width: 34px; height: 34px; flex-shrink: 0;
+    border: 2px solid var(--ink);
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem; background: var(--cream);
+    font-size: 1rem;
+    background: var(--sky-pale);
   }
   .addon h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem; font-weight: 600;
+    font-family: 'Abril Fatface', serif;
+    font-size: 0.9rem;
     margin-bottom: 0.1rem;
   }
-  .addon p { font-size: 0.75rem; color: var(--ink-light); }
-  .addon-price-tag {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem; font-weight: 700;
-    color: var(--rose); margin-top: 0.2rem;
+  .addon p { font-size: 0.72rem; color: var(--ink-light); }
+  .addon-price {
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.05rem;
+    color: var(--terracotta);
+    margin-top: 0.15rem;
   }
 
-  /* ══════ COMPARISON TABLE ══════ */
+  /* ═══ COMPARISON TABLE ═══ */
   .compare-section {
     padding: 4rem 2rem;
     max-width: 800px;
     margin: 0 auto;
   }
-  .compare-wrap {
-    border: 2px solid var(--ink);
-    border-radius: 2px;
+  .compare-frame {
+    border: 3px solid var(--ink);
     overflow: hidden;
   }
   .compare-table {
     width: 100%; border-collapse: collapse;
-    background: var(--card);
+    background: var(--motel-cream);
   }
-  .compare-table th {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.7rem;
+  .compare-table thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 1rem;
-    border-bottom: 2px solid var(--ink);
-    background: var(--cream);
+    padding: 0.9rem 1rem;
+    border-bottom: 3px solid var(--ink);
     text-align: center;
   }
-  .compare-table th:first-child { text-align: left; }
-  .compare-table th.sky { color: var(--sky); }
-  .compare-table th.must { color: var(--mustard); }
-  .compare-table th.ros { color: var(--rose); }
+  .compare-table thead th:first-child { text-align: left; background: var(--sand); }
+  .compare-table thead th:nth-child(2) { background: var(--sky-pale); color: var(--sky-deep); }
+  .compare-table thead th:nth-child(3) { background: var(--mustard-pale); color: var(--mustard); }
+  .compare-table thead th:nth-child(4) { background: var(--pink-pale); color: var(--terracotta); }
   .compare-table td {
-    padding: 0.7rem 1rem;
-    font-size: 0.82rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
     text-align: center;
     border-bottom: 1px solid var(--border);
   }
   .compare-table td:first-child { text-align: left; font-weight: 500; }
   .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table tr:nth-child(even) td { background: rgba(0,0,0,0.015); }
-  .chk { color: var(--sage); font-weight: 700; font-size: 1rem; }
+  .compare-table tr:nth-child(even) td { background: rgba(0,0,0,0.018); }
+  .chk { color: var(--turquoise); font-weight: 700; }
   .nah { color: var(--border); }
 
-  /* ══════ MONTHLY POSTCARD ══════ */
+  /* ═══ MONTHLY — diner menu board ═══ */
   .monthly-section {
     padding: 3rem 2rem 4rem;
-    max-width: 740px;
+    max-width: 720px;
     margin: 0 auto;
   }
-  .postcard {
+  .diner-board {
     background: var(--ink);
-    color: var(--cream);
-    border: 2px solid var(--ink);
-    padding: 2.5rem;
+    color: var(--sand-light);
+    border: 3px solid var(--ink);
     text-align: center;
     position: relative;
+    overflow: hidden;
   }
-  .postcard::before, .postcard::after {
+  .diner-board::before {
     content: '';
-    position: absolute; left: 10px; right: 10px;
-    height: 1px; background: rgba(245,239,224,0.15);
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--terracotta) 0, var(--terracotta) 20%, var(--sky) 20%, var(--sky) 40%, var(--mustard) 40%, var(--mustard) 60%, var(--pink) 60%, var(--pink) 80%, var(--turquoise) 80%, var(--turquoise) 100%);
   }
-  .postcard::before { top: 10px; }
-  .postcard::after { bottom: 10px; }
-  .postcard h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; font-weight: 700;
-    margin-bottom: 0.4rem;
+  .diner-board-inner {
+    padding: 2.5rem 2rem 2rem;
   }
-  .postcard > p {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.75rem;
-    color: rgba(245,239,224,0.5);
-    margin-bottom: 2rem;
+  .diner-board h3 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
   }
-  .monthly-row { display: flex; gap: 0; justify-content: center; }
-  .m-tier {
-    flex: 1; max-width: 200px;
-    border: 1px solid rgba(245,239,224,0.2);
-    padding: 1.3rem 1rem;
-    margin-left: -1px;
-  }
-  .m-tier:first-child { margin-left: 0; }
-  .m-tier h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; margin-bottom: 0.2rem;
-  }
-  .m-tier .m-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; font-weight: 800;
-    color: var(--mustard); line-height: 1;
-  }
-  .m-tier .m-price span {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.65rem;
-    color: rgba(245,239,224,0.4);
-  }
-  .m-tier p {
-    font-size: 0.72rem;
+  .diner-board > .diner-board-inner > p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
     color: rgba(245,239,224,0.45);
-    margin-top: 0.4rem; line-height: 1.4;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+  .menu-row { display: flex; gap: 0; justify-content: center; }
+  .menu-item {
+    flex: 1; max-width: 200px;
+    border: 1.5px solid rgba(245,239,224,0.15);
+    padding: 1.2rem 1rem;
+    margin-left: -1.5px;
+  }
+  .menu-item:first-child { margin-left: 0; }
+  .menu-item h4 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+    color: var(--sand-light);
+  }
+  .menu-price {
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.6rem;
+    color: var(--atomic-glow);
+    line-height: 1;
+  }
+  .menu-price span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(245,239,224,0.35);
+  }
+  .menu-item p {
+    font-size: 0.68rem;
+    color: rgba(245,239,224,0.4);
+    margin-top: 0.3rem;
+    line-height: 1.4;
   }
 
-  /* ══════ FAQ ══════ */
+  /* ═══ FAQ ═══ */
   .faq-section {
     padding: 4rem 2rem 5rem;
-    max-width: 640px;
+    max-width: 620px;
     margin: 0 auto;
   }
-  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-item { border-bottom: 1.5px solid var(--border); }
   .faq-q {
     width: 100%; background: none; border: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; font-weight: 600;
+    font-family: 'Abril Fatface', serif;
+    font-size: 0.95rem;
     color: var(--ink); text-align: left;
-    padding: 1.1rem 2.5rem 1.1rem 0;
+    padding: 1rem 2.5rem 1rem 0;
     cursor: pointer; position: relative;
     transition: color 0.3s;
   }
-  .faq-q:hover { color: var(--rose); }
+  .faq-q:hover { color: var(--terracotta); }
   .faq-q::after {
     content: '+';
     position: absolute; right: 0; top: 50%;
     transform: translateY(-50%);
-    font-family: 'Courier Prime', monospace;
-    font-size: 1.2rem; color: var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.1rem; color: var(--border);
     transition: all 0.3s;
   }
   .faq-item.open .faq-q::after {
     transform: translateY(-50%) rotate(45deg);
-    color: var(--rose);
+    color: var(--terracotta);
   }
   .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
   .faq-item.open .faq-a { max-height: 300px; }
   .faq-a p {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     color: var(--ink-light);
-    padding-bottom: 1.2rem;
+    padding-bottom: 1rem;
     line-height: 1.7;
   }
 
-  /* ══════ FINAL CTA ══════ */
+  /* ═══ FINAL CTA — neon sign ═══ */
   .final-cta {
     padding: 3rem 2rem;
-    max-width: 640px;
+    max-width: 620px;
     margin: 0 auto;
   }
-  .cta-card {
-    background: var(--rose);
+  .neon-card {
+    background: var(--terracotta);
+    border: 3px solid var(--ink);
     color: white;
-    border: 2px solid var(--ink);
     padding: 3rem 2.5rem;
     text-align: center;
     position: relative;
   }
-  .cta-card::before, .cta-card::after {
+  .neon-card::before {
     content: '';
-    position: absolute; left: 8px; right: 8px;
-    height: 1px; background: rgba(255,255,255,0.2);
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--atomic-glow);
   }
-  .cta-card::before { top: 8px; }
-  .cta-card::after { bottom: 8px; }
-  .cta-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; font-weight: 700;
-    margin-bottom: 0.5rem;
+  .neon-card h3 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
   }
-  .cta-card > p {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.7);
+  .neon-card > p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.65);
     margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
   }
-  .cta-card .btn-light {
+  .btn-neon {
     display: inline-block; width: auto;
-    background: white; color: var(--ink);
-    border-color: white;
-    padding: 0.85rem 2.5rem;
+    background: var(--motel-cream);
+    color: var(--ink);
+    border: 2.5px solid var(--ink);
+    padding: 0.8rem 2.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s;
   }
-  .cta-card .btn-light:hover {
-    background: var(--ink); color: white;
-    border-color: var(--ink);
+  .btn-neon:hover {
+    background: var(--ink); color: var(--motel-cream);
     transform: translateY(-2px);
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
   }
   .cta-micro {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 1px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.45);
     margin-top: 0.8rem;
   }
 
-  /* ══════ FOOTER ══════ */
+  /* ═══ DESERT HORIZON STRIP ═══ */
+  .horizon {
+    height: 60px;
+    background: linear-gradient(180deg, var(--sand-pale) 0%, var(--sand) 30%, var(--terracotta) 30%, var(--terracotta) 35%, var(--sand) 35%, var(--sand) 100%);
+    border-top: 2px solid var(--border);
+    position: relative;
+  }
+
   footer {
     text-align: center;
     padding: 1.5rem 2rem;
-    border-top: 2px solid var(--ink);
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 1.5px;
+    background: var(--sand);
+    border-top: 3px solid var(--ink);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     color: var(--ink-light);
   }
-  footer a { color: var(--rose); text-decoration: none; }
+  footer a { color: var(--terracotta); text-decoration: none; }
 
-  /* ══════ ANIMATIONS ══════ */
-  @keyframes cardIn {
-    from { opacity: 0; transform: translateY(16px); }
+  /* ═══ ANIMATIONS ═══ */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(14px); }
     to { opacity: 1; transform: translateY(0); }
   }
   .reveal {
@@ -726,261 +830,285 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ══════ RESPONSIVE ══════ */
+  /* ═══ RESPONSIVE ═══ */
   @media (max-width: 900px) {
     .packages-row { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
-    .pkg { margin-left: 0; }
-    .pkg.featured { margin-top: 0; margin-bottom: 0; }
     .addon-grid { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .testimonial { margin-left: 0; margin-top: -1.5px; }
-    .testimonial:first-child { margin-top: 0; }
-    .monthly-row { flex-direction: column; align-items: center; }
-    .m-tier { max-width: 100%; margin-left: 0; margin-top: -1px; }
-    .savings-row { flex-direction: column; }
-    .savings-col { margin-left: 0; margin-top: -1px; }
-    .savings-col:first-child { margin-top: 0; }
+    .testimonials-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+    .menu-row { flex-direction: column; align-items: center; }
+    .menu-item { max-width: 100%; margin-left: 0; margin-top: -1.5px; }
+    .score-row { flex-direction: column; }
+    .score-cell { margin-left: 0; margin-top: -2px; }
+    .score-cell:first-child { margin-top: 0; }
   }
   @media (max-width: 600px) {
-    .guarantee-strip { flex-direction: column; align-items: center; }
-    .hero-card { margin: 0 1rem 2rem; padding: 2.5rem 1.5rem 2rem; }
-    .compare-table th, .compare-table td { padding: 0.5rem 0.5rem; font-size: 0.72rem; }
-    .proof-bar { gap: 1.2rem; }
+    .billboard-body { padding: 2rem 1.5rem; }
+    .badge-row { gap: 0.3rem; }
+    .proof-bar { flex-wrap: wrap; }
+    .compare-table th, .compare-table td { padding: 0.5rem 0.4rem; font-size: 0.7rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- URGENCY TOPBAR -->
+<!-- SKY -->
+<div class="sky-strip"></div>
+
+<!-- URGENCY -->
 <div class="topbar">
   <strong>Spring Offer:</strong> Book this month &amp; get a free custom domain setup (worth £20)
 </div>
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">GIT<em>FOUNDRY</em></a>
-  <div class="nav-sub">GitFoundry.co.uk &middot; Hand-Built Websites &middot; Based in the UK</div>
+  <a href="index.html" class="logo">GIT<span class="logo-accent">FOUNDRY</span></a>
+  <div class="nav-divider"></div>
+  <div class="nav-sub">GitFoundry.co.uk &nbsp;·&nbsp; Hand-Built Websites &nbsp;·&nbsp; United Kingdom</div>
 </nav>
 
-<!-- HERO -->
-<div class="chapter" style="padding-bottom:1.5rem;">
-  <span class="chapter-number">Chapter One — Pricing</span>
+<!-- HERO BILLBOARD -->
+<div class="scene" style="padding-bottom:1.5rem;">
+  <span class="scene-label">Scene One — Pricing</span>
 </div>
-<div class="hero-card">
-  <div class="hero-inner-border left"></div>
-  <div class="hero-inner-border right"></div>
-  <h1>One Payment.<br><em>Zero</em> Hosting Fees.</h1>
-  <div class="chapter-line" style="margin:1rem auto;"></div>
-  <div class="hero-tagline">Beautiful websites for UK businesses, hosted free forever.</div>
-  <p class="hero-sub">Hand-coded, mobile-ready, deployed on GitHub Pages. No monthly bills, no page builders, no nonsense.</p>
+<div class="billboard reveal">
+  <div class="billboard-top">
+    <div class="billboard-star"></div>
+    <span>GitFoundry Presents</span>
+    <div class="billboard-star"></div>
+  </div>
+  <div class="billboard-body">
+    <h1>One Payment.<br><span class="highlight">Zero</span> Hosting Fees.</h1>
+    <div class="billboard-rule"></div>
+    <div class="tagline">Beautiful websites for UK businesses, hosted free forever.</div>
+    <p class="sub">Hand-coded, mobile-ready, deployed on GitHub Pages. No monthly bills, no page builders, no nonsense.</p>
+  </div>
+  <div class="billboard-bottom">
+    <span>✦ Free Hosting</span>
+    <span>✦ You Own It</span>
+    <span>✦ UK Support</span>
+    <span>✦ GDPR Ready</span>
+  </div>
 </div>
 
-<!-- SOCIAL PROOF -->
+<!-- PROOF -->
 <div class="proof-bar reveal">
-  <div class="proof-stat"><strong>20+</strong><span>UK Sites Delivered</span></div>
+  <div class="proof-stat"><strong>20+</strong><span>UK Sites Built</span></div>
   <div class="proof-stat"><strong>£0</strong><span>Monthly Hosting</span></div>
-  <div class="proof-stat"><strong>100%</strong><span>Client Satisfaction</span></div>
+  <div class="proof-stat"><strong>100%</strong><span>Satisfaction</span></div>
   <div class="proof-stat"><strong>&lt;48h</strong><span>Response Time</span></div>
 </div>
 
-<!-- GUARANTEE TICKETS -->
-<div class="guarantee-strip reveal">
-  <div class="g-ticket"><span class="ticket-star">★</span> Free Hosting Forever</div>
-  <div class="g-ticket"><span class="ticket-star">★</span> You Own the Code</div>
-  <div class="g-ticket"><span class="ticket-star">★</span> UK-Based Support</div>
-  <div class="g-ticket"><span class="ticket-star">★</span> GDPR Compliant</div>
+<div class="badge-row reveal">
+  <div class="badge-pill"><span class="dot dot-sky"></span>Free Hosting Forever</div>
+  <div class="badge-pill"><span class="dot dot-terra"></span>UK-Based Support</div>
+  <div class="badge-pill"><span class="dot dot-mustard"></span>GDPR Compliant</div>
+  <div class="badge-pill"><span class="dot dot-turq"></span>You Own the Code</div>
 </div>
 
 <!-- PACKAGES -->
-<div class="chapter reveal">
-  <span class="chapter-number">Chapter Two — The Packages</span>
-  <h2>Three ways to <em>go live</em></h2>
-  <div class="chapter-line"></div>
+<div class="scene reveal">
+  <span class="scene-label">Scene Two — The Packages</span>
+  <h2>Three ways to <span class="highlight">go live</span></h2>
+  <div class="scene-rule"></div>
   <p>Every site is hand-coded for UK businesses. No templates, no page builders.</p>
 </div>
 
 <div class="packages-section">
   <div class="packages-row">
     <div class="pkg reveal">
-      <div class="pkg-color-bar"></div>
-      <div class="pkg-icon">🚀</div>
-      <div class="pkg-name">Starter</div>
-      <div class="pkg-tagline">Get online fast.</div>
-      <div class="pkg-price-wrap">
-        <div class="pkg-price">£249</div>
-        <div class="pkg-price-note">One-time &middot; 3-day delivery</div>
+      <div class="pkg-header">
+        <div class="pkg-room">01</div>
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-tagline">Get online fast.</div>
       </div>
-      <div class="pkg-savings">Save £180+/yr vs Squarespace</div>
-      <div class="pkg-section-label">What You Get</div>
-      <ul class="pkg-list">
-        <li>1 custom-designed page</li>
-        <li>Responsive on all devices</li>
-        <li>Contact form setup</li>
-        <li>GitHub Pages deployment</li>
-        <li>Custom domain hookup</li>
-        <li>GDPR cookie notice</li>
-        <li>1 round of revisions</li>
-      </ul>
-      <a href="mailto:hello@gitfoundry.co.uk?subject=Starter%20Package" class="btn btn-outline">Choose Starter</a>
+      <div class="pkg-body">
+        <div class="pkg-price-block">
+          <div class="pkg-price">£249</div>
+          <div class="pkg-price-note">One-time · 3-day delivery</div>
+          <div class="pkg-savings">Save £180+/yr vs Squarespace</div>
+        </div>
+        <div class="pkg-label">What You Get</div>
+        <ul class="pkg-list">
+          <li>1 custom-designed page</li>
+          <li>Responsive on all devices</li>
+          <li>Contact form setup</li>
+          <li>GitHub Pages deployment</li>
+          <li>Custom domain hookup</li>
+          <li>GDPR cookie notice</li>
+          <li>1 round of revisions</li>
+        </ul>
+        <a href="mailto:hello@gitfoundry.co.uk?subject=Starter%20Package" class="btn btn-sky">Choose Starter</a>
+      </div>
     </div>
 
     <div class="pkg featured reveal">
-      <div class="pkg-color-bar"></div>
-      <div class="pkg-badge">Most Popular</div>
-      <div class="pkg-icon">⚡</div>
-      <div class="pkg-name">Professional</div>
-      <div class="pkg-tagline">A proper multi-page site.</div>
-      <div class="pkg-price-wrap">
-        <div class="pkg-price">£599</div>
-        <div class="pkg-price-note">One-time &middot; 7-day delivery</div>
+      <div class="pkg-flag">Most Popular</div>
+      <div class="pkg-header">
+        <div class="pkg-room">02</div>
+        <div class="pkg-name">Professional</div>
+        <div class="pkg-tagline">A proper multi-page site.</div>
       </div>
-      <div class="pkg-savings">Save £360+/yr vs Wix</div>
-      <div class="pkg-section-label">Everything in Starter, plus</div>
-      <ul class="pkg-list">
-        <li>Up to 5 custom pages</li>
-        <li>Scroll animations & effects</li>
-        <li>SEO basics (meta, sitemap)</li>
-        <li>Google Analytics setup</li>
-        <li>Social media integration</li>
-        <li>2 rounds of revisions</li>
-        <li>Source files included</li>
-      </ul>
-      <a href="mailto:hello@gitfoundry.co.uk?subject=Professional%20Package" class="btn btn-mustard">Choose Professional</a>
+      <div class="pkg-body">
+        <div class="pkg-price-block">
+          <div class="pkg-price">£599</div>
+          <div class="pkg-price-note">One-time · 7-day delivery</div>
+          <div class="pkg-savings">Save £360+/yr vs Wix</div>
+        </div>
+        <div class="pkg-label">Everything in Starter, plus</div>
+        <ul class="pkg-list">
+          <li>Up to 5 custom pages</li>
+          <li>Scroll animations & effects</li>
+          <li>SEO basics (meta, sitemap)</li>
+          <li>Google Analytics setup</li>
+          <li>Social media integration</li>
+          <li>2 rounds of revisions</li>
+          <li>Source files included</li>
+        </ul>
+        <a href="mailto:hello@gitfoundry.co.uk?subject=Professional%20Package" class="btn btn-mustard">Choose Professional</a>
+      </div>
     </div>
 
     <div class="pkg reveal">
-      <div class="pkg-color-bar"></div>
-      <div class="pkg-icon">💎</div>
-      <div class="pkg-name">Premium</div>
-      <div class="pkg-tagline">The full experience.</div>
-      <div class="pkg-price-wrap">
-        <div class="pkg-price">£999</div>
-        <div class="pkg-price-note">One-time &middot; 14-day delivery</div>
+      <div class="pkg-header">
+        <div class="pkg-room">03</div>
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-tagline">The full experience.</div>
       </div>
-      <div class="pkg-savings">Save £500+/yr vs agency</div>
-      <div class="pkg-section-label">Everything in Professional, plus</div>
-      <ul class="pkg-list">
-        <li>Unlimited pages</li>
-        <li>Advanced animations</li>
-        <li>Blog or content section</li>
-        <li>Performance optimisation</li>
-        <li>Open Graph & favicon</li>
-        <li>3 rounds of revisions</li>
-        <li>3 months free updates</li>
-        <li>Priority support</li>
-      </ul>
-      <a href="mailto:hello@gitfoundry.co.uk?subject=Premium%20Package" class="btn btn-dark">Choose Premium</a>
+      <div class="pkg-body">
+        <div class="pkg-price-block">
+          <div class="pkg-price">£999</div>
+          <div class="pkg-price-note">One-time · 14-day delivery</div>
+          <div class="pkg-savings">Save £500+/yr vs agency</div>
+        </div>
+        <div class="pkg-label">Everything in Professional, plus</div>
+        <ul class="pkg-list">
+          <li>Unlimited pages</li>
+          <li>Advanced animations</li>
+          <li>Blog or content section</li>
+          <li>Performance optimisation</li>
+          <li>Open Graph & favicon</li>
+          <li>3 rounds of revisions</li>
+          <li>3 months free updates</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="mailto:hello@gitfoundry.co.uk?subject=Premium%20Package" class="btn btn-terra">Choose Premium</a>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- TESTIMONIALS -->
-<div class="chapter reveal">
-  <span class="chapter-number">Chapter Three — Kind Words</span>
-  <h2>What clients <em>say</em></h2>
-  <div class="chapter-line"></div>
+<div class="scene reveal">
+  <span class="scene-label">Scene Three — Kind Words</span>
+  <h2>What clients <span class="highlight">say</span></h2>
+  <div class="scene-rule"></div>
 </div>
 <div class="testimonials-section">
   <div class="testimonials-grid reveal">
-    <div class="testimonial">
-      <div class="testimonial-stars">★★★★★</div>
+    <div class="postcard">
+      <div class="postcard-stamp">✦</div>
+      <div class="postcard-stars">★★★★★</div>
       <p>"Brilliant work. My site looks incredible and I haven't paid a penny in hosting since launch."</p>
-      <div class="testimonial-author">Sarah K. &middot; Photographer, Bristol</div>
+      <div class="postcard-author">Sarah K. · Photographer, Bristol</div>
     </div>
-    <div class="testimonial">
-      <div class="testimonial-stars">★★★★★</div>
-      <p>"Quick turnaround, beautiful design, and he explained everything in plain English. Highly recommend."</p>
-      <div class="testimonial-author">James T. &middot; Consultant, Manchester</div>
+    <div class="postcard">
+      <div class="postcard-stamp">✦</div>
+      <div class="postcard-stars">★★★★★</div>
+      <p>"Quick turnaround, beautiful design, and he explained everything in plain English."</p>
+      <div class="postcard-author">James T. · Consultant, Manchester</div>
     </div>
-    <div class="testimonial">
-      <div class="testimonial-stars">★★★★★</div>
-      <p>"I was paying £30/month on Squarespace. Now I have a better site and pay nothing. Wish I'd done this sooner."</p>
-      <div class="testimonial-author">Priya M. &middot; Yoga Instructor, London</div>
+    <div class="postcard">
+      <div class="postcard-stamp">✦</div>
+      <div class="postcard-stars">★★★★★</div>
+      <p>"I was paying £30/month on Squarespace. Now I have a better site and pay nothing."</p>
+      <div class="postcard-author">Priya M. · Yoga Instructor, London</div>
     </div>
   </div>
 </div>
 
-<!-- SAVINGS CALCULATOR -->
-<div class="chapter reveal">
-  <span class="chapter-number">Chapter Four — The Maths</span>
-  <h2>How much you'll <em>save</em></h2>
-  <div class="chapter-line"></div>
+<!-- SAVINGS SCOREBOARD -->
+<div class="scene reveal">
+  <span class="scene-label">Scene Four — The Maths</span>
+  <h2>How much you'll <span class="highlight">save</span></h2>
+  <div class="scene-rule"></div>
 </div>
 <div class="savings-section reveal">
-  <div class="savings-card">
-    <h3>Squarespace vs GitFoundry</h3>
-    <p>Over 3 years, the numbers speak for themselves.</p>
-    <div class="savings-row">
-      <div class="savings-col">
-        <h4>Squarespace</h4>
-        <div class="big-num red">£1,296</div>
-        <p>£36/mo × 36 months</p>
-      </div>
-      <div class="savings-col">
-        <h4>GitFoundry</h4>
-        <div class="big-num green">£599</div>
-        <p>One-time, forever</p>
-      </div>
-      <div class="savings-col">
-        <h4>You Save</h4>
-        <div class="big-num" style="color: var(--mustard);">£697</div>
-        <p>Plus a better site</p>
+  <div class="scoreboard">
+    <div class="scoreboard-header">Squarespace vs GitFoundry — 3 Year Cost</div>
+    <div class="scoreboard-body">
+      <div class="score-row">
+        <div class="score-cell">
+          <h4>Squarespace</h4>
+          <div class="score-num bad">£1,296</div>
+          <p>£36/mo × 36 months</p>
+        </div>
+        <div class="score-cell">
+          <h4>GitFoundry</h4>
+          <div class="score-num good">£599</div>
+          <p>One-time, forever</p>
+        </div>
+        <div class="score-cell">
+          <h4>You Save</h4>
+          <div class="score-num great">£697</div>
+          <p>Plus a better site</p>
+        </div>
       </div>
     </div>
+    <div class="scoreboard-footer">✦ Your hosting bill after year one: £0.00 ✦</div>
   </div>
 </div>
 
 <!-- ADD-ONS -->
 <div class="addons-section reveal">
-  <div class="chapter">
-    <span class="chapter-number">Chapter Five — Extras</span>
-    <h2>Bolt-on <em>additions</em></h2>
-    <div class="chapter-line"></div>
+  <div class="scene">
+    <span class="scene-label">Scene Five — Extras</span>
+    <h2>Bolt-on <span class="highlight">additions</span></h2>
+    <div class="scene-rule"></div>
     <p>Available with any package.</p>
   </div>
   <div class="addon-grid">
     <div class="addon">
-      <div class="addon-dot">🌐</div>
-      <div><h4>Domain Registration</h4><p>I'll buy and configure your .co.uk</p><div class="addon-price-tag">£20</div></div>
+      <div class="addon-icon">🌐</div>
+      <div><h4>Domain Registration</h4><p>I'll buy and configure your .co.uk</p><div class="addon-price">£20</div></div>
     </div>
     <div class="addon">
-      <div class="addon-dot">📝</div>
-      <div><h4>Copywriting</h4><p>I'll write all the text for your site</p><div class="addon-price-tag">£120</div></div>
+      <div class="addon-icon">📝</div>
+      <div><h4>Copywriting</h4><p>I'll write all the text for your site</p><div class="addon-price">£120</div></div>
     </div>
     <div class="addon">
-      <div class="addon-dot">🔍</div>
-      <div><h4>Advanced SEO</h4><p>Schema markup, structured data, speed audit</p><div class="addon-price-tag">£80</div></div>
+      <div class="addon-icon">🔍</div>
+      <div><h4>Advanced SEO</h4><p>Schema markup, structured data, speed audit</p><div class="addon-price">£80</div></div>
     </div>
     <div class="addon">
-      <div class="addon-dot">📊</div>
-      <div><h4>Analytics Dashboard</h4><p>Google Analytics + Search Console</p><div class="addon-price-tag">£60</div></div>
+      <div class="addon-icon">📊</div>
+      <div><h4>Analytics Dashboard</h4><p>Google Analytics + Search Console</p><div class="addon-price">£60</div></div>
     </div>
     <div class="addon">
-      <div class="addon-dot">✉️</div>
-      <div><h4>Email Integration</h4><p>Newsletter with Mailchimp or ConvertKit</p><div class="addon-price-tag">£60</div></div>
+      <div class="addon-icon">✉️</div>
+      <div><h4>Email Integration</h4><p>Newsletter with Mailchimp or ConvertKit</p><div class="addon-price">£60</div></div>
     </div>
     <div class="addon">
-      <div class="addon-dot">🔄</div>
-      <div><h4>Extra Revision</h4><p>One additional round of changes</p><div class="addon-price-tag">£40</div></div>
+      <div class="addon-icon">🔄</div>
+      <div><h4>Extra Revision</h4><p>One additional round of changes</p><div class="addon-price">£40</div></div>
     </div>
   </div>
 </div>
 
-<!-- COMPARISON TABLE -->
+<!-- COMPARISON -->
 <div class="compare-section reveal">
-  <div class="chapter">
-    <span class="chapter-number">Chapter Six — The Details</span>
-    <h2>Side by <em>side</em></h2>
-    <div class="chapter-line"></div>
+  <div class="scene">
+    <span class="scene-label">Scene Six — The Details</span>
+    <h2>Side by <span class="highlight">side</span></h2>
+    <div class="scene-rule"></div>
   </div>
-  <div class="compare-wrap">
+  <div class="compare-frame">
     <table class="compare-table">
       <thead>
         <tr>
           <th style="text-align:left;">Feature</th>
-          <th class="sky">Starter</th>
-          <th class="must">Professional</th>
-          <th class="ros">Premium</th>
+          <th>Starter</th>
+          <th>Professional</th>
+          <th>Premium</th>
         </tr>
       </thead>
       <tbody>
@@ -1003,31 +1131,33 @@
   </div>
 </div>
 
-<!-- MONTHLY MAINTENANCE -->
+<!-- MONTHLY -->
 <div class="monthly-section reveal">
-  <div class="chapter">
-    <span class="chapter-number">Chapter Seven — Ongoing Care</span>
-    <h2>Monthly <em>maintenance</em></h2>
-    <div class="chapter-line"></div>
+  <div class="scene">
+    <span class="scene-label">Scene Seven — Ongoing Care</span>
+    <h2>Monthly <span class="highlight">maintenance</span></h2>
+    <div class="scene-rule"></div>
   </div>
-  <div class="postcard">
-    <h3>Keep Things Fresh</h3>
-    <p>Regular updates so you can focus on running your business.</p>
-    <div class="monthly-row">
-      <div class="m-tier">
-        <h4>Light</h4>
-        <div class="m-price">£40 <span>/mo</span></div>
-        <p>Up to 2 small updates per month</p>
-      </div>
-      <div class="m-tier">
-        <h4>Active</h4>
-        <div class="m-price">£80 <span>/mo</span></div>
-        <p>Up to 5 updates, design tweaks, priority support</p>
-      </div>
-      <div class="m-tier">
-        <h4>Full Care</h4>
-        <div class="m-price">£120 <span>/mo</span></div>
-        <p>Unlimited updates, monthly report, on-call support</p>
+  <div class="diner-board">
+    <div class="diner-board-inner">
+      <h3>Keep Things Fresh</h3>
+      <p>Regular updates so you can focus on running your business.</p>
+      <div class="menu-row">
+        <div class="menu-item">
+          <h4>Light</h4>
+          <div class="menu-price">£40 <span>/mo</span></div>
+          <p>Up to 2 small updates per month</p>
+        </div>
+        <div class="menu-item">
+          <h4>Active</h4>
+          <div class="menu-price">£80 <span>/mo</span></div>
+          <p>Up to 5 updates, design tweaks, priority support</p>
+        </div>
+        <div class="menu-item">
+          <h4>Full Care</h4>
+          <div class="menu-price">£120 <span>/mo</span></div>
+          <p>Unlimited updates, monthly report, on-call support</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1035,10 +1165,10 @@
 
 <!-- FAQ -->
 <div class="faq-section reveal">
-  <div class="chapter">
-    <span class="chapter-number">Chapter Eight — Questions</span>
-    <h2>Frequently <em>asked</em></h2>
-    <div class="chapter-line"></div>
+  <div class="scene">
+    <span class="scene-label">Scene Eight — Questions</span>
+    <h2>Frequently <span class="highlight">asked</span></h2>
+    <div class="scene-rule"></div>
   </div>
   <div class="faq-item open">
     <button class="faq-q">What is GitHub Pages and why is hosting free?</button>
@@ -1068,16 +1198,19 @@
 
 <!-- FINAL CTA -->
 <div class="final-cta reveal">
-  <div class="cta-card">
+  <div class="neon-card">
     <h3>Ready to get started?</h3>
     <p>Drop me a message — I'll reply within 24 hours with a plan and a quote.</p>
-    <a href="mailto:hello@gitfoundry.co.uk?subject=Let's%20Chat" class="btn btn-light">Get In Touch</a>
-    <div class="cta-micro">No commitment &middot; Free consultation &middot; UK-based</div>
+    <a href="mailto:hello@gitfoundry.co.uk?subject=Let's%20Chat" class="btn-neon">Get In Touch</a>
+    <div class="cta-micro">No commitment · Free consultation · UK-based</div>
   </div>
 </div>
 
+<!-- DESERT HORIZON -->
+<div class="horizon"></div>
+
 <footer>
-  Made with care by <a href="https://gitfoundry.co.uk">GitFoundry.co.uk</a> &middot; Based in the UK &middot; Hosted free on GitHub Pages &middot; &copy; 2026
+  Made with care by <a href="https://gitfoundry.co.uk">GitFoundry.co.uk</a> &nbsp;·&nbsp; Based in the UK &nbsp;·&nbsp; Hosted free on GitHub Pages &nbsp;·&nbsp; © 2026
 </footer>
 
 <script>
