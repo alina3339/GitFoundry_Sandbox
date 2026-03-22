@@ -1,671 +1,1101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitFoundry - Beautiful Websites, Zero Hosting Fees & Maintenence</title>
+<title>Pricing — GitFoundry.co.uk | Beautiful Websites, Zero Hosting Fees</title>
+<meta name="description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees. Based in the UK.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #0a0a0a;
-    --paper: #f6f2ec;
-    --accent: #e8552e;
-    --accent-light: #fceee9;
-    --muted: #8a8578;
-    --border: #ddd5c9;
-    --card-bg: #fffcf7;
+    --cream: #f5efe0;
+    --mustard: #d4a843;
+    --mustard-light: #f2e8c9;
+    --rose: #c97b6b;
+    --sage: #8fa38b;
+    --sage-light: #d6e2d4;
+    --sky: #9dbcd4;
+    --sky-light: #dae8f0;
+    --ink: #3a3028;
+    --ink-light: #6b5e52;
+    --border: #c9bfaf;
+    --card: #faf7f0;
+    --lavender-light: #ece4f3;
+    --urgent: #b84233;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Outfit', sans-serif;
-    background: var(--paper);
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
     color: var(--ink);
     overflow-x: hidden;
     line-height: 1.6;
   }
 
-  /* ─── NAV ─── */
+  body::before {
+    content: '';
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* ══════ STICKY TOPBAR — urgency ══════ */
+  .topbar {
+    background: var(--ink);
+    color: var(--cream);
+    text-align: center;
+    padding: 0.6rem 1rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .topbar strong { color: var(--mustard); }
+
+  /* ══════ NAV ══════ */
   nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    padding: 1.2rem 3rem;
-    display: flex; justify-content: space-between; align-items: center;
-    backdrop-filter: blur(16px);
-    background: rgba(246, 242, 236, 0.85);
-    border-bottom: 1px solid var(--border);
+    text-align: center;
+    padding: 1.6rem 2rem;
+    border-bottom: 2px solid var(--ink);
+    position: relative;
+  }
+  nav::after {
+    content: '';
+    position: absolute; bottom: 3px; left: 0;
+    width: 100%; height: 1px;
+    background: var(--ink);
   }
   .logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.4rem;
-    letter-spacing: -0.5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
   }
-  .logo span { color: var(--accent); }
-  nav ul { list-style: none; display: flex; gap: 2rem; }
-  nav a {
-    text-decoration: none; color: var(--ink);
-    font-size: 0.9rem; font-weight: 500;
-    transition: color 0.3s;
+  .logo em { font-style: italic; color: var(--rose); letter-spacing: 1px; }
+  .nav-sub {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 0.2rem;
   }
-  nav a:hover { color: var(--accent); }
 
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 8rem 3rem 4rem;
-    position: relative;
+  /* ══════ CHAPTER HEADERS ══════ */
+  .chapter {
+    text-align: center;
+    padding: 4rem 2rem 2.5rem;
   }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -20%; right: -10%;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(232,85,46,0.08) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
+  .chapter-number {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.8rem;
+    display: block;
   }
-  .hero-content { max-width: 720px; }
-  .hero-tag {
-    display: inline-block;
-    font-size: 0.8rem; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 2px;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  .chapter h1, .chapter h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
   }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    line-height: 1.08;
-    letter-spacing: -1.5px;
-    margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  .chapter h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+  .chapter h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
+  .chapter h1 em, .chapter h2 em { font-style: italic; color: var(--rose); }
+  .chapter-line {
+    width: 60px; height: 2px;
+    background: var(--mustard);
+    margin: 1rem auto 0.8rem;
   }
-  .hero h1 em {
-    font-style: normal;
-    color: var(--accent);
-    position: relative;
+  .chapter p {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    max-width: 440px;
+    margin: 0 auto;
   }
-  .hero h1 em::after {
-    content: '';
-    position: absolute; bottom: 4px; left: 0;
-    width: 100%; height: 8px;
-    background: rgba(232,85,46,0.15);
+
+  /* ══════ HERO CARD ══════ */
+  .hero-card {
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    padding: 3rem 3rem 2.5rem;
+    background: var(--card);
+    border: 2px solid var(--ink);
     border-radius: 4px;
+    text-align: center;
+    position: relative;
+    animation: cardIn 0.8s ease forwards;
   }
-  .hero p {
-    font-size: 1.15rem;
-    color: var(--muted);
-    max-width: 520px;
-    margin-bottom: 2.5rem;
-    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  .hero-card::before, .hero-card::after {
+    content: '';
+    position: absolute; left: 8px; right: 8px;
+    height: 1px; background: var(--border);
   }
-  .hero-cta {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+  .hero-card::before { top: 12px; }
+  .hero-card::after { bottom: 12px; }
+  .hero-inner-border {
+    position: absolute; top: 12px; bottom: 12px;
+    width: 1px; background: var(--border);
+  }
+  .hero-inner-border.left { left: 8px; }
+  .hero-inner-border.right { right: 8px; }
+  .hero-card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+  .hero-card h1 em { font-style: italic; color: var(--rose); font-weight: 600; }
+  .hero-tagline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 1.2rem;
+  }
+  .hero-sub {
+    font-size: 0.9rem;
+    color: var(--ink-light);
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  /* ══════ SOCIAL PROOF BAR ══════ */
+  .proof-bar {
+    display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+    padding: 2rem 2rem 0;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .proof-stat {
+    text-align: center;
+  }
+  .proof-stat strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 800;
+    color: var(--rose);
+  }
+  .proof-stat span {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  /* ══════ GUARANTEE TICKETS ══════ */
+  .guarantee-strip {
+    display: flex; justify-content: center;
+    padding: 1.5rem 2rem 3rem;
+    flex-wrap: wrap;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .g-ticket {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    padding: 0.7rem 1.2rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: -0.75px;
+  }
+  .ticket-star { color: var(--mustard); font-size: 0.85rem; margin-right: 0.3rem; }
+
+  /* ══════ PACKAGES ══════ */
+  .packages-section {
+    padding: 0 2rem 4rem;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .packages-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .pkg {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    margin-left: -2px;
+    transition: all 0.3s;
+  }
+  .pkg:first-child { margin-left: 0; }
+  .pkg:hover { z-index: 2; }
+  .pkg-color-bar {
+    position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  }
+  .pkg:nth-child(1) .pkg-color-bar { background: var(--sky); }
+  .pkg:nth-child(2) .pkg-color-bar { background: var(--mustard); }
+  .pkg:nth-child(3) .pkg-color-bar { background: var(--rose); }
+  .pkg.featured {
+    background: var(--mustard-light);
+    z-index: 1;
+    margin-top: -12px;
+    margin-bottom: -12px;
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+    border-width: 2.5px;
+  }
+  .pkg-badge {
+    position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--mustard);
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .pkg-icon {
+    width: 50px; height: 50px;
+    margin: 0 auto 1rem;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .pkg:nth-child(1) .pkg-icon { background: var(--sky-light); }
+  .pkg:nth-child(2) .pkg-icon { background: var(--mustard-light); }
+  .pkg:nth-child(3) .pkg-icon { background: var(--lavender-light); }
+  .pkg-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+  }
+  .pkg-tagline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-light);
+    margin-bottom: 1.2rem;
+  }
+  .pkg-price-wrap {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+    margin-bottom: 1.2rem;
+  }
+  .pkg-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; font-weight: 800; line-height: 1;
+  }
+  .pkg:nth-child(1) .pkg-price { color: var(--sky); }
+  .pkg:nth-child(2) .pkg-price { color: var(--mustard); }
+  .pkg:nth-child(3) .pkg-price { color: var(--rose); }
+  .pkg-price-note {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 0.3rem;
+  }
+  .pkg-savings {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: var(--sage-light);
+    color: var(--sage);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .pkg-section-label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.5rem;
+  }
+  .pkg-list {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  .pkg-list li {
+    font-size: 0.85rem;
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    position: relative;
+  }
+  .pkg-list li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--mustard); font-weight: 700;
   }
 
   .btn {
-    display: inline-block;
-    padding: 0.9rem 2rem;
-    border-radius: 60px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem; font-weight: 600;
+    display: block;
+    width: calc(100% - 1rem);
+    margin: 0 auto;
+    padding: 0.85rem 1.5rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     text-decoration: none;
+    text-align: center;
+    border: 2px solid var(--ink);
+    border-radius: 2px;
     transition: all 0.3s ease;
-    cursor: pointer; border: none;
+    cursor: pointer;
   }
-  .btn-primary {
-    background: var(--ink); color: var(--paper);
+  .btn-dark { background: var(--ink); color: var(--cream); }
+  .btn-dark:hover { background: var(--rose); border-color: var(--rose); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+  .btn-mustard { background: var(--mustard); color: white; border-color: var(--mustard); }
+  .btn-mustard:hover { background: var(--ink); border-color: var(--ink); transform: translateY(-2px); }
+
+  /* ══════ TESTIMONIALS ══════ */
+  .testimonials-section {
+    padding: 2rem 2rem 4rem;
+    max-width: 860px;
+    margin: 0 auto;
   }
-  .btn-primary:hover {
-    background: var(--accent); transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(232,85,46,0.25);
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
   }
-  .btn-outline {
-    background: transparent; color: var(--ink);
-    border: 1.5px solid var(--border);
+  .testimonial {
+    border: 1.5px solid var(--ink);
+    padding: 1.8rem 1.5rem;
+    background: var(--card);
+    margin-left: -1.5px;
+    text-align: center;
   }
-  .btn-outline:hover {
+  .testimonial:first-child { margin-left: 0; }
+  .testimonial-stars {
+    color: var(--mustard);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+  }
+  .testimonial p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .testimonial-author {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  /* ══════ SAVINGS CALCULATOR ══════ */
+  .savings-section {
+    padding: 0 2rem 4rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .savings-card {
+    background: var(--sage-light);
+    border: 2px solid var(--ink);
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+  }
+  .savings-card::before, .savings-card::after {
+    content: '';
+    position: absolute; left: 8px; right: 8px;
+    height: 1px; background: rgba(58,48,40,0.15);
+  }
+  .savings-card::before { top: 8px; }
+  .savings-card::after { bottom: 8px; }
+  .savings-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .savings-card > p {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    margin-bottom: 1.5rem;
+  }
+  .savings-row {
+    display: flex; gap: 0; justify-content: center;
+  }
+  .savings-col {
+    flex: 1;
+    border: 1px solid rgba(58,48,40,0.2);
+    padding: 1.2rem 1rem;
+    margin-left: -1px;
+  }
+  .savings-col:first-child { margin-left: 0; }
+  .savings-col h4 {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.3rem;
+  }
+  .savings-col .big-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 800;
+  }
+  .savings-col .big-num.red { color: var(--urgent); }
+  .savings-col .big-num.green { color: var(--sage); }
+  .savings-col p {
+    font-size: 0.7rem; color: var(--ink-light);
+    margin-top: 0.2rem;
+  }
+
+  /* ══════ ADD-ONS ══════ */
+  .addons-section {
+    padding: 4rem 2rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .addon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  .addon {
+    border: 1.5px solid var(--ink);
+    padding: 1.3rem 1.5rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-top: -1.5px; margin-left: -1.5px;
+    background: var(--card);
+    transition: background 0.3s;
+  }
+  .addon:hover { background: var(--mustard-light); }
+  .addon-dot {
+    width: 32px; height: 32px; flex-shrink: 0;
+    border: 1.5px solid var(--ink); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; background: var(--cream);
+  }
+  .addon h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem; font-weight: 600;
+    margin-bottom: 0.1rem;
+  }
+  .addon p { font-size: 0.75rem; color: var(--ink-light); }
+  .addon-price-tag {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--rose); margin-top: 0.2rem;
+  }
+
+  /* ══════ COMPARISON TABLE ══════ */
+  .compare-section {
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .compare-wrap {
+    border: 2px solid var(--ink);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .compare-table {
+    width: 100%; border-collapse: collapse;
+    background: var(--card);
+  }
+  .compare-table th {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1rem;
+    border-bottom: 2px solid var(--ink);
+    background: var(--cream);
+    text-align: center;
+  }
+  .compare-table th:first-child { text-align: left; }
+  .compare-table th.sky { color: var(--sky); }
+  .compare-table th.must { color: var(--mustard); }
+  .compare-table th.ros { color: var(--rose); }
+  .compare-table td {
+    padding: 0.7rem 1rem;
+    font-size: 0.82rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table td:first-child { text-align: left; font-weight: 500; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: rgba(0,0,0,0.015); }
+  .chk { color: var(--sage); font-weight: 700; font-size: 1rem; }
+  .nah { color: var(--border); }
+
+  /* ══════ MONTHLY POSTCARD ══════ */
+  .monthly-section {
+    padding: 3rem 2rem 4rem;
+    max-width: 740px;
+    margin: 0 auto;
+  }
+  .postcard {
+    background: var(--ink);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+  }
+  .postcard::before, .postcard::after {
+    content: '';
+    position: absolute; left: 10px; right: 10px;
+    height: 1px; background: rgba(245,239,224,0.15);
+  }
+  .postcard::before { top: 10px; }
+  .postcard::after { bottom: 10px; }
+  .postcard h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .postcard > p {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.75rem;
+    color: rgba(245,239,224,0.5);
+    margin-bottom: 2rem;
+  }
+  .monthly-row { display: flex; gap: 0; justify-content: center; }
+  .m-tier {
+    flex: 1; max-width: 200px;
+    border: 1px solid rgba(245,239,224,0.2);
+    padding: 1.3rem 1rem;
+    margin-left: -1px;
+  }
+  .m-tier:first-child { margin-left: 0; }
+  .m-tier h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; margin-bottom: 0.2rem;
+  }
+  .m-tier .m-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 800;
+    color: var(--mustard); line-height: 1;
+  }
+  .m-tier .m-price span {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.65rem;
+    color: rgba(245,239,224,0.4);
+  }
+  .m-tier p {
+    font-size: 0.72rem;
+    color: rgba(245,239,224,0.45);
+    margin-top: 0.4rem; line-height: 1.4;
+  }
+
+  /* ══════ FAQ ══════ */
+  .faq-section {
+    padding: 4rem 2rem 5rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    width: 100%; background: none; border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 600;
+    color: var(--ink); text-align: left;
+    padding: 1.1rem 2.5rem 1.1rem 0;
+    cursor: pointer; position: relative;
+    transition: color 0.3s;
+  }
+  .faq-q:hover { color: var(--rose); }
+  .faq-q::after {
+    content: '+';
+    position: absolute; right: 0; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.2rem; color: var(--border);
+    transition: all 0.3s;
+  }
+  .faq-item.open .faq-q::after {
+    transform: translateY(-50%) rotate(45deg);
+    color: var(--rose);
+  }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .faq-item.open .faq-a { max-height: 300px; }
+  .faq-a p {
+    font-size: 0.88rem;
+    color: var(--ink-light);
+    padding-bottom: 1.2rem;
+    line-height: 1.7;
+  }
+
+  /* ══════ FINAL CTA ══════ */
+  .final-cta {
+    padding: 3rem 2rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .cta-card {
+    background: var(--rose);
+    color: white;
+    border: 2px solid var(--ink);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    position: relative;
+  }
+  .cta-card::before, .cta-card::after {
+    content: '';
+    position: absolute; left: 8px; right: 8px;
+    height: 1px; background: rgba(255,255,255,0.2);
+  }
+  .cta-card::before { top: 8px; }
+  .cta-card::after { bottom: 8px; }
+  .cta-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .cta-card > p {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.5rem;
+  }
+  .cta-card .btn-light {
+    display: inline-block; width: auto;
+    background: white; color: var(--ink);
+    border-color: white;
+    padding: 0.85rem 2.5rem;
+  }
+  .cta-card .btn-light:hover {
+    background: var(--ink); color: white;
     border-color: var(--ink);
     transform: translateY(-2px);
   }
-
-  /* ─── PROOF BAR ─── */
-  .proof-bar {
-    padding: 2.5rem 3rem;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
-    text-align: center;
-  }
-  .proof-item strong {
-    display: block;
-    font-family: 'DM Serif Display', serif;
-    font-size: 2rem;
-    color: var(--accent);
-  }
-  .proof-item span {
-    font-size: 0.85rem; color: var(--muted); font-weight: 500;
-  }
-
-  /* ─── SECTIONS ─── */
-  section { padding: 6rem 3rem; }
-  .section-label {
-    font-size: 0.75rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 3px;
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    letter-spacing: -1px;
-    margin-bottom: 1rem;
-  }
-  .section-subtitle {
-    color: var(--muted);
-    font-size: 1.05rem;
-    max-width: 560px;
-    margin-bottom: 3rem;
-  }
-
-  /* ─── PORTFOLIO ─── */
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .portfolio-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    position: relative;
-  }
-  .portfolio-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-  }
-  .card-preview {
-    height: 220px;
-    position: relative;
-    overflow: hidden;
-  }
-  .card-preview-inner {
-    width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 3rem;
-    transition: transform 0.5s ease;
-  }
-  .portfolio-card:hover .card-preview-inner { transform: scale(1.05); }
-
-  .preview-1 {
-    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-    color: #e8e8e8;
-  }
-  .preview-2 {
-    background: linear-gradient(135deg, #fef9ef, #f7ead5, #e8d5b7);
-    color: #3e2c1a;
-  }
-  .preview-3 {
-    background: linear-gradient(135deg, #0d1b0e, #1a3c1e, #2d5a30);
-    color: #a8e6a3;
-  }
-
-  .card-mock {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    text-align: left;
-    padding: 1.5rem;
-  }
-  .mock-nav {
-    display: flex; gap: 0.8rem;
-    margin-bottom: 1rem;
-    font-size: 0.55rem;
-    text-transform: uppercase;
+  .cta-micro {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.62rem;
     letter-spacing: 1px;
-    opacity: 0.6;
-  }
-  .mock-h {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.4rem;
-    margin-bottom: 0.3rem;
-    letter-spacing: -0.5px;
-  }
-  .mock-line {
-    height: 3px; width: 60%;
-    border-radius: 2px;
-    opacity: 0.15;
-    background: currentColor;
-    margin-bottom: 0.25rem;
-  }
-  .mock-line.short { width: 40%; }
-
-  .card-info { padding: 1.2rem 1.5rem 1.5rem; }
-  .card-type {
-    font-size: 0.7rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 1.5px;
-    color: var(--accent);
-    margin-bottom: 0.4rem;
-  }
-  .card-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.25rem;
-    margin-bottom: 0.3rem;
-  }
-  .card-desc {
-    font-size: 0.85rem; color: var(--muted);
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.8rem;
   }
 
-  /* ─── PACKAGES ─── */
-  .packages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .package-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    position: relative;
-    transition: all 0.4s ease;
-  }
-  .package-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
-  }
-  .package-card.featured {
-    border: 2px solid var(--accent);
-    background: var(--accent-light);
-  }
-  .package-badge {
-    position: absolute; top: -12px; right: 20px;
-    background: var(--accent); color: white;
-    font-size: 0.7rem; font-weight: 700;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    text-transform: uppercase; letter-spacing: 1px;
-  }
-  .package-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 0.4rem;
-  }
-  .package-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-  }
-  .package-price {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.5rem;
-    color: var(--accent);
-    margin-bottom: 0.2rem;
-  }
-  .package-price span {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.85rem;
-    color: var(--muted);
-    font-weight: 400;
-  }
-  .package-includes {
-    list-style: none;
-    margin: 1.5rem 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-  }
-  .package-includes li {
-    font-size: 0.9rem;
-    padding: 0.45rem 0;
-    padding-left: 1.4rem;
-    position: relative;
-  }
-  .package-includes li::before {
-    content: '✓';
-    position: absolute; left: 0;
-    color: var(--accent); font-weight: 700;
-  }
-
-  /* ─── PROCESS ─── */
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .step {
-    text-align: center;
-    padding: 2rem 1.5rem;
-  }
-  .step-number {
-    font-family: 'DM Serif Display', serif;
-    font-size: 3rem;
-    color: var(--accent);
-    opacity: 0.3;
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-  .step h3 {
-    font-size: 1.1rem; font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  .step p {
-    font-size: 0.85rem; color: var(--muted);
-  }
-
-  /* ─── CTA ─── */
-  .cta-section {
-    text-align: center;
-    background: var(--ink);
-    color: var(--paper);
-    border-radius: 24px;
-    padding: 5rem 3rem;
-    max-width: 900px;
-    margin: 0 auto 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: -50%; right: -20%;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(232,85,46,0.2) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .cta-section .section-label { color: var(--accent); }
-  .cta-section .section-title { color: var(--paper); }
-  .cta-section p {
-    color: rgba(246,242,236,0.6);
-    max-width: 480px;
-    margin: 0 auto 2rem;
-    font-size: 1.05rem;
-  }
-  .btn-accent {
-    background: var(--accent); color: white;
-  }
-  .btn-accent:hover {
-    background: #d44a27;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(232,85,46,0.35);
-  }
-
-  /* ─── FOOTER ─── */
+  /* ══════ FOOTER ══════ */
   footer {
     text-align: center;
-    padding: 2rem 3rem;
-    border-top: 1px solid var(--border);
-    font-size: 0.85rem;
-    color: var(--muted);
+    padding: 1.5rem 2rem;
+    border-top: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    color: var(--ink-light);
   }
-  footer a { color: var(--accent); text-decoration: none; }
+  footer a { color: var(--rose); text-decoration: none; }
 
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+  /* ══════ ANIMATIONS ══════ */
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
   .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    nav ul { gap: 1rem; }
-    nav a { font-size: 0.8rem; }
-    section, .hero { padding: 4rem 1.5rem; }
-    .proof-bar { gap: 1.5rem; padding: 2rem 1.5rem; }
-    .cta-section { margin: 0 1rem 3rem; padding: 3rem 1.5rem; }
+  /* ══════ RESPONSIVE ══════ */
+  @media (max-width: 900px) {
+    .packages-row { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+    .pkg { margin-left: 0; }
+    .pkg.featured { margin-top: 0; margin-bottom: 0; }
+    .addon-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial { margin-left: 0; margin-top: -1.5px; }
+    .testimonial:first-child { margin-top: 0; }
+    .monthly-row { flex-direction: column; align-items: center; }
+    .m-tier { max-width: 100%; margin-left: 0; margin-top: -1px; }
+    .savings-row { flex-direction: column; }
+    .savings-col { margin-left: 0; margin-top: -1px; }
+    .savings-col:first-child { margin-top: 0; }
   }
-  @media (max-width: 480px) {
-    nav ul { display: none; }
+  @media (max-width: 600px) {
+    .guarantee-strip { flex-direction: column; align-items: center; }
+    .hero-card { margin: 0 1rem 2rem; padding: 2.5rem 1.5rem 2rem; }
+    .compare-table th, .compare-table td { padding: 0.5rem 0.5rem; font-size: 0.72rem; }
+    .proof-bar { gap: 1.2rem; }
   }
 </style>
 </head>
 <body>
 
+<!-- URGENCY TOPBAR -->
+<div class="topbar">
+  <strong>Spring Offer:</strong> Book this month &amp; get a free custom domain setup (worth £20)
+</div>
+
 <!-- NAV -->
 <nav>
-  <div class="logo">Git<span>Foundry</span></div>
-  <ul>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#packages">Packages</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <a href="index.html" class="logo">GIT<em>FOUNDRY</em></a>
+  <div class="nav-sub">GitFoundry.co.uk &middot; Hand-Built Websites &middot; Based in the UK</div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag">Web Design &middot; GitHub Hosted &middot; Zero Fees</div>
-    <h1>I build <em>beautiful</em> websites with zero hosting costs.</h1>
-    <p>Clean, fast, stunning websites - deployed on GitHub Pages. You get a professional online presence without monthly bills eating into your business.</p>
-    <div class="hero-cta">
-      <a href="#packages" class="btn btn-primary">See Packages</a>
-      <a href="#work" class="btn btn-outline">View My Work</a>
-    </div>
-  </div>
-</section>
-
-<!-- PROOF BAR -->
-<div class="proof-bar">
-  <div class="proof-item">
-    <strong>20+</strong>
-    <span>Sites Delivered</span>
-  </div>
-  <div class="proof-item">
-    <strong>£0</strong>
-    <span>Monthly Hosting</span>
-  </div>
-  <div class="proof-item">
-    <strong>100%</strong>
-    <span>Client Satisfaction</span>
-  </div>
-  <div class="proof-item">
-    <strong>&lt;48h</strong>
-    <span>Turnaround Time</span>
-  </div>
+<div class="chapter" style="padding-bottom:1.5rem;">
+  <span class="chapter-number">Chapter One — Pricing</span>
+</div>
+<div class="hero-card">
+  <div class="hero-inner-border left"></div>
+  <div class="hero-inner-border right"></div>
+  <h1>One Payment.<br><em>Zero</em> Hosting Fees.</h1>
+  <div class="chapter-line" style="margin:1rem auto;"></div>
+  <div class="hero-tagline">Beautiful websites for UK businesses, hosted free forever.</div>
+  <p class="hero-sub">Hand-coded, mobile-ready, deployed on GitHub Pages. No monthly bills, no page builders, no nonsense.</p>
 </div>
 
-<!-- PORTFOLIO -->
-<section id="work">
-  <div class="section-label reveal">Selected Work</div>
-  <h2 class="section-title reveal">Sites that speak for themselves.</h2>
-  <p class="section-subtitle reveal">Each project is hand-crafted and hosted on GitHub Pages - fast, reliable, and free to run.</p>
+<!-- SOCIAL PROOF -->
+<div class="proof-bar reveal">
+  <div class="proof-stat"><strong>20+</strong><span>UK Sites Delivered</span></div>
+  <div class="proof-stat"><strong>£0</strong><span>Monthly Hosting</span></div>
+  <div class="proof-stat"><strong>100%</strong><span>Client Satisfaction</span></div>
+  <div class="proof-stat"><strong>&lt;48h</strong><span>Response Time</span></div>
+</div>
 
-  <div class="portfolio-grid">
-    <div class="portfolio-card reveal">
-      <div class="card-preview">
-        <div class="card-preview-inner preview-1">
-          <div class="card-mock">
-            <div class="mock-nav"><span>Home</span><span>About</span><span>Work</span><span>Contact</span></div>
-            <div class="mock-h">Design Studio</div>
-            <div class="mock-line"></div>
-            <div class="mock-line short"></div>
-          </div>
-        </div>
-      </div>
-      <div class="card-info">
-        <div class="card-type">Portfolio</div>
-        <div class="card-name">Studio Meridian</div>
-        <div class="card-desc">Minimal portfolio for a design studio</div>
-      </div>
-    </div>
-
-    <div class="portfolio-card reveal">
-      <div class="card-preview">
-        <div class="card-preview-inner preview-2">
-          <div class="card-mock">
-            <div class="mock-nav"><span>Shop</span><span>About</span><span>Journal</span></div>
-            <div class="mock-h">Artisan Goods</div>
-            <div class="mock-line"></div>
-            <div class="mock-line short"></div>
-          </div>
-        </div>
-      </div>
-      <div class="card-info">
-        <div class="card-type">Business</div>
-        <div class="card-name">The Craft Table</div>
-        <div class="card-desc">Warm landing page for a local artisan brand</div>
-      </div>
-    </div>
-
-    <div class="portfolio-card reveal">
-      <div class="card-preview">
-        <div class="card-preview-inner preview-3">
-          <div class="card-mock">
-            <div class="mock-nav"><span>Programs</span><span>Team</span><span>Donate</span></div>
-            <div class="mock-h">Green Future</div>
-            <div class="mock-line"></div>
-            <div class="mock-line short"></div>
-          </div>
-        </div>
-      </div>
-      <div class="card-info">
-        <div class="card-type">Non-Profit</div>
-        <div class="card-name">Evergreen Initiative</div>
-        <div class="card-desc">Clean site for an environmental non-profit</div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- GUARANTEE TICKETS -->
+<div class="guarantee-strip reveal">
+  <div class="g-ticket"><span class="ticket-star">★</span> Free Hosting Forever</div>
+  <div class="g-ticket"><span class="ticket-star">★</span> You Own the Code</div>
+  <div class="g-ticket"><span class="ticket-star">★</span> UK-Based Support</div>
+  <div class="g-ticket"><span class="ticket-star">★</span> GDPR Compliant</div>
+</div>
 
 <!-- PACKAGES -->
-<section id="packages" style="background: rgba(0,0,0,0.015);">
-  <div class="section-label reveal">Pricing</div>
-  <h2 class="section-title reveal">Simple, honest packages.</h2>
-  <p class="section-subtitle reveal">No hidden fees. No monthly hosting costs. You own everything.</p>
+<div class="chapter reveal">
+  <span class="chapter-number">Chapter Two — The Packages</span>
+  <h2>Three ways to <em>go live</em></h2>
+  <div class="chapter-line"></div>
+  <p>Every site is hand-coded for UK businesses. No templates, no page builders.</p>
+</div>
 
-  <div class="packages-grid">
-    <div class="package-card reveal">
-      <div class="package-name">Starter</div>
-      <div class="package-desc">A single, polished page to put you on the map.</div>
-      <div class="package-price">£299 <span>one-time</span></div>
-      <ul class="package-includes">
-        <li>One-page responsive design</li>
-        <li>Mobile-friendly layout</li>
+<div class="packages-section">
+  <div class="packages-row">
+    <div class="pkg reveal">
+      <div class="pkg-color-bar"></div>
+      <div class="pkg-icon">🚀</div>
+      <div class="pkg-name">Starter</div>
+      <div class="pkg-tagline">Get online fast.</div>
+      <div class="pkg-price-wrap">
+        <div class="pkg-price">£249</div>
+        <div class="pkg-price-note">One-time &middot; 3-day delivery</div>
+      </div>
+      <div class="pkg-savings">Save £180+/yr vs Squarespace</div>
+      <div class="pkg-section-label">What You Get</div>
+      <ul class="pkg-list">
+        <li>1 custom-designed page</li>
+        <li>Responsive on all devices</li>
         <li>Contact form setup</li>
         <li>GitHub Pages deployment</li>
         <li>Custom domain hookup</li>
+        <li>GDPR cookie notice</li>
+        <li>1 round of revisions</li>
       </ul>
-      <a href="#contact" class="btn btn-outline" style="width:100%;text-align:center;">Get Started</a>
+      <a href="mailto:hello@gitfoundry.co.uk?subject=Starter%20Package" class="btn btn-outline">Choose Starter</a>
     </div>
 
-    <div class="package-card featured reveal">
-      <div class="package-badge">Most Popular</div>
-      <div class="package-name">Professional</div>
-      <div class="package-desc">A full multi-page site that means business.</div>
-      <div class="package-price">£749 <span>one-time</span></div>
-      <ul class="package-includes">
+    <div class="pkg featured reveal">
+      <div class="pkg-color-bar"></div>
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-icon">⚡</div>
+      <div class="pkg-name">Professional</div>
+      <div class="pkg-tagline">A proper multi-page site.</div>
+      <div class="pkg-price-wrap">
+        <div class="pkg-price">£599</div>
+        <div class="pkg-price-note">One-time &middot; 7-day delivery</div>
+      </div>
+      <div class="pkg-savings">Save £360+/yr vs Wix</div>
+      <div class="pkg-section-label">Everything in Starter, plus</div>
+      <ul class="pkg-list">
         <li>Up to 5 custom pages</li>
-        <li>Animations &amp; interactions</li>
-        <li>SEO basics included</li>
+        <li>Scroll animations & effects</li>
+        <li>SEO basics (meta, sitemap)</li>
         <li>Google Analytics setup</li>
+        <li>Social media integration</li>
         <li>2 rounds of revisions</li>
-        <li>GitHub Pages deployment</li>
+        <li>Source files included</li>
       </ul>
-      <a href="#contact" class="btn btn-primary" style="width:100%;text-align:center;">Get Started</a>
+      <a href="mailto:hello@gitfoundry.co.uk?subject=Professional%20Package" class="btn btn-mustard">Choose Professional</a>
     </div>
 
-    <div class="package-card reveal">
-      <div class="package-name">Premium</div>
-      <div class="package-desc">The full experience - design, build, maintain.</div>
-      <div class="package-price">£1,299 <span>one-time</span></div>
-      <ul class="package-includes">
+    <div class="pkg reveal">
+      <div class="pkg-color-bar"></div>
+      <div class="pkg-icon">💎</div>
+      <div class="pkg-name">Premium</div>
+      <div class="pkg-tagline">The full experience.</div>
+      <div class="pkg-price-wrap">
+        <div class="pkg-price">£999</div>
+        <div class="pkg-price-note">One-time &middot; 14-day delivery</div>
+      </div>
+      <div class="pkg-savings">Save £500+/yr vs agency</div>
+      <div class="pkg-section-label">Everything in Professional, plus</div>
+      <ul class="pkg-list">
         <li>Unlimited pages</li>
         <li>Advanced animations</li>
-        <li>Blog / content section</li>
+        <li>Blog or content section</li>
         <li>Performance optimisation</li>
-        <li>3 months of free updates</li>
+        <li>Open Graph & favicon</li>
+        <li>3 rounds of revisions</li>
+        <li>3 months free updates</li>
         <li>Priority support</li>
       </ul>
-      <a href="#contact" class="btn btn-outline" style="width:100%;text-align:center;">Get Started</a>
+      <a href="mailto:hello@gitfoundry.co.uk?subject=Premium%20Package" class="btn btn-dark">Choose Premium</a>
     </div>
   </div>
-</section>
+</div>
 
-<!-- PROCESS -->
-<section id="process">
-  <div class="section-label reveal">How It Works</div>
-  <h2 class="section-title reveal">Four steps. That's it.</h2>
-  <p class="section-subtitle reveal">No complicated onboarding. No jargon. Just outcomes.</p>
-
-  <div class="process-steps">
-    <div class="step reveal">
-      <div class="step-number">01</div>
-      <h3>Chat</h3>
-      <p>Tell me about your brand, your goals, and what you like. A quick call or message is all it takes.</p>
+<!-- TESTIMONIALS -->
+<div class="chapter reveal">
+  <span class="chapter-number">Chapter Three — Kind Words</span>
+  <h2>What clients <em>say</em></h2>
+  <div class="chapter-line"></div>
+</div>
+<div class="testimonials-section">
+  <div class="testimonials-grid reveal">
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p>"Brilliant work. My site looks incredible and I haven't paid a penny in hosting since launch."</p>
+      <div class="testimonial-author">Sarah K. &middot; Photographer, Bristol</div>
     </div>
-    <div class="step reveal">
-      <div class="step-number">02</div>
-      <h3>Design</h3>
-      <p>I create a custom mockup based on your vision. You give feedback - we refine it together.</p>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p>"Quick turnaround, beautiful design, and he explained everything in plain English. Highly recommend."</p>
+      <div class="testimonial-author">James T. &middot; Consultant, Manchester</div>
     </div>
-    <div class="step reveal">
-      <div class="step-number">03</div>
-      <h3>Build</h3>
-      <p>I code your site by hand - clean, fast, and responsive on every device.</p>
-    </div>
-    <div class="step reveal">
-      <div class="step-number">04</div>
-      <h3>Deploy</h3>
-      <p>Your site goes live on GitHub Pages, I will share the link with you for self hosting.</p>
-    </div>
-    <div class="step reveal">
-      <div class="step-number">05</div>
-      <h3>Custom domain (optional)</h3>
-      <p>I connect your custom domain and you're done.</p>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p>"I was paying £30/month on Squarespace. Now I have a better site and pay nothing. Wish I'd done this sooner."</p>
+      <div class="testimonial-author">Priya M. &middot; Yoga Instructor, London</div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- CTA -->
-<section id="contact">
-  <div class="cta-section reveal">
-    <div class="section-label">Ready?</div>
-    <h2 class="section-title">Let's build something beautiful.</h2>
-    <p>Send me a message and I'll get back to you within 24 hours with a plan and a quote.</p>
-    <a href="mailto:alina3339@gmail.com" class="btn btn-accent">Get In Touch</a>
+<!-- SAVINGS CALCULATOR -->
+<div class="chapter reveal">
+  <span class="chapter-number">Chapter Four — The Maths</span>
+  <h2>How much you'll <em>save</em></h2>
+  <div class="chapter-line"></div>
+</div>
+<div class="savings-section reveal">
+  <div class="savings-card">
+    <h3>Squarespace vs GitFoundry</h3>
+    <p>Over 3 years, the numbers speak for themselves.</p>
+    <div class="savings-row">
+      <div class="savings-col">
+        <h4>Squarespace</h4>
+        <div class="big-num red">£1,296</div>
+        <p>£36/mo × 36 months</p>
+      </div>
+      <div class="savings-col">
+        <h4>GitFoundry</h4>
+        <div class="big-num green">£599</div>
+        <p>One-time, forever</p>
+      </div>
+      <div class="savings-col">
+        <h4>You Save</h4>
+        <div class="big-num" style="color: var(--mustard);">£697</div>
+        <p>Plus a better site</p>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- FOOTER -->
+<!-- ADD-ONS -->
+<div class="addons-section reveal">
+  <div class="chapter">
+    <span class="chapter-number">Chapter Five — Extras</span>
+    <h2>Bolt-on <em>additions</em></h2>
+    <div class="chapter-line"></div>
+    <p>Available with any package.</p>
+  </div>
+  <div class="addon-grid">
+    <div class="addon">
+      <div class="addon-dot">🌐</div>
+      <div><h4>Domain Registration</h4><p>I'll buy and configure your .co.uk</p><div class="addon-price-tag">£20</div></div>
+    </div>
+    <div class="addon">
+      <div class="addon-dot">📝</div>
+      <div><h4>Copywriting</h4><p>I'll write all the text for your site</p><div class="addon-price-tag">£120</div></div>
+    </div>
+    <div class="addon">
+      <div class="addon-dot">🔍</div>
+      <div><h4>Advanced SEO</h4><p>Schema markup, structured data, speed audit</p><div class="addon-price-tag">£80</div></div>
+    </div>
+    <div class="addon">
+      <div class="addon-dot">📊</div>
+      <div><h4>Analytics Dashboard</h4><p>Google Analytics + Search Console</p><div class="addon-price-tag">£60</div></div>
+    </div>
+    <div class="addon">
+      <div class="addon-dot">✉️</div>
+      <div><h4>Email Integration</h4><p>Newsletter with Mailchimp or ConvertKit</p><div class="addon-price-tag">£60</div></div>
+    </div>
+    <div class="addon">
+      <div class="addon-dot">🔄</div>
+      <div><h4>Extra Revision</h4><p>One additional round of changes</p><div class="addon-price-tag">£40</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="compare-section reveal">
+  <div class="chapter">
+    <span class="chapter-number">Chapter Six — The Details</span>
+    <h2>Side by <em>side</em></h2>
+    <div class="chapter-line"></div>
+  </div>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;">Feature</th>
+          <th class="sky">Starter</th>
+          <th class="must">Professional</th>
+          <th class="ros">Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Custom pages</td><td>1</td><td>Up to 5</td><td>Unlimited</td></tr>
+        <tr><td>Responsive design</td><td class="chk">✓</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+        <tr><td>Contact form</td><td class="chk">✓</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+        <tr><td>Custom domain</td><td class="chk">✓</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+        <tr><td>GDPR cookie notice</td><td class="chk">✓</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+        <tr><td>GitHub Pages hosting</td><td class="chk">✓</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+        <tr><td>Animations</td><td class="nah">—</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+        <tr><td>SEO setup</td><td class="nah">—</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+        <tr><td>Google Analytics</td><td class="nah">—</td><td class="chk">✓</td><td class="chk">✓</td></tr>
+        <tr><td>Blog section</td><td class="nah">—</td><td class="nah">—</td><td class="chk">✓</td></tr>
+        <tr><td>Performance audit</td><td class="nah">—</td><td class="nah">—</td><td class="chk">✓</td></tr>
+        <tr><td>Free updates</td><td class="nah">—</td><td class="nah">—</td><td>3 months</td></tr>
+        <tr><td>Revisions</td><td>1</td><td>2</td><td>3</td></tr>
+        <tr><td>Delivery</td><td>3 days</td><td>7 days</td><td>14 days</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- MONTHLY MAINTENANCE -->
+<div class="monthly-section reveal">
+  <div class="chapter">
+    <span class="chapter-number">Chapter Seven — Ongoing Care</span>
+    <h2>Monthly <em>maintenance</em></h2>
+    <div class="chapter-line"></div>
+  </div>
+  <div class="postcard">
+    <h3>Keep Things Fresh</h3>
+    <p>Regular updates so you can focus on running your business.</p>
+    <div class="monthly-row">
+      <div class="m-tier">
+        <h4>Light</h4>
+        <div class="m-price">£40 <span>/mo</span></div>
+        <p>Up to 2 small updates per month</p>
+      </div>
+      <div class="m-tier">
+        <h4>Active</h4>
+        <div class="m-price">£80 <span>/mo</span></div>
+        <p>Up to 5 updates, design tweaks, priority support</p>
+      </div>
+      <div class="m-tier">
+        <h4>Full Care</h4>
+        <div class="m-price">£120 <span>/mo</span></div>
+        <p>Unlimited updates, monthly report, on-call support</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section reveal">
+  <div class="chapter">
+    <span class="chapter-number">Chapter Eight — Questions</span>
+    <h2>Frequently <em>asked</em></h2>
+    <div class="chapter-line"></div>
+  </div>
+  <div class="faq-item open">
+    <button class="faq-q">What is GitHub Pages and why is hosting free?</button>
+    <div class="faq-a"><p>GitHub Pages is a free hosting service by GitHub (owned by Microsoft). It's built for static websites — fast, secure, and reliable. There's no catch. It's genuinely free, and your site stays live as long as the repository exists.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Can I use my own .co.uk domain?</button>
+    <div class="faq-a"><p>Absolutely. I'll connect your custom domain (yourname.co.uk or .com) to your GitHub Pages site. You just need to own the domain. If you don't have one yet, I can register it for you as an add-on (£20).</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Is this GDPR compliant?</button>
+    <div class="faq-a"><p>Yes. Every site includes a GDPR-compliant cookie notice. If you're collecting data via contact forms, I'll make sure consent is handled properly. GitHub Pages doesn't use cookies by default, which actually makes compliance simpler.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">What if I need changes after delivery?</button>
+    <div class="faq-a"><p>Each package includes revision rounds. After those are used, you can buy additional revisions (£40 each) or sign up for a monthly maintenance plan. I also hand over the source code, so anyone can make changes.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Can I add e-commerce or a booking system?</button>
+    <div class="faq-a"><p>GitHub Pages hosts static sites, so full e-commerce (cart + checkout) isn't ideal here. However, I can integrate Stripe payment links, Gumroad, or Calendly for bookings. These work brilliantly for simple sales and scheduling.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Do I own the website?</button>
+    <div class="faq-a"><p>100%. You own the code, the design, and the content. I'll transfer the GitHub repository to your account. No lock-in, no platform fees, no restrictions.</p></div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta reveal">
+  <div class="cta-card">
+    <h3>Ready to get started?</h3>
+    <p>Drop me a message — I'll reply within 24 hours with a plan and a quote.</p>
+    <a href="mailto:hello@gitfoundry.co.uk?subject=Let's%20Chat" class="btn btn-light">Get In Touch</a>
+    <div class="cta-micro">No commitment &middot; Free consultation &middot; UK-based</div>
+  </div>
+</div>
+
 <footer>
-  <p>Made with care by <a href="#">GitFoundry</a> &middot; Hosted on GitHub Pages &middot; &copy; 2026</p>
+  Made with care by <a href="https://gitfoundry.co.uk">GitFoundry.co.uk</a> &middot; Based in the UK &middot; Hosted free on GitHub Pages &middot; &copy; 2026
 </footer>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
+  }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
 </script>
 
 </body>
