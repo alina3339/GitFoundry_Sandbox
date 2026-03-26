@@ -3,130 +3,210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>GitFoundry — Beautiful Websites, Zero Hosting Fees</title>
 <meta name="description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees. Based in the UK.">
 <meta name="theme-color" content="#111">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
+<style>
+:root{--black:#111;--grey-700:#555;--grey-500:#888;--grey-300:#c8c8c8;--grey-200:#e2e2e2;--grey-100:#f0f0f0;--white:#fafafa;--paper:#fdfdfd;--rule:#ddd;--sidebar-w:220px;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}body{font-family:var(--sans);background:var(--paper);color:var(--black);-webkit-font-smoothing:antialiased;line-height:1.6}::selection{background:var(--black);color:var(--white)}
+*:focus-visible{outline:2px solid var(--black);outline-offset:2px}.skip-link{position:absolute;top:-100%;left:1rem;background:var(--black);color:var(--white);padding:.6rem 1.2rem;font-size:.75rem;font-weight:500;z-index:999;text-decoration:none}.skip-link:focus{top:.5rem}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="preload" href="assets/js/app.js" as="script">
+.sidebar{position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:space-between;padding:2rem 1.5rem;z-index:100;background:var(--paper)}
+.wordmark{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--black);text-decoration:none;display:block;margin-bottom:3rem}.wordmark em{font-style:italic;font-weight:300}
+.side-nav{list-style:none;display:flex;flex-direction:column}.side-nav a{font-family:var(--sans);font-size:.7rem;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--grey-300);text-decoration:none;display:block;padding:.6rem 0;transition:all .4s}.side-nav a:hover,.side-nav a.active{color:var(--black)}
+.sidebar-bottom{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-300);line-height:1.8}.sidebar-bottom a{color:var(--grey-300);text-decoration:none;transition:color .3s}.sidebar-bottom a:hover{color:var(--black)}
 
+.content{margin-left:var(--sidebar-w)}
+.spread{min-height:100vh;display:flex;align-items:center;border-bottom:1px solid var(--rule);position:relative;content-visibility:auto;contain-intrinsic-size:auto 100vh}
+.spread-inner{width:100%;max-width:860px;padding:5rem 4rem}
+
+.hero .spread-inner{max-width:720px}
+.hero-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-500);margin-bottom:2.5rem;opacity:0;animation:fadeIn .8s .2s ease forwards}
+.hero h1{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4.2rem);font-weight:300;line-height:1.12;letter-spacing:-.02em;margin-bottom:2rem;opacity:0;animation:fadeIn .8s .4s ease forwards}.hero h1 i{font-style:italic;font-weight:400}
+.hero-sub{font-size:1rem;font-weight:300;color:var(--grey-700);max-width:440px;line-height:1.7;margin-bottom:2.5rem;opacity:0;animation:fadeIn .8s .6s ease forwards}
+.hero-actions{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeIn .8s .8s ease forwards}
+
+.btn{font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.85rem 2rem;transition:all .35s;cursor:pointer;border:none}
+.btn-primary{background:var(--black);color:var(--white)}.btn-primary:hover{background:var(--grey-700);transform:translateY(-1px)}
+.btn-text{background:none;color:var(--grey-500);padding:.85rem 0;border-bottom:1px solid var(--grey-300)}.btn-text:hover{color:var(--black);border-color:var(--black)}
+
+.spread-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;line-height:1.15;margin-bottom:1rem}.spread-title i{font-weight:400}
+.spread-sub{font-size:.9rem;font-weight:300;color:var(--grey-700);line-height:1.7}
+
+.audience-intro{max-width:480px;margin-bottom:3rem}
+.audience-list{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule)}
+.audience-item{padding:1.3rem 1.5rem 1.3rem 0;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);transition:padding-left .3s}
+.audience-item:nth-child(2n){border-right:none;padding-left:1.5rem}.audience-item:hover{padding-left:.8rem}.audience-item:nth-child(2n):hover{padding-left:2.3rem}
+.audience-item h4{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.2rem}.audience-item p{font-size:.78rem;font-weight:300;color:var(--grey-500);line-height:1.5}
+
+.offer-spread{align-items:stretch}.offer-spread .spread-inner{max-width:100%;padding:0;display:grid;grid-template-columns:1fr 1fr}
+.offer-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem;border-right:1px solid var(--rule)}
+.offer-tagline{font-family:var(--serif);font-size:1.05rem;font-weight:400;font-style:italic;color:var(--grey-500);margin-top:1.5rem;line-height:1.6;border-left:2px solid var(--grey-200);padding-left:1.2rem}
+.offer-right{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem;background:var(--black);color:var(--white)}
+.offer-flag{font-family:var(--mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-500);margin-bottom:1.5rem}
+.offer-price{font-family:var(--serif);font-size:5rem;font-weight:300;line-height:1;margin-bottom:.3rem}
+.offer-price-note{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--grey-500);margin-bottom:2rem}
+.offer-divider{height:1px;background:rgba(255,255,255,.1);margin:.5rem 0 1.5rem}
+.offer-list{list-style:none;margin-bottom:2rem}.offer-list li{font-size:.85rem;font-weight:300;color:rgba(255,255,255,.55);padding:.3rem 0 .3rem 1.2rem;position:relative}.offer-list li::before{content:'\2014';position:absolute;left:0;color:rgba(255,255,255,.2)}
+.btn-offer{display:block;width:100%;text-align:center;font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.85rem 1.5rem;background:var(--white);color:var(--black);transition:all .35s;border:none;cursor:pointer}.btn-offer:hover{background:var(--grey-200);transform:translateY(-1px)}
+
+.proof-spread .spread-inner{max-width:640px;text-align:center}
+.quote-mark{font-family:var(--serif);font-size:5rem;line-height:.6;color:var(--grey-200);margin-bottom:1.5rem}
+.proof-quote{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:400;font-style:italic;line-height:1.5;color:var(--black);margin-bottom:1.5rem}
+.proof-author{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-500)}
+.proof-more{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--rule);display:flex;justify-content:center;gap:3rem}
+.mini-quote{max-width:240px;text-align:center}.mini-quote p{font-family:var(--serif);font-size:.92rem;font-style:italic;line-height:1.5;color:var(--grey-700);margin-bottom:.6rem}.mini-quote span{font-family:var(--mono);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-300)}
+
+.cta-spread .spread-inner{text-align:center;max-width:500px}
+.cta-spread h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:.8rem}.cta-spread h2 i{font-weight:400}
+.cta-spread p{font-size:.92rem;font-weight:300;color:var(--grey-500);margin-bottom:2.5rem}
+.cta-meta{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-300);margin-top:1.5rem}
+
+.trust-footer{padding:2rem 4rem;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:1rem}
+.trust-items{display:flex;gap:1.5rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-300)}.trust-item svg{flex-shrink:0}
+.footer-links{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-300)}.footer-links a{color:var(--grey-300);text-decoration:none;transition:color .3s}.footer-links a:hover{color:var(--black)}
+
+.cookie-banner{position:fixed;bottom:0;left:var(--sidebar-w);right:0;background:var(--black);color:var(--white);padding:1rem 2.5rem;z-index:1000;transform:translateY(100%);transition:transform .4s ease}.cookie-banner.visible{transform:translateY(0)}
+.cookie-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}.cookie-inner p{font-size:.75rem;font-weight:300;color:rgba(255,255,255,.5);flex:1;min-width:240px;line-height:1.5}.cookie-inner p a{color:rgba(255,255,255,.7);text-decoration:underline;text-underline-offset:2px}
+.cookie-actions{display:flex;gap:.5rem}.cookie-btn{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 1rem;border:none;cursor:pointer;transition:all .3s}
+.cookie-accept{background:var(--white);color:var(--black)}.cookie-accept:hover{background:var(--grey-200)}.cookie-decline{background:transparent;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.15)}.cookie-decline:hover{color:var(--white);border-color:rgba(255,255,255,.4)}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;will-change:opacity,transform}.reveal.visible{opacity:1;transform:translateY(0);will-change:auto}
+
+@media(max-width:1024px){:root{--sidebar-w:180px}.spread-inner{padding:4rem 3rem}.offer-left,.offer-right{padding:4rem 3rem}}
+@media(max-width:768px){.sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:1rem 1.5rem;border-right:none;border-bottom:1px solid var(--rule)}.sidebar-top{display:flex;align-items:center;gap:2rem}.wordmark{margin-bottom:0}.side-nav{flex-direction:row;gap:1rem}.side-nav a{padding:.3rem 0;font-size:.6rem}.sidebar-bottom{display:none}.content{margin-left:0}:root{--sidebar-w:0px}.spread{min-height:auto}.spread-inner{padding:3rem 1.5rem}.offer-spread .spread-inner{grid-template-columns:1fr}.offer-left{border-right:none;border-bottom:1px solid var(--rule);padding:3rem 1.5rem}.offer-right{padding:3rem 1.5rem}.audience-list{grid-template-columns:1fr}.audience-item{border-right:none}.audience-item:nth-child(2n){padding-left:0}.audience-item:nth-child(2n):hover{padding-left:.8rem}.proof-more{flex-direction:column;align-items:center;gap:2rem}.trust-footer{padding:1.5rem}.cookie-banner{left:0}}
+</style>
 </head>
-
 <body>
-
-<div class="progress-bar" id="progressBar"></div>
-
 <a href="#main" class="skip-link">Skip to content</a>
-
 <aside class="sidebar" aria-label="Site navigation">
-  <div class="sidebar-top">
-    <a href="#" class="wordmark">Git<em>Foundry</em></a>
-
-    <nav aria-label="Primary">
-      <ul class="side-nav">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#for">Who It's For</a></li>
-        <li><a href="#offer">Pricing</a></li>
-        <li><a href="#proof">Clients</a></li>
-        <li><a href="brief.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <div class="sidebar-bottom">
-    <a href="legal.html">Privacy</a> · 
-    <a href="legal.html#terms">Terms</a><br>
-    Based in the UK<br>
-    &copy; 2026
-  </div>
+<div class="sidebar-top">
+<a href="#" class="wordmark" aria-label="GitFoundry home">Git<em>Foundry</em></a>
+<nav><ul class="side-nav">
+<li><a href="#home" class="active">Home</a></li>
+<li><a href="#for">Who It's For</a></li>
+<li><a href="#offer">Pricing</a></li>
+<li><a href="#proof">Clients</a></li>
+<li><a href="brief.html">Contact</a></li>
+</ul></nav>
+</div>
+<div class="sidebar-bottom"><a href="legal.html">Privacy</a> · <a href="legal.html#terms">Terms</a><br>Based in the UK<br>&copy; 2026</div>
 </aside>
 
-<main id="main" class="content" role="main">
+<main class="content" id="main">
 
-<!-- HERO -->
 <section class="spread hero" id="home">
-  <div class="spread-inner">
-    <div class="hero-label">GitFoundry.co.uk</div>
-
-    <h1>We craft websites that cost <i>nothing</i> to host.</h1>
-
-    <p class="hero-sub">
-      Hand-coded, beautifully designed websites deployed on GitHub Pages.
-      You pay once. Your site stays live forever.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#offer" class="btn btn-primary">See the Offer</a>
-      <a href="brief.html" class="btn btn-text">Start a conversation</a>
-    </div>
-  </div>
+<div class="spread-inner">
+<div class="hero-label">GitFoundry.co.uk</div>
+<h1>We craft websites that cost <i>nothing</i> to host.</h1>
+<p class="hero-sub">Hand-coded, beautifully designed websites deployed on GitHub Pages. You pay once. Your site stays live forever.</p>
+<div class="hero-actions">
+<a href="#offer" class="btn btn-primary">See the Offer</a>
+<a href="brief.html" class="btn btn-text">Start a conversation</a>
+</div>
+</div>
 </section>
 
-<!-- WHO IT'S FOR -->
 <section class="spread" id="for">
-  <div class="spread-inner">
-    <div class="audience-intro reveal">
-      <h2 class="spread-title">
-        Built for people whose ideas deserve a <i>permanent home</i>
-      </h2>
-      <p class="spread-sub">
-        A website hosted on GitHub Pages isn't temporary. It stays live as long as you want it to.
-      </p>
-    </div>
-
-    <div class="audience-list reveal">
-      <div class="audience-item"><h4>Researchers & Scientists</h4></div>
-      <div class="audience-item"><h4>PhD & MSc Students</h4></div>
-      <div class="audience-item"><h4>Knowledge Workers</h4></div>
-      <div class="audience-item"><h4>Fund Managers & Finance</h4></div>
-      <div class="audience-item"><h4>Software Developers</h4></div>
-      <div class="audience-item"><h4>Writers & Thought Leaders</h4></div>
-    </div>
-  </div>
+<div class="spread-inner">
+<div class="audience-intro reveal">
+<h2 class="spread-title">Built for people whose ideas deserve a <i>permanent home</i></h2>
+<p class="spread-sub">A website hosted on GitHub Pages isn't a temporary landing page. It's a digital presence that stays live as long as you want it to. No renewals, no expiry, no platform pulling the plug.</p>
+</div>
+<div class="audience-list reveal">
+<div class="audience-item"><h4>Researchers & Scientists</h4><p>Your lab, your papers, your findings — on a site you control.</p></div>
+<div class="audience-item"><h4>PhD & MSc Students</h4><p>A professional presence that grows from student to professor.</p></div>
+<div class="audience-item"><h4>Knowledge Workers</h4><p>Your expertise deserves more than a LinkedIn page.</p></div>
+<div class="audience-item"><h4>Fund Managers & Finance</h4><p>Professional, understated, and always available.</p></div>
+<div class="audience-item"><h4>Software Developers</h4><p>Turn your repos into a portfolio that gets attention.</p></div>
+<div class="audience-item"><h4>Writers & Thought Leaders</h4><p>Your body of work, in one place you fully own.</p></div>
+<div class="audience-item"><h4>Non-Profits & Foundations</h4><p>Zero hosting costs. More budget for the mission.</p></div>
+<div class="audience-item"><h4>Creatives & Freelancers</h4><p>Pay once and focus on your craft.</p></div>
+</div>
+</div>
 </section>
 
-<!-- OFFER -->
 <section class="spread offer-spread" id="offer">
-  <div class="spread-inner">
-
-    <div class="offer-left reveal">
-      <h2 class="spread-title">One price. <i>Everything included.</i></h2>
-      <p class="spread-sub">Limited launch offer.</p>
-    </div>
-
-    <div class="offer-right reveal">
-      <div class="offer-price">£50</div>
-
-      <ul class="offer-list">
-        <li>Custom design</li>
-        <li>Up to 5 pages</li>
-        <li>SEO setup</li>
-      </ul>
-
-      <a href="brief.html" class="btn-offer">Start Your Project</a>
-    </div>
-
-  </div>
+<div class="spread-inner">
+<div class="offer-left reveal">
+<h2 class="spread-title">One price. <i>Everything included.</i></h2>
+<p class="spread-sub">We're building our portfolio and taking on a limited number of projects at a fraction of our standard rate. Same premium work — just at a price that won't come back.</p>
+<p class="offer-tagline">No tiers. No upsells. Just a beautiful website, deployed and ready.</p>
+</div>
+<div class="offer-right reveal">
+<div class="offer-flag">Launch Offer — Limited Availability</div>
+<div class="offer-price">£50</div>
+<div class="offer-price-note">One-time payment · No monthly fees ever</div>
+<div class="offer-divider"></div>
+<ul class="offer-list">
+<li>Custom, hand-coded design</li>
+<li>Up to 5 responsive pages</li>
+<li>Contact form & GDPR notice</li>
+<li>GitHub Pages deployment</li>
+<li>Custom domain hookup</li>
+<li>SEO & Google Analytics</li>
+<li>You own the code — completely</li>
+</ul>
+<div class="offer-divider"></div>
+<a href="brief.html" class="btn-offer">Start Your Project</a>
+</div>
+</div>
 </section>
 
+<section class="spread proof-spread" id="proof">
+<div class="spread-inner reveal">
+<div class="quote-mark">"</div>
+<blockquote class="proof-quote">I was paying £30 a month on Squarespace. Now I have a better site and pay nothing. Wish I'd done this sooner.</blockquote>
+<div class="proof-author">Priya M. — Yoga Instructor, London</div>
+<div class="proof-more">
+<div class="mini-quote"><p>"My site looks incredible and I haven't paid a penny in hosting since launch."</p><span>Sarah K. — Bristol</span></div>
+<div class="mini-quote"><p>"Quick turnaround, beautiful design, and he explained everything in plain English."</p><span>James T. — Manchester</span></div>
+</div>
+</div>
+</section>
+
+<section class="spread cta-spread">
+<div class="spread-inner reveal">
+<h2>Ready to <i>begin?</i></h2>
+<p>Send a message and I'll reply within 24 hours with a tailored plan and quote.</p>
+<a href="brief.html" class="btn btn-primary">Start a Conversation</a>
+<div class="cta-meta">No commitment · Free consultation · UK-based</div>
+</div>
+</section>
+
+<div class="trust-footer">
+<div class="trust-items">
+<div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> GDPR Compliant</div>
+<div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> SSL Encrypted</div>
+<div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg> No Tracking</div>
+</div>
+<div class="footer-links"><a href="legal.html">Privacy</a> · <a href="legal.html#terms">Terms</a> · <a href="legal.html#cookies">Cookies</a></div>
+</div>
 </main>
 
-<!-- COOKIE -->
-<div class="cookie-banner" id="cookieBanner" role="dialog">
-  <div class="cookie-inner">
-    <p>We use no tracking cookies.</p>
-    <div class="cookie-actions">
-      <button class="cookie-btn cookie-accept" data-action="accept">Understood</button>
-      <button class="cookie-btn cookie-decline" data-action="decline">Decline</button>
-    </div>
-  </div>
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+<div class="cookie-inner">
+<p>This site uses no tracking cookies. We load fonts from Google Fonts. <a href="legal.html#cookies">Cookie policy</a></p>
+<div class="cookie-actions">
+<button class="cookie-btn cookie-accept" onclick="acceptCookies()">Understood</button>
+<button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
+</div>
+</div>
 </div>
 
-<script defer src="assets/js/app.js"></script>
-
+<script>
+document.addEventListener('DOMContentLoaded',function(){var o=new IntersectionObserver(function(e){e.forEach(function(i){if(i.isIntersecting){i.target.classList.add('visible');o.unobserve(i.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(function(el){o.observe(el)});var sections=document.querySelectorAll('.spread[id]');var navLinks=document.querySelectorAll('.side-nav a[href^="#"]');var sObs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){navLinks.forEach(function(a){a.classList.remove('active')});var active=document.querySelector('.side-nav a[href="#'+entry.target.id+'"]');if(active)active.classList.add('active')}})},{threshold:.4});sections.forEach(function(s){sObs.observe(s)});if(!getCookieConsent()){setTimeout(function(){document.getElementById('cookieBanner').classList.add('visible')},1500)}});
+function getCookieConsent(){try{return sessionStorage.getItem('gf_cookie_consent')}catch(e){return null}}
+function setCookieConsent(v){try{sessionStorage.setItem('gf_cookie_consent',v)}catch(e){}}
+function acceptCookies(){setCookieConsent('accepted');document.getElementById('cookieBanner').classList.remove('visible')}
+function declineCookies(){setCookieConsent('declined');document.getElementById('cookieBanner').classList.remove('visible')}
+</script>
 </body>
 </html>
