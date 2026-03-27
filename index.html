@@ -3,55 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitFoundry — Beautiful Websites, Zero Hosting Fees</title>
-<meta name="description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees. Based in the UK.">
-<meta name="theme-color" content="#111">
+<title>GitFoundry · Hand-coded Websites, Zero Hosting Fees</title>
+<meta name="description" content="Premium, hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees. Based in the UK.">
+<meta name="theme-color" content="#0a0f1a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>
 :root {
-  --black: #111;
-  --grey-700: #555;
-  --grey-500: #888;
-  --grey-300: #c8c8c8;
-  --grey-200: #e2e2e2;
-  --grey-100: #f0f0f0;
-  --white: #fafafa;
-  --paper: #fdfdfd;
-  --rule: #ddd;
-  --sidebar-w: 220px;
+  --bg: #0a0f1a;
+  --surface: #0f1520;
+  --surface-lift: #141a28;
+  --text: #eef3ff;
+  --text-soft: #c0c8d8;
+  --text-muted: #8d9bb0;
+  --text-quiet: #5a6578;
+  --accent: #c7a252;
+  --accent-dim: rgba(199,162,82,0.12);
+  --accent-glow: rgba(199,162,82,0.04);
+  --border: rgba(199,162,82,0.12);
+  --border-subtle: rgba(255,255,255,0.04);
   --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'Inter', -apple-system, sans-serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
   --mono: 'JetBrains Mono', monospace;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
 body {
+  background: var(--bg);
   font-family: var(--sans);
-  background: var(--paper);
-  color: var(--black);
-  -webkit-font-smoothing: antialiased;
+  color: var(--text);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
-::selection { background: var(--black); color: var(--white); }
+
+::selection { background: var(--accent); color: var(--bg); }
 [x-cloak] { display: none !important; }
 
-/* A11Y */
-*:focus-visible { outline: 2px solid var(--black); outline-offset: 2px; }
+/* ═══ A11Y ═══ */
+*:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
 .skip-link {
   position: absolute; top: -100%; left: 1rem;
-  background: var(--black); color: var(--white);
-  padding: 0.6rem 1.2rem; font-size: 0.85rem; font-weight: 500;
+  background: var(--accent); color: var(--bg);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem; font-weight: 500;
   z-index: 999; text-decoration: none;
+  font-family: var(--sans);
 }
 .skip-link:focus { top: 0.5rem; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -61,80 +72,68 @@ body {
 
 /* ═══ SCROLL PROGRESS ═══ */
 .scroll-progress {
-  position: fixed; top: 0; left: var(--sidebar-w);
-  right: 0; height: 2px;
-  background: var(--black);
+  position: fixed; top: 0; left: 0;
+  height: 2px; background: var(--accent);
   z-index: 200; pointer-events: none;
 }
 
-/* ═══ SIDEBAR ═══ */
-.sidebar {
-  position: fixed; top: 0; left: 0;
-  width: var(--sidebar-w); height: 100vh;
-  border-right: 1px solid var(--rule);
-  display: flex; flex-direction: column;
-  justify-content: space-between;
-  padding: 2rem 1.5rem;
-  z-index: 100; background: var(--paper);
-}
-.wordmark {
-  font-family: var(--serif);
-  font-size: 1.3rem; font-weight: 400;
-  color: var(--black); text-decoration: none;
-  display: block; margin-bottom: 3rem;
-}
-.wordmark em { font-style: italic; font-weight: 300; }
-
-.side-nav {
-  list-style: none;
-  display: flex; flex-direction: column;
-}
-.side-nav a {
-  font-family: var(--sans);
-  font-size: 0.8rem; font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--grey-300);
-  text-decoration: none;
-  display: block; padding: 0.6rem 0;
-  transition: all 0.4s;
-}
-.side-nav a:hover,
-.side-nav a.active { color: var(--black); }
-
-.sidebar-bottom {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--grey-300);
-  line-height: 1.8;
-}
-.sidebar-bottom a {
-  color: var(--grey-300);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-.sidebar-bottom a:hover { color: var(--black); }
-
-/* ═══ MOBILE NAV ═══ */
-.mobile-bar {
-  display: none;
+/* ═══ NAV ═══ */
+.site-header {
   position: fixed; top: 0; left: 0; right: 0;
-  z-index: 100; background: var(--paper);
-  border-bottom: 1px solid var(--rule);
-  padding: 1rem 1.5rem;
+  z-index: 90;
+  padding: 2rem 3rem;
+  display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
+  pointer-events: none;
+  transition: background 0.5s, padding 0.4s;
 }
+.site-header > * { pointer-events: auto; }
+.site-header.scrolled {
+  padding: 1.2rem 3rem;
+  background: rgba(10,15,26,0.88);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.4s;
+}
+
+.site-nav {
+  list-style: none;
+  display: flex; gap: 2.5rem;
+}
+.site-nav a {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.4s;
+}
+.site-nav a:hover { opacity: 1; }
+
+/* Mobile burger */
 .nav-burger {
+  display: none;
   background: none; border: none; cursor: pointer;
   width: 26px; height: 18px; position: relative;
 }
 .nav-burger span {
   display: block; position: absolute;
-  left: 0; right: 0; height: 1.5px;
-  background: var(--black);
+  left: 0; right: 0; height: 1px;
+  background: var(--text-soft);
   transition: all 0.35s;
 }
 .nav-burger span:nth-child(1) { top: 0; }
@@ -146,428 +145,605 @@ body {
 
 .mobile-drawer {
   position: fixed; top: 0; right: 0;
-  width: 260px; height: 100vh;
-  background: var(--paper);
-  border-left: 1px solid var(--rule);
-  z-index: 99;
-  padding: 5rem 2rem 3rem;
-  display: flex; flex-direction: column; gap: 0;
+  width: 280px; height: 100vh;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  z-index: 89;
+  padding: 5rem 2.5rem 3rem;
+  display: flex; flex-direction: column;
   transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
 }
 .mobile-drawer.open { transform: translateX(0); }
 .mobile-drawer a {
   font-family: var(--serif);
-  font-size: 1.4rem; font-weight: 300;
-  color: var(--black);
+  font-size: 1.5rem; font-weight: 300;
+  color: var(--text);
   text-decoration: none;
   padding: 0.8rem 0;
-  border-bottom: 1px solid var(--rule);
-  transition: padding-left 0.3s;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: color 0.3s, padding-left 0.3s;
 }
-.mobile-drawer a:hover { padding-left: 0.5rem; }
+.mobile-drawer a:hover { color: var(--accent); padding-left: 0.5rem; }
 .drawer-backdrop {
   position: fixed; inset: 0;
-  background: rgba(0,0,0,0.3);
-  z-index: 98;
-  opacity: 0; transition: opacity 0.3s;
+  background: rgba(0,0,0,0.5);
+  z-index: 88; opacity: 0;
+  transition: opacity 0.3s;
   pointer-events: none;
 }
 .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
 
-/* ═══ CONTENT ═══ */
-.content { margin-left: var(--sidebar-w); }
+/* ═══ LAYOUT ═══ */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
 
-/* ═══ SPREAD ═══ */
-.spread {
+/* ═══ SCENE ═══ */
+.scene {
   min-height: 100vh;
   display: flex; align-items: center;
-  border-bottom: 1px solid var(--rule);
   position: relative;
-}
-.spread-inner {
-  width: 100%; max-width: 860px;
-  padding: 5rem 4rem;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 /* ═══ REVEAL ═══ */
 .a-reveal {
   opacity: 0; transform: translateY(16px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 .a-reveal.shown { opacity: 1; transform: translateY(0); }
 
 /* ═══ HERO ═══ */
-.hero .spread-inner { max-width: 720px; }
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  padding: 10rem 3rem 6rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
 .hero-label {
   font-family: var(--mono);
   font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  font-weight: 300;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--grey-500);
-  margin-bottom: 2.5rem;
-  opacity: 0; animation: fadeIn 0.8s 0.2s ease forwards;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  opacity: 0; animation: fadeUp 1s 0.3s ease forwards;
 }
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(2.6rem, 5vw, 4.2rem);
-  font-weight: 300;
-  line-height: 1.12;
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 2rem;
-  opacity: 0; animation: fadeIn 0.8s 0.4s ease forwards;
+  color: #fff;
+  margin-bottom: 0;
+  opacity: 0; animation: fadeUp 1.2s 0.5s ease forwards;
 }
-.hero h1 i { font-style: italic; font-weight: 400; }
-.hero-sub {
-  font-size: 1.05rem; font-weight: 300;
-  color: var(--grey-700);
-  max-width: 440px; line-height: 1.7;
+.hero h1 strong {
+  font-weight: 500;
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-right {
+  opacity: 0; animation: fadeUp 1s 1s ease forwards;
+}
+.hero-tagline {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-soft);
+  border-left: 2px solid var(--accent);
+  padding-left: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.hero-desc {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.75;
   margin-bottom: 2.5rem;
-  opacity: 0; animation: fadeIn 0.8s 0.6s ease forwards;
 }
 .hero-actions {
   display: flex; gap: 1.2rem;
   align-items: center; flex-wrap: wrap;
-  opacity: 0; animation: fadeIn 0.8s 0.8s ease forwards;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* ═══ BUTTONS ═══ */
 .btn {
   font-family: var(--sans);
-  font-size: 0.8rem; font-weight: 500;
-  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.85rem 2rem;
-  transition: all 0.35s;
+  padding: 0.9rem 2.2rem;
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
   cursor: pointer; border: none;
+  border-radius: 1px;
 }
-.btn-primary { background: var(--black); color: var(--white); }
-.btn-primary:hover { background: var(--grey-700); transform: translateY(-1px); }
-.btn-text {
-  background: none; color: var(--grey-500);
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--grey-300);
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
 }
-.btn-text:hover { color: var(--black); border-color: var(--black); }
+.btn-primary:hover {
+  background: #d4af5f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(199,162,82,0.2);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+.btn-outline:hover {
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+}
 
-/* ═══ SPREAD TITLES ═══ */
-.spread-title {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  font-weight: 300; line-height: 1.15;
-  margin-bottom: 1rem;
+/* ═══ PREMISE ═══ */
+.premise {
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 3rem;
 }
-.spread-title i { font-weight: 400; }
-.spread-sub {
-  font-size: 1rem; font-weight: 300;
-  color: var(--grey-700); line-height: 1.7;
+.premise-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.premise-tag {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2.5rem;
+}
+.premise h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+.premise h2 em { font-style: italic; color: var(--accent); }
+.premise p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 440px;
+  margin: 0 auto;
 }
 
 /* ═══ AUDIENCE ═══ */
-.audience-intro { max-width: 480px; margin-bottom: 3rem; }
-.audience-list {
+.audience {
+  padding: 6rem 3rem;
+}
+.audience-inner {
+  max-width: 1120px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0; border-top: 1px solid var(--rule);
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
 }
-.audience-item {
-  padding: 1.3rem 1.5rem 1.3rem 0;
-  border-bottom: 1px solid var(--rule);
-  border-right: 1px solid var(--rule);
-  transition: padding-left 0.3s;
-}
-.audience-item:nth-child(2n) { border-right: none; padding-left: 1.5rem; }
-.audience-item:hover { padding-left: 0.8rem; }
-.audience-item:nth-child(2n):hover { padding-left: 2.3rem; }
-.audience-item h4 {
+.audience-left h2 {
   font-family: var(--serif);
-  font-size: 1.2rem; font-weight: 400;
-  margin-bottom: 0.2rem;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--text);
+  max-width: 280px;
 }
-.audience-item p {
-  font-size: 0.9rem; font-weight: 300;
-  color: var(--grey-500); line-height: 1.5;
+.audience-left h2 em { font-style: italic; color: var(--accent); }
+
+.audience-list { max-width: 520px; }
+.audience-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: padding-left 0.4s;
+  cursor: default;
+}
+.audience-entry:first-child { border-top: 1px solid var(--border-subtle); }
+.audience-entry:hover { padding-left: 0.8rem; }
+.audience-entry h4 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text);
+}
+.audience-entry span {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--text-quiet);
+  padding-left: 2rem;
+  flex-shrink: 0;
 }
 
 /* ═══ OFFER ═══ */
-.offer-spread { align-items: stretch; }
-.offer-spread .spread-inner {
-  max-width: 100%; padding: 0;
+.offer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--border-subtle);
 }
-.offer-left {
-  display: flex; flex-direction: column;
-  justify-content: center;
-  padding: 5rem 4rem;
-  border-right: 1px solid var(--rule);
-}
-.offer-tagline {
-  font-family: var(--serif);
-  font-size: 1.1rem; font-weight: 400;
-  font-style: italic; color: var(--grey-500);
-  margin-top: 1.5rem; line-height: 1.6;
-  border-left: 2px solid var(--grey-200);
-  padding-left: 1.2rem;
-}
-.offer-right {
-  display: flex; flex-direction: column;
-  justify-content: center;
-  padding: 5rem 4rem;
-  background: var(--black);
-  color: var(--white);
-}
-.offer-flag {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--grey-500);
-  margin-bottom: 1.5rem;
-}
-.offer-price {
-  font-family: var(--serif);
-  font-size: 5rem; font-weight: 300;
-  line-height: 1; margin-bottom: 0.3rem;
-}
-.offer-price-note {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  color: var(--grey-500);
-  margin-bottom: 2rem;
-}
-.offer-divider {
-  height: 1px;
-  background: rgba(255,255,255,0.1);
-  margin: 0.5rem 0 1.5rem;
-}
-.offer-list { list-style: none; margin-bottom: 2rem; }
-.offer-list li {
-  font-size: 0.95rem; font-weight: 300;
-  color: rgba(255,255,255,0.55);
-  padding: 0.3rem 0 0.3rem 1.2rem;
+.offer-story {
+  display: flex; align-items: center;
+  padding: 6rem 4rem;
   position: relative;
 }
-.offer-list li::before {
-  content: '\2014';
-  position: absolute; left: 0;
-  color: rgba(255,255,255,0.2);
+.offer-story::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, var(--accent-glow) 0%, transparent 60%);
+  pointer-events: none;
 }
-.btn-offer {
+.offer-story-inner {
+  max-width: 380px;
+  position: relative; z-index: 1;
+}
+.offer-label {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+.offer-story h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+.offer-story h2 em { font-style: italic; color: var(--accent); }
+.offer-story p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.offer-aside {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-quiet);
+  line-height: 1.7;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--accent-dim);
+}
+
+.offer-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 4rem;
+  background: var(--surface);
+  border-left: 1px solid var(--border-subtle);
+  position: relative;
+}
+.offer-detail::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 35%, var(--accent-glow) 0%, transparent 55%);
+  pointer-events: none;
+}
+.offer-card {
+  max-width: 340px; width: 100%;
+  position: relative; z-index: 1;
+}
+.offer-availability {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-quiet);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.offer-price { text-align: center; margin-bottom: 0.5rem; }
+.offer-price-num {
+  font-family: var(--serif);
+  font-size: clamp(4.5rem, 10vw, 7rem);
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.offer-price-sub {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--text-quiet);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.offer-rule {
+  width: 100%; height: 1px;
+  background: var(--border-subtle);
+  margin-bottom: 2rem;
+}
+.offer-includes {
+  list-style: none; margin-bottom: 2.5rem;
+}
+.offer-includes li {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  padding: 0.45rem 0 0.45rem 1.6rem;
+  position: relative;
+}
+.offer-includes li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 8px; height: 1px;
+  background: var(--accent);
+  opacity: 0.4;
+}
+.btn-begin {
   display: block; width: 100%;
   text-align: center;
   font-family: var(--sans);
-  font-size: 0.8rem; font-weight: 500;
+  font-size: 0.82rem;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.85rem 1.5rem;
-  background: var(--white);
-  color: var(--black);
-  transition: all 0.35s;
+  padding: 1rem;
+  background: var(--accent);
+  color: var(--bg);
   border: none; cursor: pointer;
+  border-radius: 1px;
+  transition: all 0.4s;
 }
-.btn-offer:hover { background: var(--grey-200); transform: translateY(-1px); }
+.btn-begin:hover {
+  background: #d4af5f;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 35px rgba(199,162,82,0.2);
+}
 
-/* ═══ PROOF ═══ */
-.proof-spread .spread-inner {
-  max-width: 640px; text-align: center;
+/* ═══ TESTIMONY ═══ */
+.testimony {
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 3rem;
 }
-.quote-mark {
+.testimony-inner { max-width: 660px; margin: 0 auto; }
+.testimony-open {
   font-family: var(--serif);
-  font-size: 5rem; line-height: 0.6;
-  color: var(--grey-200);
-  margin-bottom: 1.5rem;
+  font-size: 6rem;
+  line-height: 0.4;
+  color: var(--accent);
+  opacity: 0.2;
+  margin-bottom: 2.5rem;
+  user-select: none;
 }
-.proof-quote {
+.testimony blockquote {
   font-family: var(--serif);
   font-size: clamp(1.4rem, 2.5vw, 2rem);
-  font-weight: 400; font-style: italic;
-  line-height: 1.5; color: var(--black);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.55;
+  color: #fff;
   margin-bottom: 1.5rem;
 }
-.proof-author {
+.testimony-who {
   font-family: var(--mono);
   font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  font-weight: 300;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--grey-500);
+  color: var(--accent);
 }
-
-/* Carousel */
-.proof-carousel {
-  margin-top: 3rem; padding-top: 2rem;
-  border-top: 1px solid var(--rule);
-  position: relative; min-height: 120px;
+.testimony-carousel {
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+  min-height: 120px;
 }
 .carousel-slide {
   text-align: center;
-  max-width: 300px;
+  max-width: 340px;
   margin: 0 auto;
 }
 .carousel-slide p {
   font-family: var(--serif);
-  font-size: 1.05rem; font-style: italic;
-  line-height: 1.5; color: var(--grey-700);
-  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
 }
-.carousel-slide span {
+.carousel-slide cite {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
+  font-style: normal;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--grey-300);
+  color: var(--text-quiet);
 }
 .carousel-dots {
   display: flex; justify-content: center;
-  gap: 0.5rem; margin-top: 1.2rem;
+  gap: 0.6rem; margin-top: 1.5rem;
 }
 .carousel-dot {
-  width: 7px; height: 7px;
+  width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--grey-300);
+  background: var(--text-quiet);
+  opacity: 0.3;
   border: none; cursor: pointer;
   transition: all 0.3s; padding: 0;
 }
-.carousel-dot.active { background: var(--black); }
+.carousel-dot.active {
+  opacity: 1; background: var(--accent);
+  transform: scale(1.3);
+}
 
 /* ═══ CTA ═══ */
-.cta-spread .spread-inner {
-  text-align: center; max-width: 500px;
+.finale {
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 3rem;
 }
-.cta-spread h2 {
+.finale-inner { max-width: 480px; margin: 0 auto; }
+.finale h2 {
   font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 300; margin-bottom: 0.8rem;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 1rem;
 }
-.cta-spread h2 i { font-weight: 400; }
-.cta-spread p {
-  font-size: 1rem; font-weight: 300;
-  color: var(--grey-500); margin-bottom: 2.5rem;
+.finale h2 em { font-style: italic; color: var(--accent); }
+.finale p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
 }
-.cta-meta {
+.finale-sub {
   font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--grey-300);
+  color: var(--accent);
   margin-top: 1.5rem;
 }
 
-/* ═══ TRUST + FOOTER ═══ */
-.trust-footer {
-  padding: 2rem 4rem;
-  border-top: 1px solid var(--rule);
-  display: flex; justify-content: space-between;
-  align-items: baseline; flex-wrap: wrap; gap: 1rem;
+/* ═══ FOOTER ═══ */
+.site-footer {
+  padding: 2.5rem 3rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap; gap: 1rem;
 }
-.trust-items { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-.trust-item {
-  display: flex; align-items: center; gap: 0.3rem;
+.footer-left {
+  display: flex; gap: 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--text-quiet);
+}
+.footer-right {
   font-family: var(--mono);
   font-size: 0.75rem;
+  font-weight: 300;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--grey-300);
+  color: var(--text-quiet);
 }
-.trust-item svg { flex-shrink: 0; }
-.footer-links {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--grey-300);
-}
-.footer-links a {
-  color: var(--grey-300);
+.footer-right a {
+  color: var(--text-quiet);
   text-decoration: none;
+  margin-left: 1.5rem;
   transition: color 0.3s;
 }
-.footer-links a:hover { color: var(--black); }
+.footer-right a:first-child { margin-left: 0; }
+.footer-right a:hover { color: var(--accent); }
 
 /* ═══ COOKIE ═══ */
 .cookie-banner {
-  position: fixed; bottom: 0;
-  left: var(--sidebar-w); right: 0;
+  position: fixed; bottom: 1rem;
+  left: 0; right: 0;
   z-index: 1000;
-  padding: 0 2.5rem 1rem;
+  display: flex; justify-content: center;
+  padding: 0 1rem;
 }
 .cookie-inner {
-  max-width: 700px; margin: 0 auto;
-  background: var(--black);
-  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.8rem 1.5rem;
   display: flex; align-items: center;
   justify-content: space-between;
   gap: 1.5rem; flex-wrap: wrap;
+  max-width: 700px; width: 100%;
 }
 .cookie-inner p {
   font-size: 0.85rem; font-weight: 300;
-  color: rgba(255,255,255,0.5);
-  flex: 1; min-width: 220px; line-height: 1.5;
+  color: var(--text-muted);
 }
-.cookie-inner p a {
-  color: rgba(255,255,255,0.7);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
+.cookie-inner a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .cookie-actions { display: flex; gap: 0.5rem; }
 .cookie-btn {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.75rem; font-weight: 300;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  border: none; cursor: pointer;
+  padding: 0.45rem 1rem;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  cursor: pointer;
   transition: all 0.3s;
 }
-.cookie-accept { background: var(--white); color: var(--black); }
-.cookie-accept:hover { background: var(--grey-200); }
-.cookie-decline {
-  background: transparent;
-  color: rgba(255,255,255,0.4);
-  border: 1px solid rgba(255,255,255,0.15);
+.cookie-btn:hover { background: var(--accent-dim); }
+.cookie-accept {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
 }
-.cookie-decline:hover {
-  color: var(--white);
-  border-color: rgba(255,255,255,0.4);
-}
+.cookie-accept:hover { background: #d4af5f; }
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 1024px) {
-  :root { --sidebar-w: 180px; }
-  .spread-inner { padding: 4rem 3rem; }
-  .offer-left, .offer-right { padding: 4rem 3rem; }
+  .hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 8rem; }
+  .audience-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .offer { grid-template-columns: 1fr; }
+  .offer-story { padding: 5rem 3rem; }
+  .offer-detail { padding: 5rem 3rem; border-left: none; border-top: 1px solid var(--border-subtle); }
 }
 @media (max-width: 768px) {
-  .sidebar { display: none; }
-  .mobile-bar { display: flex; }
-  .content { margin-left: 0; }
-  :root { --sidebar-w: 0px; }
-  .spread { min-height: auto; }
-  .spread-inner { padding: 3rem 1.5rem; }
-  .offer-spread .spread-inner { grid-template-columns: 1fr; }
-  .offer-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 3rem 1.5rem; }
-  .offer-right { padding: 3rem 1.5rem; }
-  .audience-list { grid-template-columns: 1fr; }
-  .audience-item { border-right: none; }
-  .audience-item:nth-child(2n) { padding-left: 0; }
-  .audience-item:nth-child(2n):hover { padding-left: 0.8rem; }
-  .trust-footer { padding: 1.5rem; }
-  .cookie-banner { left: 0; padding: 0 1.5rem 1rem; }
-  .scroll-progress { left: 0; }
+  .site-header { padding: 1.5rem 1.5rem; }
+  .site-header.scrolled { padding: 1rem 1.5rem; }
+  .site-nav { display: none; }
+  .nav-burger { display: block; }
+  .hero { padding: 7rem 1.5rem 4rem; }
+  .premise, .testimony, .finale { padding: 5rem 1.5rem; }
+  .audience { padding: 5rem 1.5rem; }
+  .offer-story, .offer-detail { padding: 4rem 1.5rem; }
+  .site-footer { padding: 1.5rem; flex-direction: column; align-items: center; text-align: center; }
+  .footer-left { flex-direction: column; gap: 0.3rem; align-items: center; }
+  .footer-right a { margin: 0 0.5rem; }
+  .audience-entry span { display: none; }
+  .cookie-banner { bottom: 0.5rem; }
 }
 </style>
 </head>
 
 <body x-data="{
-  activeSection: 'home',
+  scrolled: false,
   drawerOpen: false,
   cookieShown: false,
   cookieDismissed: false,
@@ -578,160 +754,153 @@ body {
     { text: 'Quick turnaround, beautiful design, and he explained everything in plain English.', who: 'James T. \u2014 Manchester' },
     { text: 'I recommended GitFoundry to three colleagues. They all signed up within a week.', who: 'Daniel R. \u2014 Edinburgh' }
   ],
-  init() {
+  init: function() {
     var self = this;
     window.addEventListener('scroll', function() {
       var h = document.documentElement.scrollHeight - window.innerHeight;
       self.progress = h > 0 ? (window.scrollY / h) : 0;
+      self.scrolled = window.scrollY > 80;
     }, { passive: true });
     try {
-      if (!sessionStorage.getItem('gf_cookie_consent')) {
-        setTimeout(function() { self.cookieShown = true; }, 1500);
+      if (!sessionStorage.getItem('gf_ck')) {
+        setTimeout(function() { self.cookieShown = true; }, 2000);
       } else { self.cookieDismissed = true; }
     } catch(e) {}
     setInterval(function() {
       self.activeQuote = (self.activeQuote + 1) % self.quotes.length;
     }, 5000);
   },
-  setSection(s) { this.activeSection = s; },
-  acceptCookie() {
-    try { sessionStorage.setItem('gf_cookie_consent', 'accepted'); } catch(e) {}
+  acceptCookie: function() {
+    try { sessionStorage.setItem('gf_ck', 'y'); } catch(e) {}
     this.cookieShown = false; this.cookieDismissed = true;
   },
-  declineCookie() {
-    try { sessionStorage.setItem('gf_cookie_consent', 'declined'); } catch(e) {}
+  declineCookie: function() {
+    try { sessionStorage.setItem('gf_ck', 'n'); } catch(e) {}
     this.cookieShown = false; this.cookieDismissed = true;
   },
-  closeDrawer() { this.drawerOpen = false; }
+  closeDrawer: function() { this.drawerOpen = false; }
 }">
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<!-- SCROLL PROGRESS -->
 <div class="scroll-progress" :style="'width:' + (progress * 100) + '%'" aria-hidden="true"></div>
 
-<!-- SIDEBAR (desktop) -->
-<aside class="sidebar" aria-label="Site navigation">
-  <div class="sidebar-top">
-    <a href="#" class="wordmark" aria-label="GitFoundry home">Git<em>Foundry</em></a>
-    <nav>
-      <ul class="side-nav">
-        <li><a href="#home" :class="activeSection === 'home' ? 'active' : ''">Home</a></li>
-        <li><a href="#for" :class="activeSection === 'for' ? 'active' : ''">Who It's For</a></li>
-        <li><a href="#offer" :class="activeSection === 'offer' ? 'active' : ''">Pricing</a></li>
-        <li><a href="#proof" :class="activeSection === 'proof' ? 'active' : ''">Clients</a></li>
-        <li><a href="brief.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="sidebar-bottom">
-    <a href="legal.html">Privacy</a> · <a href="legal.html#terms">Terms</a><br>
-    Based in the UK<br>
-    &copy; 2026
-  </div>
-</aside>
-
-<!-- MOBILE BAR -->
-<div class="mobile-bar">
-  <a href="#" class="wordmark" aria-label="GitFoundry home">Git<em>Foundry</em></a>
+<!-- NAV -->
+<header class="site-header" :class="scrolled ? 'scrolled' : ''" role="banner">
+  <a href="#" class="logo" aria-label="GitFoundry home">GitFoundry</a>
+  <nav aria-label="Main navigation">
+    <ul class="site-nav">
+      <li><a href="#audience">Who</a></li>
+      <li><a href="#offer">Offer</a></li>
+      <li><a href="#proof">Proof</a></li>
+      <li><a href="brief.html">Begin</a></li>
+    </ul>
+  </nav>
   <button class="nav-burger" :class="drawerOpen ? 'open' : ''"
     @click="drawerOpen = !drawerOpen"
     aria-label="Menu" :aria-expanded="drawerOpen">
     <span></span><span></span><span></span>
   </button>
-</div>
+</header>
 
-<!-- MOBILE DRAWER -->
 <div class="drawer-backdrop" :class="drawerOpen ? 'open' : ''" @click="closeDrawer()"></div>
 <nav class="mobile-drawer" :class="drawerOpen ? 'open' : ''" aria-label="Mobile navigation">
-  <a href="#home" @click="closeDrawer()">Home</a>
-  <a href="#for" @click="closeDrawer()">Who It's For</a>
-  <a href="#offer" @click="closeDrawer()">Pricing</a>
-  <a href="#proof" @click="closeDrawer()">Clients</a>
-  <a href="brief.html">Contact</a>
+  <a href="#audience" @click="closeDrawer()">Who It's For</a>
+  <a href="#offer" @click="closeDrawer()">The Offer</a>
+  <a href="#proof" @click="closeDrawer()">Proof</a>
+  <a href="brief.html">Begin</a>
 </nav>
 
-<!-- CONTENT -->
-<main class="content" id="main">
+<main id="main">
 
   <!-- HERO -->
-  <section class="spread hero" id="home"
-    x-intersect:enter="setSection('home')">
-    <div class="spread-inner">
-      <div class="hero-label">GitFoundry.co.uk</div>
-      <h1>We craft websites that cost <i>nothing</i> to host.</h1>
-      <p class="hero-sub">Hand-coded, beautifully designed websites deployed on GitHub Pages. You pay once. Your site stays live forever.</p>
+  <section class="hero" id="home" aria-label="Introduction">
+    <div>
+      <div class="hero-label">GitFoundry · United Kingdom</div>
+      <h1>Beautiful websites, <strong>zero hosting fees.</strong></h1>
+    </div>
+    <div class="hero-right">
+      <p class="hero-tagline">The website is the permanent home.</p>
+      <p class="hero-desc">Hand-coded, hosted free on GitHub Pages. You pay once. Your site stays live forever. No renewals, no platform pulling the plug.</p>
       <div class="hero-actions">
         <a href="#offer" class="btn btn-primary">See the Offer</a>
-        <a href="brief.html" class="btn btn-text">Start a conversation</a>
+        <a href="brief.html" class="btn btn-outline">Start a conversation</a>
       </div>
     </div>
   </section>
 
+  <!-- PREMISE -->
+  <section class="scene premise" aria-label="The premise">
+    <div class="premise-inner a-reveal"
+      x-intersect:enter.once="$el.classList.add('shown')">
+      <div class="premise-tag">The Premise</div>
+      <h2>Every other platform charges you rent. We believe your website should <em>outlast</em> you.</h2>
+      <p>No templates. No page builders. Every pixel placed with intention, deployed on infrastructure that costs nothing to maintain.</p>
+    </div>
+  </section>
+
   <!-- AUDIENCE -->
-  <section class="spread" id="for"
-    x-intersect:enter="setSection('for')">
-    <div class="spread-inner">
-      <div class="audience-intro a-reveal"
+  <section class="scene audience" id="audience" aria-label="Who this is for">
+    <div class="audience-inner">
+      <div class="audience-left a-reveal"
         x-intersect:enter.once="$el.classList.add('shown')">
-        <h2 class="spread-title">Built for people whose ideas deserve a <i>permanent home</i></h2>
-        <p class="spread-sub">A website hosted on GitHub Pages isn't a temporary landing page. It's a digital presence that stays live as long as you want it to. No renewals, no expiry, no platform pulling the plug.</p>
+        <h2>Built for those who think in <em>decades.</em></h2>
       </div>
       <div class="audience-list a-reveal"
         x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="audience-item"><h4>Researchers &amp; Scientists</h4><p>Your lab, your papers, your findings — on a site you control.</p></div>
-        <div class="audience-item"><h4>PhD &amp; MSc Students</h4><p>A professional presence that grows from student to professor.</p></div>
-        <div class="audience-item"><h4>Knowledge Workers</h4><p>Your expertise deserves more than a LinkedIn page.</p></div>
-        <div class="audience-item"><h4>Fund Managers &amp; Finance</h4><p>Professional, understated, and always available.</p></div>
-        <div class="audience-item"><h4>Software Developers</h4><p>Turn your repos into a portfolio that gets attention.</p></div>
-        <div class="audience-item"><h4>Writers &amp; Thought Leaders</h4><p>Your body of work, in one place you fully own.</p></div>
-        <div class="audience-item"><h4>Non-Profits &amp; Foundations</h4><p>Zero hosting costs. More budget for the mission.</p></div>
-        <div class="audience-item"><h4>Creatives &amp; Freelancers</h4><p>Pay once and focus on your craft.</p></div>
+        <div class="audience-entry"><h4>Researchers &amp; Scientists</h4><span>Labs, papers, findings</span></div>
+        <div class="audience-entry"><h4>PhD &amp; MSc Students</h4><span>Student to professor</span></div>
+        <div class="audience-entry"><h4>Knowledge Workers</h4><span>Beyond LinkedIn</span></div>
+        <div class="audience-entry"><h4>Fund Managers &amp; Finance</h4><span>Understated credibility</span></div>
+        <div class="audience-entry"><h4>Software Developers</h4><span>Repos to portfolio</span></div>
+        <div class="audience-entry"><h4>Writers &amp; Thinkers</h4><span>Own the narrative</span></div>
+        <div class="audience-entry"><h4>Non-Profits &amp; Foundations</h4><span>Budget for the mission</span></div>
+        <div class="audience-entry"><h4>Creatives &amp; Freelancers</h4><span>Pay once, create always</span></div>
       </div>
     </div>
   </section>
 
   <!-- OFFER -->
-  <section class="spread offer-spread" id="offer"
-    x-intersect:enter="setSection('offer')">
-    <div class="spread-inner">
-      <div class="offer-left a-reveal"
+  <section class="offer" id="offer" aria-label="Pricing">
+    <div class="offer-story">
+      <div class="offer-story-inner a-reveal"
         x-intersect:enter.once="$el.classList.add('shown')">
-        <h2 class="spread-title">One price. <i>Everything included.</i></h2>
-        <p class="spread-sub">We're building our portfolio and taking on a limited number of projects at a fraction of our standard rate. Same premium work — just at a price that won't come back.</p>
-        <p class="offer-tagline">No tiers. No upsells. Just a beautiful website, deployed and ready.</p>
+        <div class="offer-label">The Offer</div>
+        <h2>One price. <em>Everything.</em></h2>
+        <p>We're building our portfolio and accepting a limited number of commissions at a fraction of our standard rate. Same craft. A price that won't return.</p>
+        <div class="offer-aside">No tiers. No upsells. Just a beautiful website, deployed and ready.</div>
       </div>
-      <div class="offer-right a-reveal"
+    </div>
+    <div class="offer-detail">
+      <div class="offer-card a-reveal"
         x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="offer-flag">Launch Offer — Limited Availability</div>
-        <div class="offer-price">£50</div>
-        <div class="offer-price-note">One-time payment · No monthly fees ever</div>
-        <div class="offer-divider"></div>
-        <ul class="offer-list">
+        <div class="offer-availability">Launch Offer — Limited Availability</div>
+        <div class="offer-price"><span class="offer-price-num">£50</span></div>
+        <div class="offer-price-sub">One-time payment · No monthly fees ever</div>
+        <div class="offer-rule"></div>
+        <ul class="offer-includes">
           <li>Custom, hand-coded design</li>
           <li>Up to 5 responsive pages</li>
           <li>Contact form &amp; GDPR notice</li>
           <li>GitHub Pages deployment</li>
-          <li>Custom domain hookup</li>
-          <li>SEO &amp; Google Analytics</li>
+          <li>Custom domain setup</li>
+          <li>SEO &amp; Google Analytics ready</li>
           <li>You own the code — completely</li>
         </ul>
-        <div class="offer-divider"></div>
-        <a href="brief.html" class="btn-offer">Start Your Project</a>
+        <a href="brief.html" class="btn-begin">Start Your Project</a>
       </div>
     </div>
   </section>
 
-  <!-- PROOF -->
-  <section class="spread proof-spread" id="proof"
-    x-intersect:enter="setSection('proof')">
-    <div class="spread-inner a-reveal"
+  <!-- TESTIMONY -->
+  <section class="scene testimony" id="proof" aria-label="Client testimonials">
+    <div class="testimony-inner a-reveal"
       x-intersect:enter.once="$el.classList.add('shown')">
-      <div class="quote-mark">&ldquo;</div>
-      <blockquote class="proof-quote">I was paying £30 a month on Squarespace. Now I have a better site and pay nothing. Wish I'd done this sooner.</blockquote>
-      <div class="proof-author">Priya M. — Yoga Instructor, London</div>
+      <div class="testimony-open" aria-hidden="true">&ldquo;</div>
+      <blockquote>I was paying £30 a month on Squarespace. Now I have a better site and pay nothing. Wish I'd done this sooner.</blockquote>
+      <div class="testimony-who">Priya M. — Yoga Instructor, London</div>
 
-      <div class="proof-carousel">
+      <div class="testimony-carousel">
         <template x-for="(q, i) in quotes" :key="i">
           <div class="carousel-slide"
             x-show="activeQuote === i"
@@ -742,7 +911,7 @@ body {
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0">
             <p x-text="'\u201C' + q.text + '\u201D'"></p>
-            <span x-text="q.who"></span>
+            <cite x-text="q.who"></cite>
           </div>
         </template>
         <div class="carousel-dots">
@@ -757,47 +926,43 @@ body {
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="spread cta-spread">
-    <div class="spread-inner a-reveal"
+  <!-- FINALE -->
+  <section class="scene finale" aria-label="Get started">
+    <div class="finale-inner a-reveal"
       x-intersect:enter.once="$el.classList.add('shown')">
-      <h2>Ready to <i>begin?</i></h2>
-      <p>Send a message and I'll reply within 24 hours with a tailored plan and quote.</p>
+      <h2>Ready to build something <em>permanent?</em></h2>
+      <p>Send a message. I'll reply within 24 hours with a tailored plan.</p>
       <a href="brief.html" class="btn btn-primary">Start a Conversation</a>
-      <div class="cta-meta">No commitment · Free consultation · UK-based</div>
+      <div class="finale-sub">No commitment · Free consultation · UK-based</div>
     </div>
   </section>
 
-  <!-- TRUST + FOOTER -->
-  <div class="trust-footer">
-    <div class="trust-items">
-      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> GDPR Compliant</div>
-      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> SSL Encrypted</div>
-      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg> No Tracking</div>
-    </div>
-    <div class="footer-links">
-      <a href="legal.html">Privacy</a> · <a href="legal.html#terms">Terms</a> · <a href="legal.html#cookies">Cookies</a>
-    </div>
-  </div>
-
 </main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <span>&copy; 2026 GitFoundry.co.uk</span>
+    <span>Hand-coded in the UK</span>
+  </div>
+  <div class="footer-right">
+    <a href="legal.html">Privacy</a>
+    <a href="legal.html#terms">Terms</a>
+    <a href="legal.html#cookies">Cookies</a>
+    <a href="brief.html">Contact</a>
+  </div>
+</footer>
 
 <!-- COOKIE -->
 <div class="cookie-banner"
   x-show="cookieShown && !cookieDismissed"
-  x-transition:enter="transition ease-out duration-500"
-  x-transition:enter-start="transform translate-y-full opacity-0"
-  x-transition:enter-end="transform translate-y-0 opacity-100"
-  x-transition:leave="transition ease-in duration-300"
-  x-transition:leave-start="transform translate-y-0 opacity-100"
-  x-transition:leave-end="transform translate-y-full opacity-0"
-  x-cloak
+  x-transition x-cloak
   role="dialog" aria-label="Cookie consent">
   <div class="cookie-inner">
-    <p>This site uses no tracking cookies. We load fonts from Google Fonts. <a href="legal.html#cookies">Cookie policy</a></p>
+    <p>This site uses no tracking cookies. Fonts loaded from Google Fonts. <a href="legal.html#cookies">Cookie policy</a></p>
     <div class="cookie-actions">
       <button class="cookie-btn cookie-accept" @click="acceptCookie()">Understood</button>
-      <button class="cookie-btn cookie-decline" @click="declineCookie()">Decline</button>
+      <button class="cookie-btn" @click="declineCookie()">Decline</button>
     </div>
   </div>
 </div>
