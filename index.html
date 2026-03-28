@@ -32,12 +32,12 @@
   --gold: #9e8c6c;
   --border: #ddd;
   --border-subtle: #e8e8e8;
-  --offer-bg: #111;
-  --offer-text: #fafafa;
-  --offer-muted: rgba(255,255,255,0.6);
-  --offer-quiet: rgba(255,255,255,0.4);
-  --offer-rule: rgba(255,255,255,0.1);
-  --offer-avail: #fafafa;
+  --offer-bg: #fdfdfd;
+  --offer-text: #111;
+  --offer-muted: #555;
+  --offer-quiet: #888;
+  --offer-rule: #e8e8e8;
+  --offer-avail: #888;
   --btn-primary-bg: #111;
   --btn-primary-text: #fafafa;
   --btn-outline-color: #111;
@@ -501,6 +501,7 @@ body {
   font-size: clamp(4rem, 10vw, 5.5rem);
   font-weight: 300;
   line-height: 1;
+  color: var(--offer-text);
 }
 .night .offer-price-num { color: var(--gold); }
 .offer-price-sub {
@@ -539,16 +540,12 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   padding: 0.85rem;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   border: none; cursor: pointer;
   transition: all 0.35s;
 }
-.night .btn-begin {
-  background: var(--gold);
-  color: var(--offer-bg);
-}
-.btn-begin:hover { transform: translateY(-1px); opacity: 0.9; }
+.btn-begin:hover { transform: translateY(-1px); opacity: 0.85; }
 
 /* ═══ FINALE ═══ */
 .finale {
