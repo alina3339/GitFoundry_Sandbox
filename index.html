@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GitFoundry — Beautiful Websites, Zero Hosting Fees</title>
 <meta name="description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees. Based in the UK.">
-<meta name="theme-color" content="#111">
+<meta name="theme-color" content="#fdfdfd">
 <link rel="canonical" href="https://gitfoundry.co.uk/">
 <meta property="og:title" content="GitFoundry — Beautiful Websites, Zero Hosting Fees">
 <meta property="og:description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees. Based in the UK.">
@@ -14,103 +14,115 @@
 <meta property="og:locale" content="en_GB">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" as="style" onload="this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@300;400;500;600&family=Fira+Code:wght@400&display=swap" as="style" onload="this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@300;400;500;600&family=Fira+Code:wght@400&display=swap" rel="stylesheet"></noscript>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>
-/* ═══ NIGHT THEME (default) ═══ */
+/*
+  GOLDEN RATIO SCALE (base 1rem, ratio 1.618)
+  -2: 0.618rem   -1: 0.786rem   0: 1rem
+   1: 1.272rem    2: 1.618rem   3: 2.058rem
+   4: 2.618rem    5: 3.33rem    6: 4.236rem
+*/
+
 :root {
-  --bg: #111;
-  --surface: #1a1a1a;
-  --text: #e0e0e0;
-  --text-soft: #bbb;
-  --text-muted: #888;
-  --text-quiet: #666;
-  --accent: #e8a435;
-  --accent-dim: rgba(232,164,53,0.12);
-  --link: #e0e0e0;
-  --link-hover: #e8a435;
-  --border: #333;
-  --border-subtle: #222;
-  --stat-num: #e8a435;
-  --offer-border: var(--accent);
-  --savings-head-bg: #222;
-  --savings-head-text: #e0e0e0;
-  --btn-bg: #e0e0e0;
-  --btn-text: #111;
-  --btn-hover-bg: #e8a435;
-  --btn-hover-text: #111;
-  --selection-bg: #e8a435;
-  --selection-text: #111;
-  --toggle-text: #888;
-  --mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', monospace;
+  --bg: #fdfdfd;
+  --surface: #f5f4f0;
+  --text: #2a2a2a;
+  --text-soft: #444;
+  --text-muted: #666;
+  --text-quiet: #999;
+  --heading: #1a1a1a;
+  --link: #e07020;
+  --link-hover: #c55a10;
+  --link-visited: #8a5030;
+  --accent-bar: #e07020;
+  --accent-bg: rgba(224,112,32,0.06);
+  --border: #ddd;
+  --border-subtle: #eee;
+  --tag-bg: #f0e8f0;
+  --tag-text: #666;
+  --offer-bg: #fdfdfd;
+  --offer-border: #e07020;
+  --savings-head-bg: #2a2a2a;
+  --savings-head-text: #fafafa;
+  --btn-bg: #e07020;
+  --btn-text: #fff;
+  --btn-hover: #c55a10;
+  --btn-outline-color: #2a2a2a;
+  --selection-bg: #e07020;
+  --selection-text: #fff;
+  --toggle-color: #999;
+
+  --serif: 'Source Serif 4', Charter, 'Bitstream Charter', Georgia, serif;
+  --sans: 'Source Sans 3', -apple-system, system-ui, sans-serif;
+  --mono: 'Fira Code', monospace;
 }
 
-/* ═══ DAY THEME ═══ */
-.day {
-  --bg: #fdfdfd;
-  --surface: #f5f5f3;
-  --text: #111;
-  --text-soft: #333;
-  --text-muted: #555;
-  --text-quiet: #888;
-  --accent: #b07d1a;
-  --accent-dim: rgba(176,125,26,0.08);
-  --link: #111;
-  --link-hover: #b07d1a;
-  --border: #ddd;
-  --border-subtle: #e8e8e8;
-  --stat-num: #111;
-  --offer-border: #111;
-  --savings-head-bg: #111;
-  --savings-head-text: #fafafa;
-  --btn-bg: #111;
-  --btn-text: #fafafa;
-  --btn-hover-bg: #333;
-  --btn-hover-text: #fafafa;
-  --selection-bg: #111;
-  --selection-text: #fafafa;
-  --toggle-text: #888;
+.night {
+  --bg: #1a1a1a;
+  --surface: #222;
+  --text: #ddd;
+  --text-soft: #bbb;
+  --text-muted: #999;
+  --text-quiet: #666;
+  --heading: #eee;
+  --link: #e8a040;
+  --link-hover: #f0b860;
+  --link-visited: #c89050;
+  --accent-bar: #e8a040;
+  --accent-bg: rgba(232,160,64,0.08);
+  --border: #333;
+  --border-subtle: #2a2a2a;
+  --tag-bg: rgba(232,160,64,0.1);
+  --tag-text: #ccc;
+  --offer-bg: #1a1a1a;
+  --offer-border: #e8a040;
+  --savings-head-bg: #333;
+  --savings-head-text: #eee;
+  --btn-bg: #e8a040;
+  --btn-text: #1a1a1a;
+  --btn-hover: #f0b860;
+  --btn-outline-color: #ddd;
+  --selection-bg: #e8a040;
+  --selection-text: #1a1a1a;
+  --toggle-color: #666;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
-
 body {
-  font-family: var(--mono);
+  font-family: var(--sans);
   background: var(--bg);
   color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.7;
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 400;
+  line-height: 1.618;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   transition: background 0.4s, color 0.4s;
 }
-
 ::selection { background: var(--selection-bg); color: var(--selection-text); }
 [x-cloak] { display: none !important; }
 
-/* Links — underlined, monospace, like the screenshot */
 a {
   color: var(--link);
   text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-  transition: color 0.3s;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
 }
 a:hover { color: var(--link-hover); }
+a:visited { color: var(--link-visited); }
 
-/* A11Y */
-*:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+*:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 .skip-link {
   position: absolute; top: -100%; left: 1rem;
-  background: var(--accent); color: var(--bg);
-  padding: 0.5rem 1rem; font-size: 0.8rem;
+  background: var(--link); color: #fff;
+  padding: 0.382rem 0.786rem; font-size: 0.786rem;
   z-index: 999; text-decoration: none;
 }
-.skip-link:focus { top: 0.5rem; }
+.skip-link:focus { top: 0.382rem; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -118,181 +130,194 @@ a:hover { color: var(--link-hover); }
   }
 }
 
-/* ═══ SCROLL PROGRESS ═══ */
 .scroll-progress {
   position: fixed; top: 0; left: 0;
-  height: 2px; background: var(--accent);
+  height: 3px; background: var(--link);
   z-index: 200; pointer-events: none;
 }
 
 /* ═══ LAYOUT ═══ */
 .container {
-  max-width: 720px;
+  max-width: 780px;
   margin: 0 auto;
-  padding: 0 2rem;
-}
-.rule {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 2.5rem 0;
-  transition: border-color 0.4s;
+  padding: 0 1.618rem;
 }
 
 /* ═══ NAV ═══ */
 header {
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--border);
   transition: border-color 0.4s;
 }
 .nav-inner {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 }
 .nav-left {
-  display: flex; align-items: baseline; gap: 1.2rem;
+  display: flex; align-items: center; gap: 1rem;
 }
 .wordmark {
-  font-size: 1rem;
+  font-family: var(--serif);
+  font-size: 1.272rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--heading);
   text-decoration: none;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
+.wordmark:visited { color: var(--heading); }
 .theme-toggle {
   background: none; border: none;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  color: var(--toggle-text);
+  font-family: var(--sans);
+  font-size: 0.786rem;
+  color: var(--toggle-color);
   cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.3s;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  transition: all 0.3s;
+  text-decoration: none;
 }
-.theme-toggle:hover { color: var(--accent); }
+.theme-toggle:hover { color: var(--text); border-color: var(--text-muted); }
 
 .nav-links {
-  display: flex; gap: 1.5rem; list-style: none;
+  display: flex; gap: 1.618rem; list-style: none;
 }
 .nav-links a {
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   font-weight: 400;
-  color: var(--text-muted);
+  color: var(--link);
 }
-.nav-links a:hover { color: var(--text); }
 
-/* Burger */
 .nav-burger {
   display: none;
   background: none; border: none; cursor: pointer;
-  font-family: var(--mono);
-  font-size: 1.2rem;
-  color: var(--text);
-  padding: 0;
+  font-size: 1.5rem; color: var(--text); padding: 0;
+  line-height: 1;
 }
-
 .mobile-drawer {
   position: fixed; top: 0; right: 0;
   width: 260px; height: 100vh;
   background: var(--bg);
   border-left: 1px solid var(--border);
   z-index: 89;
-  padding: 4rem 2rem 3rem;
+  padding: 3rem 1.618rem;
   display: flex; flex-direction: column; gap: 0;
   transform: translateX(100%);
   transition: transform 0.3s ease, background 0.4s;
 }
 .mobile-drawer.open { transform: translateX(0); }
 .mobile-drawer a {
-  font-size: 0.9rem;
-  padding: 0.8rem 0;
+  font-size: 1rem; padding: 0.618rem 0;
   border-bottom: 1px solid var(--border-subtle);
-  color: var(--text);
+  color: var(--link);
 }
-.mobile-drawer a:hover { color: var(--accent); }
 .drawer-backdrop {
   position: fixed; inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.3);
   z-index: 88; opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
+  transition: opacity 0.3s; pointer-events: none;
 }
 .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
 
+/* ═══ HEADING STYLE — left border accent (ScienceDirect) ═══ */
+.h-accent {
+  border-left: 3px solid var(--accent-bar);
+  padding-left: 1rem;
+  transition: border-color 0.4s;
+}
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  color: var(--heading);
+  font-weight: 400;
+  transition: color 0.4s;
+}
+
+/* ═══ LABEL — like "In subject area:" ═══ */
+.label {
+  font-size: 0.786rem;
+  font-weight: 400;
+  color: var(--text-quiet);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.382rem;
+}
+
+/* ═══ TAG — like the purple category tags ═══ */
+.tag {
+  display: inline-block;
+  font-size: 0.786rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 0.2rem 0.618rem;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.tag:hover { opacity: 0.8; }
+
 /* ═══ HERO ═══ */
 .hero {
-  padding: 4rem 0 3rem;
+  padding: 2.618rem 0;
   border-bottom: 1px solid var(--border);
   transition: border-color 0.4s;
 }
 .hero-label {
-  font-size: 0.75rem;
+  font-size: 0.786rem;
   color: var(--text-quiet);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1.5rem;
-  opacity: 0; animation: fadeIn 0.6s 0.2s ease forwards;
+  margin-bottom: 0.618rem;
+  opacity: 0; animation: fadeIn 0.6s 0.1s ease forwards;
 }
 .hero h1 {
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-size: clamp(1.618rem, 4vw, 2.618rem);
   font-weight: 300;
-  line-height: 1.4;
-  margin-bottom: 1.5rem;
-  opacity: 0; animation: fadeIn 0.6s 0.4s ease forwards;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  opacity: 0; animation: fadeIn 0.6s 0.3s ease forwards;
 }
-.hero h1 em {
-  font-style: italic;
-  color: var(--accent);
-}
+.hero h1 em { font-style: italic; font-weight: 400; }
 .hero-tagline {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--accent);
-  border-left: 2px solid var(--accent);
-  padding-left: 1rem;
-  margin-bottom: 1.5rem;
-  opacity: 0; animation: fadeIn 0.6s 0.6s ease forwards;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-soft);
+  margin-bottom: 1rem;
+  opacity: 0; animation: fadeIn 0.6s 0.5s ease forwards;
 }
 .hero-desc {
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  max-width: 560px;
-  margin-bottom: 2rem;
-  opacity: 0; animation: fadeIn 0.6s 0.8s ease forwards;
+  max-width: 540px;
+  margin-bottom: 1.618rem;
+  opacity: 0; animation: fadeIn 0.6s 0.6s ease forwards;
 }
 .hero-actions {
-  display: flex; gap: 1rem; flex-wrap: wrap;
-  opacity: 0; animation: fadeIn 0.6s 1s ease forwards;
+  display: flex; gap: 0.786rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeIn 0.6s 0.8s ease forwards;
 }
 
-/* ═══ BUTTONS ═══ */
 .btn {
-  font-family: var(--mono);
-  font-size: 0.78rem;
+  font-family: var(--sans);
+  font-size: 0.88rem;
   font-weight: 500;
   text-decoration: none;
-  padding: 0.6rem 1.5rem;
+  padding: 0.618rem 1.618rem;
+  border-radius: 3px;
   transition: all 0.3s;
-  cursor: pointer;
-  border: none;
+  cursor: pointer; border: none;
 }
 .btn-primary {
   background: var(--btn-bg);
   color: var(--btn-text);
 }
-.btn-primary:hover {
-  background: var(--btn-hover-bg);
-  color: var(--btn-hover-text);
-}
-.btn-text {
+.btn-primary:hover, .btn-primary:visited { background: var(--btn-hover); color: var(--btn-text); }
+.btn-outline {
   background: none;
-  color: var(--text-muted);
-  padding: 0.6rem 0;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--btn-outline-color);
+  border: 1px solid var(--btn-outline-color);
 }
-.btn-text:hover { color: var(--text); }
+.btn-outline:hover { background: var(--text); color: var(--bg); }
+.btn-outline:visited { color: var(--btn-outline-color); }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
@@ -301,9 +326,10 @@ header {
 
 /* ═══ STATS ═══ */
 .stats-bar {
-  padding: 2rem 0;
+  padding: 1.618rem 0;
   border-bottom: 1px solid var(--border);
-  transition: border-color 0.4s;
+  background: var(--surface);
+  transition: background 0.4s, border-color 0.4s;
 }
 .stats-grid {
   display: grid;
@@ -312,143 +338,136 @@ header {
   text-align: center;
 }
 .stat-number {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--stat-num);
+  font-family: var(--serif);
+  font-size: 1.618rem;
+  font-weight: 600;
+  color: var(--heading);
   line-height: 1;
-  margin-bottom: 0.3rem;
-  transition: color 0.4s;
+  margin-bottom: 0.2rem;
 }
 .stat-label {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   color: var(--text-quiet);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 
 /* ═══ SECTIONS ═══ */
 .section {
-  padding: 3.5rem 0;
+  padding: 2.618rem 0;
   border-bottom: 1px solid var(--border);
   transition: border-color 0.4s;
 }
-.section-header { margin-bottom: 2.5rem; }
+.section-header { margin-bottom: 1.618rem; }
 .section-title {
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
-  font-weight: 400;
-  line-height: 1.4;
-  margin-bottom: 0.8rem;
+  font-size: clamp(1.272rem, 3vw, 1.618rem);
+  line-height: 1.3;
+  margin-bottom: 0.618rem;
 }
-.section-title em { font-style: italic; color: var(--accent); }
+.section-title em { font-style: italic; color: var(--link); }
 .section-intro {
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  max-width: 520px;
+  max-width: 540px;
 }
 
 /* ═══ SERVICES ═══ */
-.services-list { }
 .service-item {
-  padding: 1.5rem 0;
+  padding: 1.272rem 0;
   border-top: 1px solid var(--border-subtle);
   transition: border-color 0.4s;
 }
 .service-item:first-child { border-top: none; }
 .service-item h3 {
-  font-size: 0.95rem;
-  font-weight: 500;
-  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.382rem;
 }
 .service-item p {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  line-height: 1.7;
 }
 
 /* ═══ OFFER ═══ */
 .offer-card {
-  border: 1px solid var(--offer-border);
-  padding: 2rem;
-  margin-top: 2rem;
-  transition: border-color 0.4s;
+  border: 2px solid var(--offer-border);
+  border-radius: 3px;
+  padding: 1.618rem;
+  margin-top: 1.618rem;
+  background: var(--accent-bg);
+  transition: border-color 0.4s, background 0.4s;
 }
 .offer-flag {
-  font-size: 0.72rem;
+  font-size: 0.786rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--link);
+  margin-bottom: 1rem;
 }
 .offer-price {
-  font-size: 2.5rem;
+  font-family: var(--serif);
+  font-size: 2.618rem;
   font-weight: 300;
-  color: var(--accent);
+  color: var(--heading);
   line-height: 1;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 .offer-note {
-  font-size: 0.75rem;
+  font-size: 0.786rem;
   color: var(--text-quiet);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.272rem;
 }
 .offer-rule {
   border: none;
-  border-top: 1px solid var(--border-subtle);
-  margin: 1rem 0;
-  transition: border-color 0.4s;
+  border-top: 1px solid var(--border);
+  margin: 0.786rem 0;
 }
-.offer-list {
-  list-style: none;
-  margin-bottom: 1.5rem;
-}
+.offer-list { list-style: none; margin-bottom: 1.272rem; }
 .offer-list li {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  padding: 0.25rem 0 0.25rem 1.5rem;
+  padding: 0.25rem 0 0.25rem 1.272rem;
   position: relative;
 }
 .offer-list li::before {
-  content: '-';
+  content: '\2022';
   position: absolute; left: 0;
-  color: var(--text-quiet);
+  color: var(--link);
+  font-size: 1.1rem;
+  line-height: 1.4;
 }
 .btn-offer {
   display: block; width: 100%;
-  font-family: var(--mono);
-  font-size: 0.78rem; font-weight: 500;
+  font-family: var(--sans);
+  font-size: 0.88rem; font-weight: 500;
   text-align: center;
   text-decoration: none;
-  padding: 0.7rem;
+  padding: 0.618rem;
   background: var(--btn-bg);
   color: var(--btn-text);
-  border: none; cursor: pointer;
+  border: none; border-radius: 3px;
+  cursor: pointer;
   transition: all 0.3s;
 }
-.btn-offer:hover {
-  background: var(--btn-hover-bg);
-  color: var(--btn-hover-text);
-}
+.btn-offer:hover, .btn-offer:visited { background: var(--btn-hover); color: var(--btn-text); }
 
 /* ═══ SAVINGS ═══ */
 .savings-layout {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
-  gap: 2.5rem;
+  gap: 1.618rem;
   align-items: start;
 }
 .savings-text h3 {
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.4;
-  margin-bottom: 0.8rem;
+  font-size: 1.272rem;
+  line-height: 1.3;
+  margin-bottom: 0.618rem;
 }
-.savings-text h3 em { font-style: italic; color: var(--accent); }
-.savings-text p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
+.savings-text h3 em { font-style: italic; color: var(--link); }
+.savings-text p { font-size: 0.95rem; color: var(--text-muted); }
 .savings-table {
   border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
   transition: border-color 0.4s;
 }
 .savings-row {
@@ -458,149 +477,130 @@ header {
 .savings-row.head {
   background: var(--savings-head-bg);
   color: var(--savings-head-text);
-  transition: background 0.4s;
 }
 .savings-cell {
-  padding: 0.8rem 0.6rem;
+  padding: 0.786rem 0.618rem;
   text-align: center;
   border-right: 1px solid var(--border);
-  font-size: 0.78rem;
-  transition: border-color 0.4s;
+  font-size: 0.88rem;
 }
 .savings-cell:last-child { border-right: none; }
 .savings-row.head .savings-cell {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-color: rgba(255,255,255,0.08);
+  letter-spacing: 0.04em;
+  border-color: rgba(255,255,255,0.1);
 }
 .savings-cell .big {
   display: block;
-  font-size: 1.3rem;
+  font-family: var(--serif);
+  font-size: 1.618rem;
   font-weight: 300;
   line-height: 1;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
-.savings-cell .small {
-  font-size: 0.62rem;
-  color: var(--text-quiet);
-}
+.savings-cell .small { font-size: 0.68rem; color: var(--text-quiet); }
 
 /* ═══ PROCESS ═══ */
-.process-list { }
 .process-step {
-  padding: 1.2rem 0;
+  padding: 1rem 0;
   border-top: 1px solid var(--border-subtle);
   display: grid;
-  grid-template-columns: 2rem 1fr;
-  gap: 1rem;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.618rem;
   align-items: baseline;
-  transition: border-color 0.4s;
 }
 .process-step:first-child { border-top: none; }
 .step-marker {
-  font-size: 0.75rem;
-  color: var(--text-quiet);
+  font-family: var(--serif);
+  font-size: 1.272rem;
+  font-weight: 300;
+  color: var(--link);
 }
 .process-step h4 {
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
 }
 .process-step p {
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   grid-column: 2;
 }
 
 /* ═══ CTA ═══ */
 .cta-section {
-  padding: 4rem 0;
+  padding: 2.618rem 0;
   text-align: center;
 }
 .cta-section h2 {
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
-  font-weight: 400;
-  margin-bottom: 0.8rem;
+  font-size: clamp(1.272rem, 3vw, 1.618rem);
+  margin-bottom: 0.618rem;
 }
-.cta-section h2 em { font-style: italic; color: var(--accent); }
+.cta-section h2 em { font-style: italic; color: var(--link); }
 .cta-section p {
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1.618rem;
 }
 .cta-meta {
-  font-size: 0.72rem;
+  font-size: 0.786rem;
   color: var(--text-quiet);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 /* ═══ FOOTER ═══ */
 footer {
   border-top: 1px solid var(--border);
-  padding: 2rem 0;
+  padding: 1.618rem 0;
+  font-size: 0.786rem;
+  color: var(--text-quiet);
   transition: border-color 0.4s;
 }
 .footer-inner {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 0.78rem;
-  color: var(--text-quiet);
+  flex-wrap: wrap; gap: 0.618rem;
 }
 .footer-right a {
-  color: var(--text-quiet);
+  color: var(--link);
   margin-left: 1rem;
 }
 .footer-right a:first-child { margin-left: 0; }
-.footer-right a:hover { color: var(--text); }
-.footer-quote {
-  font-size: 0.78rem;
-  font-style: italic;
-  color: var(--text-quiet);
-  margin-top: 1.5rem;
-}
 
 /* ═══ COOKIE ═══ */
 .cookie-banner {
   position: fixed; bottom: 0; left: 0; right: 0;
   background: var(--surface);
   border-top: 1px solid var(--border);
-  padding: 0.8rem 2rem;
+  padding: 0.618rem 1.618rem;
   z-index: 1000;
-  transition: background 0.4s, border-color 0.4s;
 }
 .cookie-inner {
-  max-width: 720px; margin: 0 auto;
+  max-width: 780px; margin: 0 auto;
   display: flex; align-items: center;
   justify-content: space-between;
   gap: 1rem; flex-wrap: wrap;
 }
-.cookie-inner p {
-  font-size: 0.75rem; color: var(--text-muted);
-}
-.cookie-inner a { color: var(--text); }
-.cookie-actions { display: flex; gap: 0.5rem; }
+.cookie-inner p { font-size: 0.786rem; color: var(--text-muted); }
+.cookie-inner a { color: var(--link); }
+.cookie-actions { display: flex; gap: 0.382rem; }
 .cookie-btn {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  padding: 0.3rem 0.8rem;
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  border: none; cursor: pointer;
-  transition: all 0.3s;
+  font-family: var(--sans);
+  font-size: 0.75rem; font-weight: 500;
+  padding: 0.3rem 0.786rem;
+  border-radius: 3px;
+  cursor: pointer; transition: all 0.3s; border: none;
 }
-.cookie-btn:hover { background: var(--btn-hover-bg); }
+.cookie-accept { background: var(--btn-bg); color: var(--btn-text); }
+.cookie-accept:hover { background: var(--btn-hover); }
 .cookie-decline {
-  background: transparent;
-  color: var(--text-quiet);
+  background: none; color: var(--text-quiet);
   border: 1px solid var(--border);
 }
-.cookie-decline:hover { color: var(--text); border-color: var(--text); }
+.cookie-decline:hover { color: var(--text); border-color: var(--text-muted); }
 
 /* ═══ REVEAL ═══ */
 .a-reveal {
@@ -616,7 +616,7 @@ footer {
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 768px) {
-  .container { padding: 0 1.5rem; }
+  .container { padding: 0 1rem; }
   .nav-links { display: none; }
   .nav-burger { display: block; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -624,14 +624,12 @@ footer {
   .savings-row { grid-template-columns: 1fr; }
   .savings-cell { border-right: none; border-bottom: 1px solid var(--border); }
   .savings-cell:last-child { border-bottom: none; }
-  .hero { padding: 3rem 0 2rem; }
-  .section { padding: 2.5rem 0; }
 }
 </style>
 </head>
 
 <body x-data="{
-  dark: true,
+  dark: false,
   drawerOpen: false,
   cookieShown: false,
   cookieDismissed: false,
@@ -646,15 +644,15 @@ footer {
       if (!sessionStorage.getItem('gf_ck')) {
         setTimeout(function() { self.cookieShown = true; }, 1500);
       } else { self.cookieDismissed = true; }
-      if (localStorage.getItem('gf_theme') === 'day') {
-        self.dark = false;
-        document.documentElement.classList.add('day');
+      if (localStorage.getItem('gf_theme') === 'night') {
+        self.dark = true;
+        document.documentElement.classList.add('night');
       }
     } catch(e) {}
   },
   toggleTheme: function() {
     this.dark = !this.dark;
-    document.documentElement.classList.toggle('day', !this.dark);
+    document.documentElement.classList.toggle('night', this.dark);
     try { localStorage.setItem('gf_theme', this.dark ? 'night' : 'day'); } catch(e) {}
   },
   acceptCookie: function() {
@@ -668,7 +666,7 @@ footer {
   closeDrawer: function() { this.drawerOpen = false; }
 }">
 
-<a href="#main" class="skip-link">skip to content</a>
+<a href="#main" class="skip-link">Skip to content</a>
 <div class="scroll-progress" :style="'width:' + (progress * 100) + '%'" aria-hidden="true"></div>
 
 <header role="banner">
@@ -676,16 +674,15 @@ footer {
     <nav class="nav-inner" aria-label="Main navigation">
       <div class="nav-left">
         <a href="#" class="wordmark">GitFoundry</a>
-        <button class="theme-toggle" @click="toggleTheme()" x-text="dark ? '[day]' : '[night]'" :aria-label="dark ? 'Switch to day' : 'Switch to night'"></button>
+        <button class="theme-toggle" @click="toggleTheme()" x-text="dark ? 'Light' : 'Dark'" :aria-label="dark ? 'Switch to light' : 'Switch to dark'"></button>
       </div>
       <ul class="nav-links">
-        <li><a href="#services">services</a></li>
-        <li><a href="#offer">pricing</a></li>
-        <li><a href="brief.html">contact</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#offer">Pricing</a></li>
+        <li><a href="brief.html">Contact</a></li>
       </ul>
-      <button class="nav-burger" :class="drawerOpen ? 'open' : ''"
-        @click="drawerOpen = !drawerOpen"
-        x-text="drawerOpen ? '[x]' : '[=]'"
+      <button class="nav-burger" @click="drawerOpen = !drawerOpen"
+        x-text="drawerOpen ? '✕' : '☰'"
         aria-label="Menu" :aria-expanded="drawerOpen"></button>
     </nav>
   </div>
@@ -693,22 +690,28 @@ footer {
 
 <div class="drawer-backdrop" :class="drawerOpen ? 'open' : ''" @click="closeDrawer()"></div>
 <nav class="mobile-drawer" :class="drawerOpen ? 'open' : ''" aria-label="Mobile navigation">
-  <a href="#services" @click="closeDrawer()">services</a>
-  <a href="#offer" @click="closeDrawer()">pricing</a>
-  <a href="brief.html">contact</a>
+  <a href="#services" @click="closeDrawer()">Services</a>
+  <a href="#offer" @click="closeDrawer()">Pricing</a>
+  <a href="brief.html">Contact</a>
 </nav>
 
 <main id="main">
 
 <section class="hero">
   <div class="container">
-    <div class="hero-label">GitFoundry // United Kingdom</div>
-    <h1>We craft websites that cost <em>nothing</em> to host.</h1>
-    <div class="hero-tagline">Built once. Yours forever.</div>
-    <p class="hero-desc">Hand-coded, beautifully designed websites deployed on GitHub Pages. You pay once. Your site stays live forever &mdash; with zero monthly fees.</p>
+    <div class="label">In subject area: Web Design</div>
+    <h1 class="h-accent">We craft websites that cost <em>nothing</em> to host.</h1>
+    <p class="hero-tagline">Built once. Yours forever.</p>
+    <p class="hero-desc">Hand-coded, beautifully designed websites deployed on GitHub Pages. You pay once. Your site stays live forever — with zero monthly fees.</p>
+    <div style="margin-bottom: 1rem;">
+      <span class="tag">hand-coded</span>
+      <span class="tag">github-pages</span>
+      <span class="tag">zero-fees</span>
+      <span class="tag">UK-based</span>
+    </div>
     <div class="hero-actions">
-      <a href="#offer" class="btn btn-primary">see the offer</a>
-      <a href="brief.html" class="btn btn-text">start a conversation</a>
+      <a href="#offer" class="btn btn-primary">See the Offer</a>
+      <a href="brief.html" class="btn btn-outline">Start a conversation</a>
     </div>
   </div>
 </section>
@@ -717,20 +720,20 @@ footer {
   <div class="container">
     <div class="stats-grid a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
       <div class="stat">
-        <div class="stat-number">&pound;0</div>
-        <div class="stat-label">hosting/mo</div>
+        <div class="stat-number">£0</div>
+        <div class="stat-label">Hosting/mo</div>
       </div>
       <div class="stat">
         <div class="stat-number">100%</div>
-        <div class="stat-label">ownership</div>
+        <div class="stat-label">Ownership</div>
       </div>
       <div class="stat">
         <div class="stat-number">&lt;48h</div>
-        <div class="stat-label">response</div>
+        <div class="stat-label">Response</div>
       </div>
       <div class="stat">
         <div class="stat-number">&infin;</div>
-        <div class="stat-label">uptime</div>
+        <div class="stat-label">Uptime</div>
       </div>
     </div>
   </div>
@@ -739,10 +742,10 @@ footer {
 <section class="section" id="services">
   <div class="container">
     <div class="section-header a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-      <h2 class="section-title">Everything you need to <em>go live</em></h2>
+      <h2 class="section-title h-accent">Everything you need to <em>go live</em></h2>
       <p class="section-intro">No templates. No page builders. Every pixel placed with intention.</p>
     </div>
-    <div class="services-list" x-data="{ shown: false }" x-intersect:enter.once="shown = true">
+    <div x-data="{ shown: false }" x-intersect:enter.once="shown = true">
       <div class="service-item a-stagger" :class="shown ? 'shown' : ''" style="transition-delay: 0s;">
         <h3>Design</h3>
         <p>Custom layouts built around your brand. We start with your goals and design a site that communicates trust, clarity, and professionalism.</p>
@@ -753,7 +756,7 @@ footer {
       </div>
       <div class="service-item a-stagger" :class="shown ? 'shown' : ''" style="transition-delay: 0.16s;">
         <h3>Deployment</h3>
-        <p>Your site goes live on GitHub Pages with a custom domain. Fast, secure, and backed by Microsoft infrastructure &mdash; at no cost.</p>
+        <p>Your site goes live on GitHub Pages with a custom domain. Fast, secure, and backed by Microsoft infrastructure — at no cost.</p>
       </div>
       <div class="service-item a-stagger" :class="shown ? 'shown' : ''" style="transition-delay: 0.24s;">
         <h3>Support</h3>
@@ -766,13 +769,13 @@ footer {
 <section class="section" id="offer">
   <div class="container">
     <div class="section-header a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-      <h2 class="section-title">Every other platform charges you rent. We hand you the <em>keys.</em></h2>
+      <h2 class="section-title h-accent">Every other platform charges you rent. We hand you the <em>keys.</em></h2>
       <p class="section-intro">We're building our portfolio and taking on a limited number of projects at a fraction of our standard rate. Same craft. A price that won't return.</p>
     </div>
     <div class="offer-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-      <div class="offer-flag">// launch offer &mdash; limited availability</div>
-      <div class="offer-price">&pound;50</div>
-      <div class="offer-note">one-time payment // no monthly fees ever</div>
+      <div class="offer-flag">Launch Offer — Limited Availability</div>
+      <div class="offer-price">£50</div>
+      <div class="offer-note">One-time payment · No monthly fees ever</div>
       <hr class="offer-rule">
       <ul class="offer-list">
         <li>Custom, hand-coded design</li>
@@ -782,10 +785,10 @@ footer {
         <li>Custom domain hookup</li>
         <li>SEO &amp; Google Analytics</li>
         <li>2 revision rounds</li>
-        <li>You own the code &mdash; completely</li>
+        <li>You own the code — completely</li>
       </ul>
       <hr class="offer-rule">
-      <a href="brief.html" class="btn-offer">start your project</a>
+      <a href="brief.html" class="btn-offer">Start Your Project</a>
     </div>
   </div>
 </section>
@@ -794,8 +797,8 @@ footer {
   <div class="container">
     <div class="savings-layout a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
       <div class="savings-text">
-        <h3>Over three years, the numbers speak for <em>themselves</em></h3>
-        <p>Traditional platforms charge monthly. We charge &pound;50 once. Your hosting is free forever.</p>
+        <h3 class="h-accent">Over three years, the numbers speak for <em>themselves</em></h3>
+        <p>Traditional platforms charge monthly. We charge £50 once. Your hosting is free forever.</p>
       </div>
       <div class="savings-table">
         <div class="savings-row head">
@@ -805,15 +808,15 @@ footer {
         </div>
         <div class="savings-row">
           <div class="savings-cell">
-            <span class="big">&pound;1,296</span>
-            <span class="small">&pound;36/mo x 36</span>
+            <span class="big">£1,296</span>
+            <span class="small">£36/mo × 36</span>
           </div>
           <div class="savings-cell">
-            <span class="big">&pound;50</span>
-            <span class="small">one-time</span>
+            <span class="big">£50</span>
+            <span class="small">One-time</span>
           </div>
           <div class="savings-cell">
-            <span class="big">&pound;1,246</span>
+            <span class="big">£1,246</span>
             <span class="small">+ better site</span>
           </div>
         </div>
@@ -825,33 +828,33 @@ footer {
 <section class="section">
   <div class="container">
     <div class="section-header a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-      <h2 class="section-title">Four steps. <em>That's it.</em></h2>
+      <h2 class="section-title h-accent">Four steps. <em>That's it.</em></h2>
       <p class="section-intro">No complicated onboarding. No jargon. Just results.</p>
     </div>
-    <div class="process-list" x-data="{ shown: false }" x-intersect:enter.once="shown = true">
+    <div x-data="{ shown: false }" x-intersect:enter.once="shown = true">
       <div class="process-step a-stagger" :class="shown ? 'shown' : ''" style="transition-delay: 0s;">
-        <div class="step-marker">01</div>
+        <div class="step-marker">I.</div>
         <div>
           <h4>Conversation</h4>
           <p>Tell me about your brand and goals. A quick message is all it takes.</p>
         </div>
       </div>
       <div class="process-step a-stagger" :class="shown ? 'shown' : ''" style="transition-delay: 0.08s;">
-        <div class="step-marker">02</div>
+        <div class="step-marker">II.</div>
         <div>
           <h4>Design</h4>
-          <p>I create a custom mockup. You give feedback &mdash; we refine it together.</p>
+          <p>I create a custom mockup. You give feedback — we refine it together.</p>
         </div>
       </div>
       <div class="process-step a-stagger" :class="shown ? 'shown' : ''" style="transition-delay: 0.16s;">
-        <div class="step-marker">03</div>
+        <div class="step-marker">III.</div>
         <div>
           <h4>Build</h4>
           <p>I code your site by hand. Clean, fast, responsive on every device.</p>
         </div>
       </div>
       <div class="process-step a-stagger" :class="shown ? 'shown' : ''" style="transition-delay: 0.24s;">
-        <div class="step-marker">04</div>
+        <div class="step-marker">IV.</div>
         <div>
           <h4>Launch</h4>
           <p>Your site goes live on GitHub Pages. Domain connected, keys handed over.</p>
@@ -865,8 +868,8 @@ footer {
   <div class="container a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
     <h2>Ready to <em>begin?</em></h2>
     <p>Send a message. I'll reply within 24 hours with a tailored plan.</p>
-    <a href="brief.html" class="btn btn-primary">start a conversation</a>
-    <div class="cta-meta">no commitment // free consultation // uk-based</div>
+    <a href="brief.html" class="btn btn-primary">Start a Conversation</a>
+    <div class="cta-meta">No commitment · Free consultation · UK-based</div>
   </div>
 </section>
 
@@ -877,22 +880,21 @@ footer {
     <div class="footer-inner">
       <span>&copy; 2026 <a href="https://gitfoundry.co.uk">GitFoundry</a></span>
       <div class="footer-right">
-        <a href="legal.html">privacy</a>
-        <a href="legal.html#terms">terms</a>
-        <a href="legal.html#cookies">cookies</a>
+        <a href="legal.html">Privacy</a>
+        <a href="legal.html#terms">Terms</a>
+        <a href="legal.html#cookies">Cookies</a>
       </div>
     </div>
-    <div class="footer-quote">If <em>buying</em> isn't <em>owning</em>, monthly fees aren't <em>hosting.</em></div>
   </div>
 </footer>
 
 <div class="cookie-banner" x-show="cookieShown && !cookieDismissed" x-transition x-cloak
   role="dialog" aria-label="Cookie consent">
   <div class="cookie-inner">
-    <p>No tracking cookies. Fonts from Google. <a href="legal.html#cookies">policy</a></p>
+    <p>No tracking cookies. Fonts from Google. <a href="legal.html#cookies">Policy</a></p>
     <div class="cookie-actions">
-      <button class="cookie-btn" @click="acceptCookie()">ok</button>
-      <button class="cookie-btn cookie-decline" @click="declineCookie()">decline</button>
+      <button class="cookie-btn cookie-accept" @click="acceptCookie()">OK</button>
+      <button class="cookie-btn cookie-decline" @click="declineCookie()">Decline</button>
     </div>
   </div>
 </div>
