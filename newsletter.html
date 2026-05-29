@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter - GitFoundry · Web Tips for UK Small Businesses</title>
+<meta name="description" content="Short, practical notes on getting your business found online, sent occasionally, no noise. Subscribe to the GitFoundry newsletter.">
+<link rel="canonical" href="https://gitfoundry.co.uk/newsletter.html">
+<meta property="og:title" content="Newsletter - GitFoundry">
+<meta property="og:description" content="Short, practical notes on getting your business found online. No noise, no spam.">
+<meta property="og:url" content="https://gitfoundry.co.uk/newsletter.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Newsletter - GitFoundry">
+<meta name="twitter:description" content="Short, practical notes on getting your business found online. No noise, no spam.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  .newsletter-form {
+    max-width: 480px;
+    margin-top: 2.5rem;
+  }
+  .newsletter-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-bottom: 1.25rem;
+  }
+  .newsletter-form label {
+    font-size: .8125rem;
+    font-family: var(--gf-font-label);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+  .newsletter-form input[type="text"],
+  .newsletter-form input[type="email"] {
+    width: 100%;
+    padding: .75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: var(--gf-font-text);
+    font-size: 1rem;
+    transition: border-color .2s;
+  }
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .newsletter-form .form-note {
+    font-size: .8125rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+  }
+  .newsletter-what {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .newsletter-what-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .newsletter-what-num {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid var(--accent-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--gf-font-label);
+    font-size: .75rem;
+    color: var(--accent);
+    letter-spacing: .04em;
+  }
+  .newsletter-what-text strong {
+    display: block;
+    font-size: .9375rem;
+    color: var(--text);
+    margin-bottom: .2rem;
+  }
+  .newsletter-what-text p {
+    font-size: .875rem;
+    color: var(--text-soft);
+    margin: 0;
+  }
+  @media (max-width: 480px) {
+    .newsletter-form { max-width: 100%; }
+  }
+</style>
+</head>
+
+<body x-data="site()" :data-theme="theme">
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" class="cookie-banner" role="alertdialog" aria-live="polite"
+     x-show="!cookieConsent" x-cloak
+     aria-label="Cookie consent">
+  <p>This site uses cookies for analytics. <a href="legal.html#cookies">Learn more</a></p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary btn-sm" @click="acceptCookies()">Accept</button>
+    <button class="btn btn-outline btn-sm" @click="declineCookies()">Decline</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html"  class="nav-item">Services</a></li>
+      <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"      class="nav-item">Journal</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Send me a brief</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()"
+            :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen"
+            :aria-expanded="String(drawerOpen)" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <ul role="list">
+    <li><a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a></li>
+    <li><a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a></li>
+    <li><a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a></li>
+    <li><a href="/journal/"      class="nav-item" @click="drawerOpen=false">Journal</a></li>
+    <li><a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Send me a brief</a></li>
+  </ul>
+</div>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+      <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+        <!--
+          GitFoundry Signal, Wave Propagation
+          Concentric ellipses emit from a central transmitter point, fading
+          as they expand. Suggests broadcast, signal, and reach.
+        -->
+        <style>
+          @keyframes sig-expand {
+            0%   { r: 0;   opacity: .7; }
+            100% { r: 220; opacity: 0;  }
+          }
+          @keyframes sig-pulse { 0%,100%{ opacity:.3 } 50%{ opacity:.9 } }
+          @keyframes sig-spin  { to{ transform:rotate(360deg); transform-origin:300px 300px; } }
+          .sig-wave { fill:none; stroke:rgba(201,168,76,0.45); stroke-width:1; }
+          .sig-ring  { fill:none; stroke:rgba(201,168,76,0.1);  stroke-width:0.5; }
+          .sig-dot   { fill:rgba(201,168,76,0.5); }
+          .sig-core  { fill:rgba(201,168,76,0.8); animation:sig-pulse 2.5s ease-in-out infinite; }
+        </style>
+        <!-- Static guide rings -->
+        <circle class="sig-ring" cx="300" cy="300" r="240"/>
+        <circle class="sig-ring" cx="300" cy="300" r="180"/>
+        <circle class="sig-ring" cx="300" cy="300" r="120"/>
+        <circle class="sig-ring" cx="300" cy="300" r="60"/>
+        <!-- Animated wave rings -->
+        <circle class="sig-wave" cx="300" cy="300" r="0" style="animation: sig-expand 4s ease-out infinite; animation-delay: 0s;"/>
+        <circle class="sig-wave" cx="300" cy="300" r="0" style="animation: sig-expand 4s ease-out infinite; animation-delay: 1s;"/>
+        <circle class="sig-wave" cx="300" cy="300" r="0" style="animation: sig-expand 4s ease-out infinite; animation-delay: 2s;"/>
+        <circle class="sig-wave" cx="300" cy="300" r="0" style="animation: sig-expand 4s ease-out infinite; animation-delay: 3s;"/>
+        <!-- Cross-hair lines -->
+        <line x1="300" y1="60"  x2="300" y2="540" stroke="rgba(201,168,76,0.07)" stroke-width="0.5"/>
+        <line x1="60"  y1="300" x2="540" y2="300" stroke="rgba(201,168,76,0.07)" stroke-width="0.5"/>
+        <!-- Outer orbiting dots -->
+        <g style="animation:sig-spin 20s linear infinite">
+          <circle class="sig-dot" cx="300" cy="60"  r="4" style="opacity:.4"/>
+          <circle class="sig-dot" cx="540" cy="300" r="3" style="opacity:.3"/>
+          <circle class="sig-dot" cx="300" cy="540" r="4" style="opacity:.4"/>
+          <circle class="sig-dot" cx="60"  cy="300" r="3" style="opacity:.3"/>
+        </g>
+        <!-- Core transmitter -->
+        <circle class="sig-core" cx="300" cy="300" r="5"/>
+        <circle cx="300" cy="300" r="10" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
+      </svg>
+      <span class="page-header-label">Newsletter</span>
+      <h1 class="page-header-title">Stay in the loop.</h1>
+      <p class="page-header-desc">Occasional notes on building a better web presence, written for UK small business owners, not developers.</p>
+    </header>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- WHAT YOU'LL RECEIVE -->
+    <section class="section" aria-labelledby="newsletter-what-heading">
+      <span class="section-label">What to expect</span>
+      <h2 class="section-title" id="newsletter-what-heading">What you'll receive</h2>
+      <p class="section-intro">A handful of emails per year, never a daily digest, never promotional noise. When something is worth saying, it gets sent. Otherwise: silence.</p>
+
+      <div class="newsletter-what a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="newsletter-what-item">
+          <div class="newsletter-what-num" aria-hidden="true">01</div>
+          <div class="newsletter-what-text">
+            <strong>New journal entries</strong>
+            <p>Each time a new post goes up in the <a href="/journal/">GitFoundry Journal</a>, subscribers hear about it first, with a brief summary so you can decide whether it's worth your time.</p>
+          </div>
+        </div>
+        <div class="newsletter-what-item">
+          <div class="newsletter-what-num" aria-hidden="true">02</div>
+          <div class="newsletter-what-text">
+            <strong>Practical web tips</strong>
+            <p>Short observations on what actually helps small business websites get found, load fast, and earn trust, drawn from real client projects.</p>
+          </div>
+        </div>
+        <div class="newsletter-what-item">
+          <div class="newsletter-what-num" aria-hidden="true">03</div>
+          <div class="newsletter-what-text">
+            <strong>Occasional announcements</strong>
+            <p>New services, updated pricing, or anything else that might directly affect you as a client or potential client, nothing speculative.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- SIGNUP FORM -->
+    <section class="section" aria-labelledby="newsletter-form-heading">
+      <span class="section-label">Subscribe</span>
+      <h2 class="section-title" id="newsletter-form-heading">Join the list</h2>
+
+      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <!-- Replace action URL with your email service endpoint (Mailchimp, ConvertKit, Buttondown, etc.) -->
+        <form class="newsletter-form"
+              action="#"
+              method="POST"
+              x-data="{ submitted: false }"
+              @submit.prevent="submitted = true">
+
+          <div x-show="!submitted">
+            <div class="form-group">
+              <label for="nl-name">First name</label>
+              <input type="text" id="nl-name" name="name"
+                     placeholder="Your first name"
+                     autocomplete="given-name"
+                     required>
+            </div>
+
+            <div class="form-group">
+              <label for="nl-email">Email address</label>
+              <input type="email" id="nl-email" name="email"
+                     placeholder="you@example.com"
+                     autocomplete="email"
+                     required>
+            </div>
+
+            <!-- Honeypot, hidden from real users, catches bots -->
+            <div style="display:none" aria-hidden="true">
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+            <p class="form-note">No spam. Unsubscribe any time. See <a href="legal.html#privacy">Privacy Policy</a>.</p>
+          </div>
+
+          <div x-show="submitted" x-cloak style="padding: 2rem 0;">
+            <p style="font-family: var(--gf-font-display); font-size: 1.25rem; color: var(--accent); margin-bottom: .75rem;">You're on the list.</p>
+            <p style="color: var(--text-soft); font-size: .9375rem;">Thanks for subscribing. You'll receive a confirmation shortly, check your spam folder if it doesn't arrive within a few minutes.</p>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="brief.html">Brief</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="newsletter.html">Newsletter</a></li>
+      <li><a href="legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

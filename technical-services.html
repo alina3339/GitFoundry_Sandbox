@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Services - GitFoundry · Testing, Data, Code Rescue, Maintenance</title>
+<meta name="description" content="A quieter side of GitFoundry. Automated testing, data modelling, code rescue, and maintenance for UK teams who need a careful pair of hands on critical software.">
+<link rel="canonical" href="https://gitfoundry.co.uk/technical-services.html">
+<meta property="og:title" content="Technical Services - GitFoundry">
+<meta property="og:description" content="Automated testing, data modelling, code rescue, and maintenance. For projects that need a careful pair of hands.">
+<meta property="og:url" content="https://gitfoundry.co.uk/technical-services.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technical Services - GitFoundry">
+<meta name="twitter:description" content="Automated testing, data modelling, code rescue, and maintenance.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css?v=2026-05-09">
+<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects.</span> <strong>Limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html"  class="nav-item">Services</a></li>
+      <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"      class="nav-item">Journal</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Send me a brief</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-t" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer-t" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"      class="nav-item" @click="drawerOpen=false">Journal</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Send me a brief</a>
+</div>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <header class="page-header">
+      <img class="page-motif" src="vitruvian-orbital.svg" alt="" aria-hidden="true">
+      <span class="page-header-label">Technical services</span>
+      <h1 class="page-header-title">A quieter side of GitFoundry.<br>For software that needs <em>care, not noise.</em></h1>
+      <p class="page-header-desc"><strong>If you are looking for a website, this is the wrong page.</strong> The <a href="services.html" class="text-link">main services page</a> is for that. This page is for clients who already have software and need a careful pair of hands for the parts no one wants to touch. Codebases that have grown faster than they should have, data scattered across too many places, the system everyone is afraid to touch. Quoted per project, charged once, never on retainer unless you ask.</p>
+    </header>
+
+    <!-- Positioning paragraph -->
+    <section aria-labelledby="positioning-heading">
+      <span class="section-label">What this page is for</span>
+      <h2 class="section-title" id="positioning-heading">Technical peace of mind,<br>without the agency overhead.</h2>
+      <p class="section-intro">A small studio, working directly with you, on the parts of your software that matter most. No account managers. No layered fees. No commitment beyond the project itself. If a website is what you are after, the <a href="services.html" class="text-link">main services page</a> is the better starting point.</p>
+    </section>
+
+    <hr class="section-divider u-my-xl">
+
+    <!-- Service 1: Automated Testing -->
+    <section aria-labelledby="testing-heading">
+      <span class="section-label">01 · Automated testing</span>
+      <h2 class="section-title" id="testing-heading">Find bugs before<br>your customers do.</h2>
+      <p class="section-intro">Robust automated tests (unit, integration, end-to-end) so your software ships with confidence and stays stable as it grows. Reduces technical debt, speeds release cycles, and keeps customers from finding the problems first.</p>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" class="u-mt-lg">
+        <div class="item-row-label">Best for</div>
+        <div class="item-row-body">
+          Startups and small teams whose software has started to break in production more often than it should, or whose release cycle has slowed because no one is sure what a change might affect.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Initial audit &amp; setup</div>
+        <div class="item-row-body">
+          <strong>£1,500 to £5,000</strong>
+          A one-time project fee. Scope depends on existing codebase complexity and the level of test coverage you want from day one.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Ongoing expansion</div>
+        <div class="item-row-body">
+          <strong>£75 to £120 per hour</strong>
+          Optional, only as you build new features. No retainer required.
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider u-my-xl">
+
+    <!-- Service 2: Data Modelling & Integration -->
+    <section aria-labelledby="data-heading">
+      <span class="section-label">02 · Data modelling &amp; integration</span>
+      <h2 class="section-title" id="data-heading">Turn implicit schemas<br>into something concrete.</h2>
+      <p class="section-intro">Designing efficient database schemas, building APIs, and integrating disparate systems so your business decisions sit on data that is clean, connected, and queryable.</p>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" class="u-mt-lg">
+        <div class="item-row-label">Best for</div>
+        <div class="item-row-body">
+          Businesses with data scattered across spreadsheets, SaaS tools, and bespoke databases that no longer talk to each other. Or teams planning a new data-driven feature and wanting the foundations laid carefully.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Discovery &amp; design</div>
+        <div class="item-row-body">
+          <strong>£2,000 to £8,000+</strong>
+          A one-time project fee. Scope depends on the complexity of existing systems and the new requirements.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Implementation &amp; integration</div>
+        <div class="item-row-body">
+          <strong>£80 to £130 per hour, or fixed-price project</strong>
+          Quoted after discovery, with a clear scope and outcome agreed up front.
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider u-my-xl">
+
+    <!-- Service 3: Vibe Code Rescue -->
+    <section aria-labelledby="rescue-heading">
+      <span class="section-label">03 · Vibe code rescue</span>
+      <h2 class="section-title" id="rescue-heading">For codebases that<br>grew faster than they should have.</h2>
+      <p class="section-intro">Rapid AI-assisted development can produce a great deal of working code, and a quietly unmaintainable system underneath it. This service stabilises, refactors, and gets the codebase back to a state a human can hold in their head.</p>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" class="u-mt-lg">
+        <div class="item-row-label">Best for</div>
+        <div class="item-row-body">
+          Teams who built quickly with AI assistance and have hit a wall: bugs accumulating, performance suffering, no one quite sure what the code does any more. Also a fit for inherited legacy codebases that need a careful, neutral review.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Diagnostic audit</div>
+        <div class="item-row-body">
+          <strong>£500 to £1,500, fixed fee</strong>
+          A written report on the state of the codebase, the most important risks, and a proposed action plan. You can stop here if that is all you need.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Rescue &amp; refactoring</div>
+        <div class="item-row-body">
+          <strong>£2,500 to £10,000+, project-based</strong>
+          Or £90 to £150 per hour for ongoing work. Scope is shaped by the audit, not estimated cold.
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider u-my-xl">
+
+    <!-- Service 4: Maintenance -->
+    <section aria-labelledby="maintenance-heading">
+      <span class="section-label">04 · Maintenance</span>
+      <h2 class="section-title" id="maintenance-heading">For the systems<br>no one wants to touch.</h2>
+      <p class="section-intro">Ongoing support, monitoring, security updates, and small enhancements for software that runs the business and cannot afford to fail. The kind of work that goes unseen when it is done well.</p>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" class="u-mt-lg">
+        <div class="item-row-label">Best for</div>
+        <div class="item-row-body">
+          Businesses depending on a critical, older system with no internal team to look after it. Or organisations who would rather pay a known cost each month than absorb the risk of an unmaintained codebase.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Retainer</div>
+        <div class="item-row-body">
+          <strong>£500 to £3,000+ per month</strong>
+          Monthly or quarterly. Scope (typically 10 to 40 hours per month) and response times agreed up front. No surprises on either side.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Ad-hoc support</div>
+        <div class="item-row-body">
+          <strong>Hourly, on demand</strong>
+          For when the only thing that matters is getting it working again. Higher hourly rate reflects the immediate availability.
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider u-my-xl">
+
+    <!-- How this differs from the website service -->
+    <section aria-labelledby="diff-heading" class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+      <span class="section-label">How this differs from the website service</span>
+      <h2 class="section-title" id="diff-heading">Same studio.<br>Different work.</h2>
+      <p class="section-intro">The static-site service exists to give people a permanent, low-cost web presence. These technical services exist for the rare project where someone has a working software system and needs a careful, independent pair of hands to keep it healthy.</p>
+      <p style="font-size:0.9375rem;color:var(--text-muted);max-width:640px">If you are not sure which side of GitFoundry fits your situation, send a short note describing what you are trying to do and I will tell you honestly. Sometimes the right answer is "neither". That is fine too.</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="cta-t-heading">
+      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <h2 class="section-title" id="cta-t-heading">Tell me about<br>the system you have in mind.</h2>
+        <p class="section-intro u-mb-lg">A short email is enough to start. I will reply with whether I can help, and if so, with a proposed shape for the engagement.</p>
+        <div class="u-row">
+          <a href="mailto:info@gitfoundry.co.uk?subject=Technical%20services%20enquiry" class="btn btn-primary">Email about a technical project</a>
+          <a href="services.html" class="btn btn-outline">See website services instead</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER, standardised across all pages -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Built in Trentham, Stoke-on-Trent · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="technical-services.html">Technical</a></li>
+      <li><a href="brief.html">Brief</a></li>
+      <li><a href="legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Technical Services, GitFoundry",
+  "url": "https://gitfoundry.co.uk/technical-services.html",
+  "description": "Technical services from GitFoundry: automated testing, data modelling and integration, code rescue for AI-assisted projects, and ongoing maintenance for critical software.",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Technical Services", "item": "https://gitfoundry.co.uk/technical-services.html" }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Automated Testing",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Software Quality Assurance",
+  "description": "Robust automated testing (unit, integration, end-to-end) for software teams. Reduces technical debt, prevents production bugs, and accelerates release cycles.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "GBP",
+    "lowPrice": "1500",
+    "highPrice": "5000",
+    "description": "Initial audit and setup, project-based"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Data Modelling and Integration",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Data Engineering",
+  "description": "Database schema design, API building, and integration of disparate data systems for UK businesses.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "GBP",
+    "lowPrice": "2000",
+    "highPrice": "8000",
+    "description": "Discovery and design phase, project-based"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Vibe Code Rescue",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Software Refactoring",
+  "description": "Stabilising and refactoring codebases that have become unmanageable, including those impacted by rapid AI-assisted development.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "GBP",
+    "lowPrice": "500",
+    "highPrice": "10000",
+    "description": "Diagnostic audit from £500, rescue and refactoring from £2,500"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Software Maintenance",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Software Maintenance",
+  "description": "Ongoing support, monitoring, security updates, and small enhancements for critical software systems and legacy codebases.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "GBP",
+    "lowPrice": "500",
+    "highPr

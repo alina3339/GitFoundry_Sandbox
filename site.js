@@ -1,39 +1,12 @@
 /* GitFoundry — shared site utilities
    Loaded with defer on every page. Defines loadGTM() and site() before
-   Alpine initialises (defer scripts execute in document order). */
+   Alpine initialises (defer scripts execute in document order).
+   GF-SITE-VERSION: 1.2.0  (2026-05-29 Rev A) */
 
-/* ── Rabbithole keyboard trigger ────────────────────────────────────────────
-   Typing the sequence  r  then  h  within 1500 ms on any page that loads
-   this script navigates to rabbithole.html. The sequence is swallowed only
-   when neither key is pressed inside an input, textarea, or contenteditable
-   element, so it never interferes with form usage.
-   ─────────────────────────────────────────────────────────────────────── */
+var GF_VERSION = "1.2.0";
 (function () {
-  var _seq = '';
-  var _timer = null;
-  var TARGET = 'rh';
-  var WINDOW_MS = 1500;
-
-  document.addEventListener('keydown', function (e) {
-    var tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
-    var editable = e.target && e.target.isContentEditable;
-    if (tag === 'input' || tag === 'textarea' || tag === 'select' || editable) return;
-    if (e.metaKey || e.ctrlKey || e.altKey) return;
-
-    _seq += e.key.toLowerCase();
-    if (_seq.length > TARGET.length) _seq = _seq.slice(-TARGET.length);
-
-    clearTimeout(_timer);
-    _timer = setTimeout(function () { _seq = ''; }, WINDOW_MS);
-
-    if (_seq === TARGET) {
-      _seq = '';
-      clearTimeout(_timer);
-      var dest = window.location.href.replace(/[^/]*$/, '') + 'rabbithole.html';
-      window.location.href = dest;
-    }
-  });
-}());
+  try { console.info("GitFoundry build " + GF_VERSION + " (2026-05-29 Rev A)"); } catch (e) {}
+})();
 
 (function () {
   function initPricingSpotlights() {
