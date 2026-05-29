@@ -52,14 +52,14 @@
     <header class="page-header">
       <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
         <style>
-          .stage { transform-origin: 300px 300px; animation: breathe 7s ease-in-out infinite; }
-          .spin  { transform-origin: 300px 300px; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+          .stage { transform-box:fill-box; transform-origin:center; animation: breathe 7s ease-in-out infinite; }
+          .spin  { transform-box:fill-box; transform-origin:center; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
           .s1 { animation-name: spin;     animation-duration: 18s; }
           .s3 { animation-name: spin;     animation-duration: 12s; }
           .s5 { animation-name: spin;     animation-duration: 40s; }
           @keyframes spin     { to { transform: rotate(360deg); } }
           @keyframes breathe  { 0%,100% { transform: scale(1); } 50% { transform: scale(1.008); } }
-          @media (prefers-reduced-motion: reduce) { .stage, .spin { animation: none; } }
+          @media (prefers-reduced-motion: reduce) { .stage, .spin { transform-box:fill-box; transform-origin:center; animation: none; } }
         </style>
         <defs>
           <linearGradient id="comet-404" x1="0" y1="0" x2="1" y2="0">
@@ -155,5 +155,8 @@
   </div>
 </div>
 
+
+<!-- GF-MOTIF v1.2.1 (2026-05-29 Rev A) motif mobile-animation fix -->
+<script>/*GF-MOTIF v1.2.1*/console.log("GitFoundry motif v1.2.1 active");</script>
 </body>
 </html>

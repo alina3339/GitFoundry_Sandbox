@@ -169,11 +169,11 @@
           .cr-dot  { fill:rgba(201,168,76,0.35); }
           .cr-core { fill:none; stroke:rgba(201,168,76,0.55); stroke-width:1.5; }
           @keyframes cr-pulse { 0%,100%{ opacity:.4; r:6 } 50%{ opacity:1; r:8 } }
-          @keyframes cr-spin  { to{ transform:rotate(360deg); transform-origin:300px 300px } }
+          @keyframes cr-spin  { to{ transform:rotate(360deg); } }
           @keyframes cr-fade  { 0%,100%{ opacity:.1 } 50%{ opacity:.55 } }
           @keyframes cr-seg   { 0%{ stroke-dashoffset:60 } 100%{ stroke-dashoffset:0 } }
-          .cr-rot-slow { animation: cr-spin 40s linear infinite; }
-          .cr-rot-med  { animation: cr-spin 24s linear infinite reverse; }
+          .cr-rot-slow { transform-box:fill-box; transform-origin:center; animation: cr-spin 40s linear infinite; }
+          .cr-rot-med  { transform-box:fill-box; transform-origin:center; animation: cr-spin 24s linear infinite reverse; }
           .cr-pulse-ring { animation: cr-fade 6s ease-in-out infinite; }
           .arm-seg { stroke-dasharray:60; animation: cr-seg 2s ease-out forwards; }
         </style>
@@ -372,3 +372,5 @@
           </button>
           <div class="faq-a" id="faq-launch-a-1" x-show="open === 1" x-collapse>
     
+<!-- GF-MOTIF v1.2.1 (2026-05-29 Rev A) motif mobile-animation fix -->
+<script>/*GF-MOTIF v1.2.1*/console.log("GitFoundry motif v1.2.1 active");</script>

@@ -173,7 +173,7 @@
             100% { r: 220; opacity: 0;  }
           }
           @keyframes sig-pulse { 0%,100%{ opacity:.3 } 50%{ opacity:.9 } }
-          @keyframes sig-spin  { to{ transform:rotate(360deg); transform-origin:300px 300px; } }
+          @keyframes sig-spin  { to{ transform:rotate(360deg);  } }
           .sig-wave { fill:none; stroke:rgba(201,168,76,0.45); stroke-width:1; }
           .sig-ring  { fill:none; stroke:rgba(201,168,76,0.1);  stroke-width:0.5; }
           .sig-dot   { fill:rgba(201,168,76,0.5); }
@@ -193,7 +193,7 @@
         <line x1="300" y1="60"  x2="300" y2="540" stroke="rgba(201,168,76,0.07)" stroke-width="0.5"/>
         <line x1="60"  y1="300" x2="540" y2="300" stroke="rgba(201,168,76,0.07)" stroke-width="0.5"/>
         <!-- Outer orbiting dots -->
-        <g style="animation:sig-spin 20s linear infinite">
+        <g style="animation:sig-spin 20s linear infinite; transform-box:fill-box; transform-origin:center;">
           <circle class="sig-dot" cx="300" cy="60"  r="4" style="opacity:.4"/>
           <circle class="sig-dot" cx="540" cy="300" r="3" style="opacity:.3"/>
           <circle class="sig-dot" cx="300" cy="540" r="4" style="opacity:.4"/>
@@ -313,5 +313,8 @@
   </div>
 </footer>
 
+
+<!-- GF-MOTIF v1.2.1 (2026-05-29 Rev A) motif mobile-animation fix -->
+<script>/*GF-MOTIF v1.2.1*/console.log("GitFoundry motif v1.2.1 active");</script>
 </body>
 </html>

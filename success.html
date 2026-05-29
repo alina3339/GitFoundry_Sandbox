@@ -64,8 +64,8 @@
     Spiral and rectangle stay anchored. Comets orbit the figure centre.
   -->
   <style>
-    .stage { transform-origin: 300px 300px; animation: breathe 7s ease-in-out infinite; }
-    .orbit { transform-origin: 300px 300px; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .stage { transform-box:fill-box; transform-origin:center; animation: breathe 7s ease-in-out infinite; }
+    .orbit { transform-box:fill-box; transform-origin:center; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
     .o1 { animation-name: spin;     animation-duration: 14s; }
     .o2 { animation-name: spin-rev; animation-duration: 22s; }
     .satellite { transform-origin: 426.69px 361.77px; animation: spin 9s linear infinite; will-change: transform; }
@@ -93,7 +93,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .stage, .orbit, .satellite, .grid-shimmer, .eye-pulse, .eye-ring { animation: none; }
+      .stage, .orbit, .satellite, .grid-shimmer, .eye-pulse, .eye-ring { transform-box:fill-box; transform-origin:center; animation: none; }
     }
   </style>
 
@@ -249,5 +249,8 @@
 </div>
 
 
+
+<!-- GF-MOTIF v1.2.1 (2026-05-29 Rev A) motif mobile-animation fix -->
+<script>/*GF-MOTIF v1.2.1*/console.log("GitFoundry motif v1.2.1 active");</script>
 </body>
 </html>

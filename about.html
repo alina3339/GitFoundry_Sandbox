@@ -93,8 +93,8 @@
     Comet sweeps the boundary. Whole composition breathes.
   -->
   <style>
-    .stage { transform-origin: 300px 300px; animation: breathe 7s ease-in-out infinite; }
-    .spin  { transform-origin: 300px 300px; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .stage { transform-box:fill-box; transform-origin:center; animation: breathe 7s ease-in-out infinite; }
+    .spin  { transform-box:fill-box; transform-origin:center; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
     .seed { animation-name: spin-rev; animation-duration: 50s; }
     .hex  { animation-name: spin;     animation-duration: 35s; }
     .star { animation-name: spin-rev; animation-duration: 22s; }
@@ -109,7 +109,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .stage, .spin { animation: none; }
+      .stage, .spin { transform-box:fill-box; transform-origin:center; animation: none; }
     }
   </style>
 
@@ -389,5 +389,8 @@
 }
 </script>
 
+
+<!-- GF-MOTIF v1.2.1 (2026-05-29 Rev A) motif mobile-animation fix -->
+<script>/*GF-MOTIF v1.2.1*/console.log("GitFoundry motif v1.2.1 active");</script>
 </body>
 </html>
